@@ -13,8 +13,13 @@ website:
         href: https://twitter.com
 format:
   html:
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    number-sections: false
     theme: cosmo
+    highlight-style: github
     css: styles.css
-
+    collapsible: true
 
 
