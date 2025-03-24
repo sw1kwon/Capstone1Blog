@@ -63,13 +63,6 @@
     "text": "4.\n이 게임에서 얻을 수 있는 일상생활이나 삶의 교훈 (자신의 경험 기반)\n\n이번 경험을 통해 인간의 직관이 때때로 놀라울 정도로 정확할 수 있다는 점을 다시금 실감했다. 위의 풀이가 모든 경우의 수를 고려한 최적의 해법임을 수학적으로 엄밀하게 증명할 수 있었지만, 흥미로웠던 것은 그 최선의 전략이 직관적으로 즉각 떠올랐다는 점이다. 이는 복잡한 계산을 거친 결과라기보다는 대칭과 균형을 고려하는 과정에서 자연스럽게 도출된 결론이었다. 자연이나 반복되는 일상 속에서도 이러한 직관이 예상보다 정확하게 작용하는 경우를 종종 경험한다.\n그러나 직관만을 절대적으로 신뢰할 수는 없다. 예컨대, 1.1번 문제의 확률 분포를 살펴봤을 때, 전략 2가 전략 1보다 우월해 보였지만, 기대값을 실제로 계산해본 결과 정반대의 결론이 도출되었다. 현실이 언제나 기대값대로 움직이는 것은 아니지만, 통계적 분석은 인간이 제시할 수 있는 근거 중 가장 객관적이고 신뢰할 만한 도구임을 부정할 수 없다. 결국, 직관과 수리적 분석이 조화를 이룰 때 보다 정교한 판단이 가능해진다는 점을 다시 한번 깨닫게 되었다."
   },
   {
-    "objectID": "posts/q14.html#이론적-증명-1",
-    "href": "posts/q14.html#이론적-증명-1",
-    "title": "1.9 (p14)",
-    "section": "이론적 증명",
-    "text": "이론적 증명\n공정한 주사위를 1개 던져서 나오는 결과를 \\(k\\)라고 할 때\n\\[P(X = k) = \\frac{1}{6}, \\quad k \\in \\{1, 2, 3, 4, 5, 6\\}\\]\n\\[E[X] = \\frac{1 + 2 + 3 + 4 + 5 + 6}{6} = \\frac{21}{6} = 3.5\\]\n위의 1.1 주사위 문제에서 만들 수 있는 최대 두자리 수의 이론적 기대값은 42.5\n이 문제는 처음 던진 주사위를 일의 자리, 십의 자리, 백의 자리 중 어느 곳에 넣는 것이 좋을지 고려해야한다.\n첫 번째 주사위를 던져서 나온 결과를 \\(d\\)라고 할 때\n\n\\(d\\)를 1의 자리에 둘 경우"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -81,7 +74,7 @@
     "href": "index.html",
     "title": "CapstoneDesign1",
     "section": "",
-    "text": "1.9 (p14)\n\n\n\n\n\n\n\n\n\n\n\nMar 24, 2025\n\n\nsw1kwon\n\n\n\n\n\n\n\n\n\n\n\n\nStatistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving\n\n\n\n\n\n\n\n\n\n\n\nMar 23, 2025\n\n\nsw1kwon\n\n\n\n\n\n\nNo matching items"
+    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 3, 2026\n\n\n1.9 (p14)\n\n\nsw1kwon \n\n\n\n\nMar 23, 2025\n\n\nStatistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving\n\n\nsw1kwon \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/PPDAC.html",
