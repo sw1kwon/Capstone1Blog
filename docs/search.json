@@ -63,18 +63,144 @@
     "text": "4.\n이 게임에서 얻을 수 있는 일상생활이나 삶의 교훈 (자신의 경험 기반)\n\n이번 경험을 통해 인간의 직관이 때때로 놀라울 정도로 정확할 수 있다는 점을 다시금 실감했다. 위의 풀이가 모든 경우의 수를 고려한 최적의 해법임을 수학적으로 엄밀하게 증명할 수 있었지만, 흥미로웠던 것은 그 최선의 전략이 직관적으로 즉각 떠올랐다는 점이다. 이는 복잡한 계산을 거친 결과라기보다는 대칭과 균형을 고려하는 과정에서 자연스럽게 도출된 결론이었다. 자연이나 반복되는 일상 속에서도 이러한 직관이 예상보다 정확하게 작용하는 경우를 종종 경험한다.\n그러나 직관만을 절대적으로 신뢰할 수는 없다. 예컨대, 1.1번 문제의 확률 분포를 살펴봤을 때, 전략 2가 전략 1보다 우월해 보였지만, 기대값을 실제로 계산해본 결과 정반대의 결론이 도출되었다. 현실이 언제나 기대값대로 움직이는 것은 아니지만, 통계적 분석은 인간이 제시할 수 있는 근거 중 가장 객관적이고 신뢰할 만한 도구임을 부정할 수 없다. 결국, 직관과 수리적 분석이 조화를 이룰 때 보다 정교한 판단이 가능해진다는 점을 다시 한번 깨닫게 되었다."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "posts/html.html",
+    "href": "posts/html.html",
+    "title": "HTML & Markdown",
     "section": "",
-    "text": "About this blog"
+    "text": "HTML is a markup language that defines the structure of web pages, so understanding the HTML structure is essential for accurately extracting data during web scraping.\n\nUnderstanding Tags and Hierarchy\n\nKnowing the roles of HTML tags such as &lt;div&gt;, &lt;span&gt;, &lt;table&gt;, &lt;ul&gt;, and &lt;li&gt; makes it easier to locate the desired data.\n\nYou can use attributes such as id, class, name, and href to select specific elements.\n\nUsing XPath and CSS Selectors\n\nLibraries like BeautifulSoup (Python) and rvest (R) use CSS selectors or XPath to find specific elements.\n\nExample: soup.select('div.article &gt; p') (BeautifulSoup) or html_nodes(doc, \"div.article &gt; p\") (rvest)\n\nHandling Dynamic Web Pages (Understanding JavaScript Rendering)\n\nSome websites use JavaScript to load data dynamically, so tools like Selenium or Playwright are needed.\n\n\n\n\n\nMarkdown is mainly used for documentation, blog posts, and API docs, and you may need to handle it when extracting data from the web.\n\nHandling Web Pages with Markdown\n\nYou may need to retrieve data stored in Markdown format from websites (e.g., GitHub, Jupyter Notebook, blogs) and convert it to HTML.\n\nYou might also need to restore Markdown after extracting only text from HTML using BeautifulSoup.get_text().\n\nCleaning and Converting Markdown Data\n\nFor example, you may need to crawl text saved in Markdown from a web page and convert it to another format (HTML, LaTeX, etc.).\n\nYou can use markdown2, mistune (Python), or markdown (R package) for conversion."
+  },
+  {
+    "objectID": "posts/html.html#why-you-need-to-understand-html",
+    "href": "posts/html.html#why-you-need-to-understand-html",
+    "title": "HTML & Markdown",
+    "section": "",
+    "text": "HTML is a markup language that defines the structure of web pages, so understanding the HTML structure is essential for accurately extracting data during web scraping.\n\nUnderstanding Tags and Hierarchy\n\nKnowing the roles of HTML tags such as &lt;div&gt;, &lt;span&gt;, &lt;table&gt;, &lt;ul&gt;, and &lt;li&gt; makes it easier to locate the desired data.\n\nYou can use attributes such as id, class, name, and href to select specific elements.\n\nUsing XPath and CSS Selectors\n\nLibraries like BeautifulSoup (Python) and rvest (R) use CSS selectors or XPath to find specific elements.\n\nExample: soup.select('div.article &gt; p') (BeautifulSoup) or html_nodes(doc, \"div.article &gt; p\") (rvest)\n\nHandling Dynamic Web Pages (Understanding JavaScript Rendering)\n\nSome websites use JavaScript to load data dynamically, so tools like Selenium or Playwright are needed."
+  },
+  {
+    "objectID": "posts/html.html#why-you-need-to-understand-markdown",
+    "href": "posts/html.html#why-you-need-to-understand-markdown",
+    "title": "HTML & Markdown",
+    "section": "",
+    "text": "Markdown is mainly used for documentation, blog posts, and API docs, and you may need to handle it when extracting data from the web.\n\nHandling Web Pages with Markdown\n\nYou may need to retrieve data stored in Markdown format from websites (e.g., GitHub, Jupyter Notebook, blogs) and convert it to HTML.\n\nYou might also need to restore Markdown after extracting only text from HTML using BeautifulSoup.get_text().\n\nCleaning and Converting Markdown Data\n\nFor example, you may need to crawl text saved in Markdown from a web page and convert it to another format (HTML, LaTeX, etc.).\n\nYou can use markdown2, mistune (Python), or markdown (R package) for conversion."
+  },
+  {
+    "objectID": "posts/html.html#what-is-html",
+    "href": "posts/html.html#what-is-html",
+    "title": "HTML & Markdown",
+    "section": "What is HTML?",
+    "text": "What is HTML?\n\nHTML (HyperText Markup Language) is used to structure content on the web.\nUses tags to structure content (text, images, links, etc.).\nA basic web page typically includes HTML, CSS, and JavaScript."
+  },
+  {
+    "objectID": "posts/html.html#basic-structure",
+    "href": "posts/html.html#basic-structure",
+    "title": "HTML & Markdown",
+    "section": "Basic structure",
+    "text": "Basic structure\n\nThe basic structure of an HTML document includes: &lt;html&gt; → &lt;head&gt; → &lt;body&gt;\n\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n  &lt;title&gt;Page Title&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;!-- Content goes here --&gt;\n&lt;/body&gt;\n&lt;/html&gt;"
+  },
+  {
+    "objectID": "posts/html.html#common-html-tags",
+    "href": "posts/html.html#common-html-tags",
+    "title": "HTML & Markdown",
+    "section": "Common HTML Tags",
+    "text": "Common HTML Tags\n\n&lt;h1&gt; to &lt;h6&gt;: Headings (&lt;h1&gt; is the largest)\n\n  &lt;h1&gt;Main Title&lt;/h1&gt;\n  &lt;h2&gt;Section Title&lt;/h2&gt;\n\n&lt;p&gt;: Paragraph\n\n&lt;p&gt;This is a paragraph of text.&lt;/p&gt;\n\n&lt;strong&gt;: Bold text\n\n&lt;p&gt;This is &lt;strong&gt;important&lt;/strong&gt; information.&lt;/p&gt;\n\n&lt;em&gt;: Italic text\n\n&lt;p&gt;This word is &lt;em&gt;emphasized&lt;/em&gt;.&lt;/p&gt;\n\n&lt;a href=\"URL\"&gt;: Hyperlink\n\n&lt;a href=\"https://example.com\"&gt;Visit Example&lt;/a&gt;\n\n&lt;img src=\"path\" alt=\"description\"&gt;: Image\n\n&lt;img src=\"profile.jpg\" alt=\"Profile Photo\" width=\"200\"&gt;\n\n&lt;video controls&gt; + &lt;source src=\"file.mp4\" type=\"video/mp4\"&gt;: Embed local video\n\n&lt;video width=\"640\" height=\"360\" controls&gt;\n  &lt;source src=\"my_video.mp4\" type=\"video/mp4\"&gt;\n  Your browser does not support the video tag.\n&lt;/video&gt;\n\n&lt;iframe src=\"https://www.youtube.com/embed/ID\"&gt;: Embed YouTube video\n\n&lt;iframe width=\"640\" height=\"360\"\n        src=\"https://www.youtube.com/embed/VIDEO_ID\"\n        frameborder=\"0\"\n        allowfullscreen&gt;\n&lt;/iframe&gt;"
+  },
+  {
+    "objectID": "posts/html.html#lists-in-html-ul-ol",
+    "href": "posts/html.html#lists-in-html-ul-ol",
+    "title": "HTML & Markdown",
+    "section": "Lists in HTML (<ul>, <ol>)",
+    "text": "Lists in HTML (&lt;ul&gt;, &lt;ol&gt;)\n\nUsed to display a list of items on a webpage. Two main types:\n\n&lt;ul&gt;: Unordered list (with bullet points)\n&lt;ol&gt;: Ordered list (with numbers)\n&lt;li&gt;: List item\n\n\n&lt;h2&gt;My Academic Interests&lt;/h2&gt;\n&lt;ul&gt;\n  &lt;li&gt;Statistics&lt;/li&gt;\n  &lt;li&gt;Data Analysis & Data Visualization&lt;/li&gt;\n  &lt;li&gt;Sports Big Data&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;h2&gt;My Hobbies&lt;/h2&gt;\n&lt;ol&gt;\n  &lt;li&gt;Piano&lt;/li&gt;\n  &lt;li&gt;Soccer&lt;/li&gt;\n  &lt;li&gt;Original Sound Track&lt;/li&gt;\n&lt;/ol&gt;"
+  },
+  {
+    "objectID": "posts/html.html#tables-in-html-table",
+    "href": "posts/html.html#tables-in-html-table",
+    "title": "HTML & Markdown",
+    "section": "Tables in HTML (<table>)",
+    "text": "Tables in HTML (&lt;table&gt;)\nUsed to display structured data in a grid format.\n\n&lt;table&gt;: Table container\n&lt;tr&gt;: Table row\n&lt;th&gt;: Table header cell (bold)\n&lt;td&gt;: Table data cell\n\n&lt;h2&gt;My Profile&lt;/h2&gt;\n&lt;table border=\"1\"&gt;\n  &lt;tr&gt;\n    &lt;th&gt;Item&lt;/th&gt;\n    &lt;th&gt;Details&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Name&lt;/td&gt;\n    &lt;td&gt;Soonwon KWON&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Occupation&lt;/td&gt;\n    &lt;td&gt;Fourth-year student&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;"
+  },
+  {
+    "objectID": "posts/html.html#forms-in-html-form",
+    "href": "posts/html.html#forms-in-html-form",
+    "title": "HTML & Markdown",
+    "section": "Forms in HTML (<form>)",
+    "text": "Forms in HTML (&lt;form&gt;)\nUsed to collect user input.\n\n&lt;form&gt;: Wraps the input elements\n&lt;input&gt;: Single-line input field (e.g., text, checkbox, password)\n&lt;textarea&gt;: Multi-line text input\n&lt;button&gt;: Clickable button (submit, etc.)\n\n&lt;h2&gt;Leave a Message&lt;/h2&gt;\n&lt;form action=\"/submit\" method=\"POST\"&gt;\n  &lt;label for=\"name\"&gt;Name:&lt;/label&gt;\n  &lt;input type=\"text\" id=\"name\" name=\"name\" required&gt;&lt;br&gt;&lt;br&gt;\n\n  &lt;label for=\"message\"&gt;Message:&lt;/label&gt;&lt;br&gt;\n  &lt;textarea id=\"message\" name=\"message\" rows=\"4\" cols=\"40\"&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;\n\n  &lt;button type=\"submit\"&gt;Submit&lt;/button&gt;\n&lt;/form&gt;\n\n&lt;label&gt;: Describes input field\n&lt;input type=\"text\"&gt;: Single-line text input\n&lt;textarea&gt;: Multi-line text area\n&lt;button type=\"submit\"&gt;: Submit button"
+  },
+  {
+    "objectID": "posts/html.html#what-is-css",
+    "href": "posts/html.html#what-is-css",
+    "title": "HTML & Markdown",
+    "section": "What is CSS?",
+    "text": "What is CSS?\n\nCSS (Cascading Style Sheets) is a language that controls the style and layout of HTML elements.\nWhile HTML creates the structure, CSS adjusts colors, sizes, and layout."
+  },
+  {
+    "objectID": "posts/html.html#three-ways-to-apply-css",
+    "href": "posts/html.html#three-ways-to-apply-css",
+    "title": "HTML & Markdown",
+    "section": "Three Ways to Apply CSS",
+    "text": "Three Ways to Apply CSS\n\nInline Style (using style attribute)\n&lt;p style=\"color: blue;\"&gt;This text is blue.&lt;/p&gt;\n\nStyle applied directly to HTML elements\n\nNot recommended (hard to maintain, messy)\n\n\n\nInternal Style (using &lt;style&gt; tag)\n&lt;head&gt;\n  &lt;style&gt;\n    p {\n      color: blue;\n      font-size: 18px;\n    }\n  &lt;/style&gt;\n&lt;/head&gt;\n\nCSS written inside the HTML document\n\nUseful for small projects\n\n\n\nExternal Style (recommended)\n&lt;head&gt;\n  &lt;link rel=\"stylesheet\" href=\"styles.css\"&gt;\n&lt;/head&gt;\n\nCSS written in a separate .css file\n\nEasy to maintain and reuse across pages"
+  },
+  {
+    "objectID": "posts/html.html#css-syntax-selectors",
+    "href": "posts/html.html#css-syntax-selectors",
+    "title": "HTML & Markdown",
+    "section": "CSS Syntax & Selectors",
+    "text": "CSS Syntax & Selectors\n\nBasic Syntax\nselector {\n  property: value;\n}\n\nSelector: targets an element\n\nProperty: what you want to change\n\nValue: how you want it to look\n\n\n\nCommon CSS Selectors\n\n\n\n\n\n\n\n\nSelector\nDescription\nExample\n\n\n\n\n*\nAll elements\n* { margin: 0; }\n\n\nh1\nTag name selector\nh1 { color: red; }\n\n\n.class\nClass selector\n.title { font-size: 20px; }\n\n\n#id\nID selector\n#header { background: black; }\n\n\nA, B\nMultiple selectors\nh1, p { color: blue; }\n\n\nA B\nDescendant selector (B inside A)\ndiv p { color: green; }\n\n\n\n\n\nExample CSS\n/* Apply to whole page */\nbody {\n  font-family: Arial, sans-serif;\n  background-color: #f0f0f0;\n}\n\n/* Heading style */\nh1 {\n  color: darkblue;\n  text-align: center;\n}\n\n/* Paragraph style */\np {\n  font-size: 18px;\n  color: gray;\n}"
+  },
+  {
+    "objectID": "posts/html.html#css-box-model",
+    "href": "posts/html.html#css-box-model",
+    "title": "HTML & Markdown",
+    "section": "CSS Box Model",
+    "text": "CSS Box Model\n\nWhat is the Box Model?\nEvery HTML element is treated as a rectangular box with:\n\nContent: text or image inside\nPadding: space between content and border\nBorder: line surrounding the box\nMargin: space outside the border (separates from other elements)\n\n\n\nBox Model Example\n.box {\n  width: 300px;\n  padding: 20px;\n  border: 2px solid black;\n  margin: 10px;\n}\n&lt;div class=\"box\"&gt;This is a box model example.&lt;/div&gt;"
+  },
+  {
+    "objectID": "posts/html.html#css-layout-display-flexbox",
+    "href": "posts/html.html#css-layout-display-flexbox",
+    "title": "HTML & Markdown",
+    "section": "CSS Layout: display & Flexbox",
+    "text": "CSS Layout: display & Flexbox\n\ndisplay Property\n\n\n\nValue\nDescription\n\n\n\n\nblock\nElements stack vertically (e.g., &lt;div&gt;)\n\n\ninline\nElements stay inline (e.g., &lt;span&gt;)\n\n\nflex\nFlexible layout system for arrangement\n\n\n\n\n\nFlexbox Basic Example\n.container {\n  display: flex;\n  justify-content: space-around;\n}\n.box {\n  width: 100px;\n  height: 100px;\n  background-color: lightblue;\n}\n&lt;div class=\"container\"&gt;\n  &lt;div class=\"box\"&gt;1&lt;/div&gt;\n  &lt;div class=\"box\"&gt;2&lt;/div&gt;\n  &lt;div class=\"box\"&gt;3&lt;/div&gt;\n&lt;/div&gt;"
+  },
+  {
+    "objectID": "posts/html.html#what-is-markdown",
+    "href": "posts/html.html#what-is-markdown",
+    "title": "HTML & Markdown",
+    "section": "What is Markdown?",
+    "text": "What is Markdown?\n\nMarkdown is a lightweight markup language for writing documents using plain text.\nEasier than HTML and highly readable.\nWidely used in platforms like GitHub, Jupyter Notebook, and RMarkdown.\nIn R, Markdown is used in .Rmd files to combine documentation and executable code."
+  },
+  {
+    "objectID": "posts/html.html#basic-markdown-syntax",
+    "href": "posts/html.html#basic-markdown-syntax",
+    "title": "HTML & Markdown",
+    "section": "Basic Markdown Syntax",
+    "text": "Basic Markdown Syntax\n\nHeaders\n# Header 1  \n## Header 2  \n### Header 3\n\n\nEmphasis\n*Italic* or _Italic_  \n**Bold** or __Bold__  \n~~Strikethrough~~\n\n\nLists\n\nUnordered List:\n\n- Item 1  \n  - Sub-item 1.1  \n  - Sub-item 1.2  \n- Item 2\n\nOrdered List:\n\n1. First item  \n2. Second item  \n3. Third item\n\n\nLinks\n[CRAN R Official Site](https://cran.r-project.org/)\nCRAN R Official Site\n\n\nImages\n![R Logo](https://www.r-project.org/logo/Rlogo.png)\n\n\n\nR Logo"
+  },
+  {
+    "objectID": "posts/html.html#what-is-rmarkdown",
+    "href": "posts/html.html#what-is-rmarkdown",
+    "title": "HTML & Markdown",
+    "section": "What is RMarkdown?",
+    "text": "What is RMarkdown?\n\nRMarkdown (.Rmd) is a document format that combines R code and narrative text.\nAllows you to create documents with analysis results and interpretation together.\nOutput formats: HTML, PDF, Word.\nStructure: YAML Header + Markdown Text + R Code Chunks"
+  },
+  {
+    "objectID": "posts/html.html#rmarkdown-document-structure",
+    "href": "posts/html.html#rmarkdown-document-structure",
+    "title": "HTML & Markdown",
+    "section": "RMarkdown Document Structure",
+    "text": "RMarkdown Document Structure\n\n1. YAML Header\n---\ntitle: \"RMarkdown Example\"\nauthor: \"Soonwon KWON\"\ndate: \"`r Sys.Date()`\"\noutput: html_document\n---\n\nDefines document title, author, date, and output format.\n\n\n\n2. Markdown Text + R Code Chunk\n## Data Analysis Results\n\nHere we compute some basic summary statistics.\nsummary(cars)\n\nR code chunks (```{r}) allow you to run R code inside the document.\n\n\n\n3. Output Formats: HTML, PDF, Word\n\nAfter writing your .Rmd file, click the Knit button to render the document.\nRequires the rmarkdown package."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "CapstoneDesign1",
     "section": "",
-    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMar 24, 2025\n\n\nCreating a Two-Digit Number from Two Dice Rolls: A Game Strategy\n\n\nsw1kwon \n\n\n\n\nMar 23, 2025\n\n\nStatistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving\n\n\nsw1kwon \n\n\n\n\n\nNo matching items"
+    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMar 30, 2025\n\n\nHTML & Markdown\n\n\nsw1kwon \n\n\n\n\nMar 24, 2025\n\n\nCreating a Two-Digit Number from Two Dice Rolls: A Game Strategy\n\n\nsw1kwon \n\n\n\n\nMar 23, 2025\n\n\nStatistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving\n\n\nsw1kwon \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
   },
   {
     "objectID": "posts/PPDAC.html",
