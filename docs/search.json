@@ -95,7 +95,7 @@
     "href": "posts/html.html#basic-structure",
     "title": "HTML & Markdown",
     "section": "Basic structure",
-    "text": "Basic structure\n\nThe basic structure of an HTML document includes: &lt;html&gt; → &lt;head&gt; → &lt;body&gt;\n\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n  &lt;title&gt;Page Title&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;!-- Content goes here --&gt;\n&lt;/body&gt;\n&lt;/html&gt;"
+    "text": "Basic structure\n\nThe basic structure of an HTML document includes: &lt;html&gt; → &lt;head&gt; → &lt;body&gt;\n\nHTML Example\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;head&gt;\n  &lt;title&gt;Page Title&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;!-- Content goes here --&gt;\n&lt;/body&gt;\n&lt;/html&gt;"
   },
   {
     "objectID": "posts/html.html#common-html-tags",
@@ -109,21 +109,21 @@
     "href": "posts/html.html#lists-in-html-ul-ol",
     "title": "HTML & Markdown",
     "section": "Lists in HTML (<ul>, <ol>)",
-    "text": "Lists in HTML (&lt;ul&gt;, &lt;ol&gt;)\n\nUsed to display a list of items on a webpage. Two main types:\n\n&lt;ul&gt;: Unordered list (with bullet points)\n&lt;ol&gt;: Ordered list (with numbers)\n&lt;li&gt;: List item\n\n\n&lt;h2&gt;My Academic Interests&lt;/h2&gt;\n&lt;ul&gt;\n  &lt;li&gt;Statistics&lt;/li&gt;\n  &lt;li&gt;Data Analysis & Data Visualization&lt;/li&gt;\n  &lt;li&gt;Sports Big Data&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;h2&gt;My Hobbies&lt;/h2&gt;\n&lt;ol&gt;\n  &lt;li&gt;Piano&lt;/li&gt;\n  &lt;li&gt;Soccer&lt;/li&gt;\n  &lt;li&gt;Original Sound Track&lt;/li&gt;\n&lt;/ol&gt;"
+    "text": "Lists in HTML (&lt;ul&gt;, &lt;ol&gt;)\n\nUsed to display a list of items on a webpage. Two main types:\n\n&lt;ul&gt;: Unordered list (with bullet points)\n&lt;ol&gt;: Ordered list (with numbers)\n&lt;li&gt;: List item\n\n\nHTML Example\n&lt;h2&gt;My Academic Interests&lt;/h2&gt;\n&lt;ul&gt;\n  &lt;li&gt;Statistics&lt;/li&gt;\n  &lt;li&gt;Data Analysis & Data Visualization&lt;/li&gt;\n  &lt;li&gt;Sports Big Data&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;h2&gt;My Hobbies&lt;/h2&gt;\n&lt;ol&gt;\n  &lt;li&gt;Piano&lt;/li&gt;\n  &lt;li&gt;Soccer&lt;/li&gt;\n  &lt;li&gt;Original Sound Track&lt;/li&gt;\n&lt;/ol&gt;"
   },
   {
     "objectID": "posts/html.html#tables-in-html-table",
     "href": "posts/html.html#tables-in-html-table",
     "title": "HTML & Markdown",
     "section": "Tables in HTML (<table>)",
-    "text": "Tables in HTML (&lt;table&gt;)\nUsed to display structured data in a grid format.\n\n&lt;table&gt;: Table container\n&lt;tr&gt;: Table row\n&lt;th&gt;: Table header cell (bold)\n&lt;td&gt;: Table data cell\n\n&lt;h2&gt;My Profile&lt;/h2&gt;\n&lt;table border=\"1\"&gt;\n  &lt;tr&gt;\n    &lt;th&gt;Item&lt;/th&gt;\n    &lt;th&gt;Details&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Name&lt;/td&gt;\n    &lt;td&gt;Soonwon KWON&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Occupation&lt;/td&gt;\n    &lt;td&gt;Fourth-year student&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;"
+    "text": "Tables in HTML (&lt;table&gt;)\nUsed to display structured data in a grid format.\n\n&lt;table&gt;: Table container\n&lt;tr&gt;: Table row\n&lt;th&gt;: Table header cell (bold)\n&lt;td&gt;: Table data cell\n\nHTML Example\n&lt;h2&gt;My Profile&lt;/h2&gt;\n&lt;table border=\"1\"&gt;\n  &lt;tr&gt;\n    &lt;th&gt;Item&lt;/th&gt;\n    &lt;th&gt;Details&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Name&lt;/td&gt;\n    &lt;td&gt;Soonwon KWON&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Occupation&lt;/td&gt;\n    &lt;td&gt;Fourth-year student&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;"
   },
   {
     "objectID": "posts/html.html#forms-in-html-form",
     "href": "posts/html.html#forms-in-html-form",
     "title": "HTML & Markdown",
     "section": "Forms in HTML (<form>)",
-    "text": "Forms in HTML (&lt;form&gt;)\nUsed to collect user input.\n\n&lt;form&gt;: Wraps the input elements\n&lt;input&gt;: Single-line input field (e.g., text, checkbox, password)\n&lt;textarea&gt;: Multi-line text input\n&lt;button&gt;: Clickable button (submit, etc.)\n\n&lt;h2&gt;Leave a Message&lt;/h2&gt;\n&lt;form action=\"/submit\" method=\"POST\"&gt;\n  &lt;label for=\"name\"&gt;Name:&lt;/label&gt;\n  &lt;input type=\"text\" id=\"name\" name=\"name\" required&gt;&lt;br&gt;&lt;br&gt;\n\n  &lt;label for=\"message\"&gt;Message:&lt;/label&gt;&lt;br&gt;\n  &lt;textarea id=\"message\" name=\"message\" rows=\"4\" cols=\"40\"&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;\n\n  &lt;button type=\"submit\"&gt;Submit&lt;/button&gt;\n&lt;/form&gt;\n\n&lt;label&gt;: Describes input field\n&lt;input type=\"text\"&gt;: Single-line text input\n&lt;textarea&gt;: Multi-line text area\n&lt;button type=\"submit\"&gt;: Submit button"
+    "text": "Forms in HTML (&lt;form&gt;)\nUsed to collect user input.\n\n&lt;form&gt;: Wraps the input elements\n&lt;input&gt;: Single-line input field (e.g., text, checkbox, password)\n&lt;textarea&gt;: Multi-line text input\n&lt;button&gt;: Clickable button (submit, etc.)\n\nHTML Example\n&lt;h2&gt;Leave a Message&lt;/h2&gt;\n&lt;form action=\"/submit\" method=\"POST\"&gt;\n  &lt;label for=\"name\"&gt;Name:&lt;/label&gt;\n  &lt;input type=\"text\" id=\"name\" name=\"name\" required&gt;&lt;br&gt;&lt;br&gt;\n\n  &lt;label for=\"message\"&gt;Message:&lt;/label&gt;&lt;br&gt;\n  &lt;textarea id=\"message\" name=\"message\" rows=\"4\" cols=\"40\"&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;\n\n  &lt;button type=\"submit\"&gt;Submit&lt;/button&gt;\n&lt;/form&gt;\n\n&lt;label&gt;: Describes input field\n&lt;input type=\"text\"&gt;: Single-line text input\n&lt;textarea&gt;: Multi-line text area\n&lt;button type=\"submit\"&gt;: Submit button"
   },
   {
     "objectID": "posts/html.html#what-is-css",
@@ -137,28 +137,28 @@
     "href": "posts/html.html#three-ways-to-apply-css",
     "title": "HTML & Markdown",
     "section": "Three Ways to Apply CSS",
-    "text": "Three Ways to Apply CSS\n\nInline Style (using style attribute)\n&lt;p style=\"color: blue;\"&gt;This text is blue.&lt;/p&gt;\n\nStyle applied directly to HTML elements\n\nNot recommended (hard to maintain, messy)\n\n\n\nInternal Style (using &lt;style&gt; tag)\n&lt;head&gt;\n  &lt;style&gt;\n    p {\n      color: blue;\n      font-size: 18px;\n    }\n  &lt;/style&gt;\n&lt;/head&gt;\n\nCSS written inside the HTML document\n\nUseful for small projects\n\n\n\nExternal Style (recommended)\n&lt;head&gt;\n  &lt;link rel=\"stylesheet\" href=\"styles.css\"&gt;\n&lt;/head&gt;\n\nCSS written in a separate .css file\n\nEasy to maintain and reuse across pages"
+    "text": "Three Ways to Apply CSS\n\nInline Style (using style attribute)\nHTML Example\n&lt;p style=\"color: blue;\"&gt;This text is blue.&lt;/p&gt;\n\nStyle applied directly to HTML elements\n\nNot recommended (hard to maintain, messy)\n\n\n\nInternal Style (using &lt;style&gt; tag)\nHTML Example\n&lt;head&gt;\n  &lt;style&gt;\n    p {\n      color: blue;\n      font-size: 18px;\n    }\n  &lt;/style&gt;\n&lt;/head&gt;\n\nCSS written inside the HTML document\n\nUseful for small projects\n\n\n\nExternal Style (recommended)\nHTML Example\n&lt;head&gt;\n  &lt;link rel=\"stylesheet\" href=\"styles.css\"&gt;\n&lt;/head&gt;\n\nCSS written in a separate .css file\n\nEasy to maintain and reuse across pages"
   },
   {
     "objectID": "posts/html.html#css-syntax-selectors",
     "href": "posts/html.html#css-syntax-selectors",
     "title": "HTML & Markdown",
     "section": "CSS Syntax & Selectors",
-    "text": "CSS Syntax & Selectors\n\nBasic Syntax\nselector {\n  property: value;\n}\n\nSelector: targets an element\n\nProperty: what you want to change\n\nValue: how you want it to look\n\n\n\nCommon CSS Selectors\n\n\n\n\n\n\n\n\nSelector\nDescription\nExample\n\n\n\n\n*\nAll elements\n* { margin: 0; }\n\n\nh1\nTag name selector\nh1 { color: red; }\n\n\n.class\nClass selector\n.title { font-size: 20px; }\n\n\n#id\nID selector\n#header { background: black; }\n\n\nA, B\nMultiple selectors\nh1, p { color: blue; }\n\n\nA B\nDescendant selector (B inside A)\ndiv p { color: green; }\n\n\n\n\n\nExample CSS\n/* Apply to whole page */\nbody {\n  font-family: Arial, sans-serif;\n  background-color: #f0f0f0;\n}\n\n/* Heading style */\nh1 {\n  color: darkblue;\n  text-align: center;\n}\n\n/* Paragraph style */\np {\n  font-size: 18px;\n  color: gray;\n}"
+    "text": "CSS Syntax & Selectors\n\nBasic Syntax\nCSS Example\nselector {\n  property: value;\n}\n\nSelector: targets an element\n\nProperty: what you want to change\n\nValue: how you want it to look\n\n\n\nCommon CSS Selectors\n\n\n\n\n\n\n\n\nSelector\nDescription\nExample\n\n\n\n\n*\nAll elements\n* { margin: 0; }\n\n\nh1\nTag name selector\nh1 { color: red; }\n\n\n.class\nClass selector\n.title { font-size: 20px; }\n\n\n#id\nID selector\n#header { background: black; }\n\n\nA, B\nMultiple selectors\nh1, p { color: blue; }\n\n\nA B\nDescendant selector (B inside A)\ndiv p { color: green; }\n\n\n\n\n\nExample CSS\nCSS Example\n/* Apply to whole page */\nbody {\n  font-family: Arial, sans-serif;\n  background-color: #f0f0f0;\n}\n\n/* Heading style */\nh1 {\n  color: darkblue;\n  text-align: center;\n}\n\n/* Paragraph style */\np {\n  font-size: 18px;\n  color: gray;\n}"
   },
   {
     "objectID": "posts/html.html#css-box-model",
     "href": "posts/html.html#css-box-model",
     "title": "HTML & Markdown",
     "section": "CSS Box Model",
-    "text": "CSS Box Model\n\nWhat is the Box Model?\nEvery HTML element is treated as a rectangular box with:\n\nContent: text or image inside\nPadding: space between content and border\nBorder: line surrounding the box\nMargin: space outside the border (separates from other elements)\n\n\n\nBox Model Example\n.box {\n  width: 300px;\n  padding: 20px;\n  border: 2px solid black;\n  margin: 10px;\n}\n&lt;div class=\"box\"&gt;This is a box model example.&lt;/div&gt;"
+    "text": "CSS Box Model\n\nWhat is the Box Model?\nEvery HTML element is treated as a rectangular box with:\n\nContent: text or image inside\nPadding: space between content and border\nBorder: line surrounding the box\nMargin: space outside the border (separates from other elements)\n\n\n\nBox Model Example\nCSS Example\n.box {\n  width: 300px;\n  padding: 20px;\n  border: 2px solid black;\n  margin: 10px;\n}\n&lt;div class=\"box\"&gt;This is a box model example.&lt;/div&gt;"
   },
   {
     "objectID": "posts/html.html#css-layout-display-flexbox",
     "href": "posts/html.html#css-layout-display-flexbox",
     "title": "HTML & Markdown",
     "section": "CSS Layout: display & Flexbox",
-    "text": "CSS Layout: display & Flexbox\n\ndisplay Property\n\n\n\nValue\nDescription\n\n\n\n\nblock\nElements stack vertically (e.g., &lt;div&gt;)\n\n\ninline\nElements stay inline (e.g., &lt;span&gt;)\n\n\nflex\nFlexible layout system for arrangement\n\n\n\n\n\nFlexbox Basic Example\n.container {\n  display: flex;\n  justify-content: space-around;\n}\n.box {\n  width: 100px;\n  height: 100px;\n  background-color: lightblue;\n}\n&lt;div class=\"container\"&gt;\n  &lt;div class=\"box\"&gt;1&lt;/div&gt;\n  &lt;div class=\"box\"&gt;2&lt;/div&gt;\n  &lt;div class=\"box\"&gt;3&lt;/div&gt;\n&lt;/div&gt;"
+    "text": "CSS Layout: display & Flexbox\n\ndisplay Property\n\n\n\nValue\nDescription\n\n\n\n\nblock\nElements stack vertically (e.g., &lt;div&gt;)\n\n\ninline\nElements stay inline (e.g., &lt;span&gt;)\n\n\nflex\nFlexible layout system for arrangement\n\n\n\n\n\nFlexbox Basic Example\nCSS Example\n.container {\n  display: flex;\n  justify-content: space-around;\n}\n.box {\n  width: 100px;\n  height: 100px;\n  background-color: lightblue;\n}\n&lt;div class=\"container\"&gt;\n  &lt;div class=\"box\"&gt;1&lt;/div&gt;\n  &lt;div class=\"box\"&gt;2&lt;/div&gt;\n  &lt;div class=\"box\"&gt;3&lt;/div&gt;\n&lt;/div&gt;"
   },
   {
     "objectID": "posts/html.html#what-is-markdown",
@@ -172,7 +172,7 @@
     "href": "posts/html.html#basic-markdown-syntax",
     "title": "HTML & Markdown",
     "section": "Basic Markdown Syntax",
-    "text": "Basic Markdown Syntax\n\nHeaders\n# Header 1  \n## Header 2  \n### Header 3\n\n\nEmphasis\n*Italic* or _Italic_  \n**Bold** or __Bold__  \n~~Strikethrough~~\n\n\nLists\n\nUnordered List:\n\n- Item 1  \n  - Sub-item 1.1  \n  - Sub-item 1.2  \n- Item 2\n\nOrdered List:\n\n1. First item  \n2. Second item  \n3. Third item\n\n\nLinks\n[CRAN R Official Site](https://cran.r-project.org/)\nCRAN R Official Site\n\n\nImages\n![R Logo](https://www.r-project.org/logo/Rlogo.png)\n\n\n\nR Logo"
+    "text": "Basic Markdown Syntax\n\nHeaders\n# Header 1  \n## Header 2  \n### Header 3\n\n\nEmphasis\n*Italic* or _Italic_  \n**Bold** or __Bold__  \n~~Strikethrough~~\nItalic , Bold, Strikethrough\n\n\nLists\n\nUnordered List:\n\n- Item 1  \n  - Sub-item 1.1  \n  - Sub-item 1.2  \n- Item 2\n\nOrdered List:\n\n1. First item  \n2. Second item  \n3. Third item\n\n\nLinks\n[CRAN R Official Site](https://cran.r-project.org/)\nCRAN R Official Site\n\n\nImages\n![R Logo](https://www.r-project.org/logo/Rlogo.png)\n\n\n\nR Logo"
   },
   {
     "objectID": "posts/html.html#what-is-rmarkdown",
@@ -186,7 +186,7 @@
     "href": "posts/html.html#rmarkdown-document-structure",
     "title": "HTML & Markdown",
     "section": "RMarkdown Document Structure",
-    "text": "RMarkdown Document Structure\n\n1. YAML Header\n---\ntitle: \"RMarkdown Example\"\nauthor: \"Soonwon KWON\"\ndate: \"`r Sys.Date()`\"\noutput: html_document\n---\n\nDefines document title, author, date, and output format.\n\n\n\n2. Markdown Text + R Code Chunk\n## Data Analysis Results\n\nHere we compute some basic summary statistics.\nsummary(cars)\n\nR code chunks (```{r}) allow you to run R code inside the document.\n\n\n\n3. Output Formats: HTML, PDF, Word\n\nAfter writing your .Rmd file, click the Knit button to render the document.\nRequires the rmarkdown package."
+    "text": "RMarkdown Document Structure\n\n1. YAML Header\nYAML Header Example\n---\ntitle: \"RMarkdown Example\"\nauthor: \"Soonwon KWON\"\ndate: \"`r Sys.Date()`\"\noutput: html_document\n---\n\nDefines document title, author, date, and output format.\n\n\n\n2. Markdown Text + R Code Chunk\nMarkdown Example\n## Data Analysis Results\n\nHere we compute some basic summary statistics.\nR Code Example\nsummary(cars)\n\nR code chunks (```{r}) allow you to run R code inside the document.\n\n\n\n3. Output Formats: HTML, PDF, Word\n\nAfter writing your .Rmd file, click the Knit button to render the document.\nRequires the rmarkdown package."
   },
   {
     "objectID": "index.html",
