@@ -103,6 +103,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -245,6 +274,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#yaml-header" id="toc-yaml-header" class="nav-link" data-scroll-target="#yaml-header">1. YAML Header</a></li>
   <li><a href="#markdown-text-r-code-chunk" id="toc-markdown-text-r-code-chunk" class="nav-link" data-scroll-target="#markdown-text-r-code-chunk">2. Markdown Text + R Code Chunk</a></li>
   <li><a href="#output-formats-html-pdf-word" id="toc-output-formats-html-pdf-word" class="nav-link" data-scroll-target="#output-formats-html-pdf-word">3. Output Formats: HTML, PDF, Word</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#using-markdown-rmarkdown-tables-code-blocks-math" id="toc-using-markdown-rmarkdown-tables-code-blocks-math" class="nav-link" data-scroll-target="#using-markdown-rmarkdown-tables-code-blocks-math">6. Using Markdown &amp; RMarkdown: Tables, Code Blocks, Math</a>
+  <ul class="collapse">
+  <li><a href="#tables-code-blocks-and-math-in-markdown" id="toc-tables-code-blocks-and-math-in-markdown" class="nav-link" data-scroll-target="#tables-code-blocks-and-math-in-markdown">Tables, Code Blocks, and Math in Markdown</a>
+  <ul class="collapse">
+  <li><a href="#creating-tables-in-markdown" id="toc-creating-tables-in-markdown" class="nav-link" data-scroll-target="#creating-tables-in-markdown">1. Creating Tables in Markdown</a></li>
+  <li><a href="#writing-code-blocks" id="toc-writing-code-blocks" class="nav-link" data-scroll-target="#writing-code-blocks">2. Writing Code Blocks</a></li>
+  <li><a href="#writing-math-with-latex" id="toc-writing-math-with-latex" class="nav-link" data-scroll-target="#writing-math-with-latex">3. Writing Math with LaTeX</a></li>
+  </ul></li>
+  <li><a href="#using-ggplot2-and-data-tables-in-rmarkdown" id="toc-using-ggplot2-and-data-tables-in-rmarkdown" class="nav-link" data-scroll-target="#using-ggplot2-and-data-tables-in-rmarkdown">Using ggplot2 and Data Tables in RMarkdown</a>
+  <ul class="collapse">
+  <li><a href="#inserting-ggplot2-plots" id="toc-inserting-ggplot2-plots" class="nav-link" data-scroll-target="#inserting-ggplot2-plots">Inserting ggplot2 Plots</a></li>
+  <li><a href="#printing-clean-tables-with-kable" id="toc-printing-clean-tables-with-kable" class="nav-link" data-scroll-target="#printing-clean-tables-with-kable">Printing Clean Tables with <code>kable()</code></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#advanced-use-of-rmarkdown" id="toc-advanced-use-of-rmarkdown" class="nav-link" data-scroll-target="#advanced-use-of-rmarkdown">7. Advanced Use of RMarkdown</a>
+  <ul class="collapse">
+  <li><a href="#document-format-conversion-in-rmarkdown" id="toc-document-format-conversion-in-rmarkdown" class="nav-link" data-scroll-target="#document-format-conversion-in-rmarkdown">Document Format Conversion in RMarkdown</a>
+  <ul class="collapse">
+  <li><a href="#output-format-options" id="toc-output-format-options" class="nav-link" data-scroll-target="#output-format-options">Output Format Options</a></li>
+  </ul></li>
+  <li><a href="#creating-interactive-documents" id="toc-creating-interactive-documents" class="nav-link" data-scroll-target="#creating-interactive-documents">Creating Interactive Documents</a>
+  <ul class="collapse">
+  <li><a href="#using-shiny-in-rmarkdown" id="toc-using-shiny-in-rmarkdown" class="nav-link" data-scroll-target="#using-shiny-in-rmarkdown">Using Shiny in RMarkdown</a></li>
+  <li><a href="#introduction-to-flexdashboard" id="toc-introduction-to-flexdashboard" class="nav-link" data-scroll-target="#introduction-to-flexdashboard">Introduction to Flexdashboard</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#writing-practical-reports-automating-analysis-with-rmarkdown" id="toc-writing-practical-reports-automating-analysis-with-rmarkdown" class="nav-link" data-scroll-target="#writing-practical-reports-automating-analysis-with-rmarkdown">8. Writing Practical Reports &amp; Automating Analysis with RMarkdown</a>
+  <ul class="collapse">
+  <li><a href="#writing-a-practical-report" id="toc-writing-a-practical-report" class="nav-link" data-scroll-target="#writing-a-practical-report">Writing a Practical Report</a>
+  <ul class="collapse">
+  <li><a href="#key-components-of-a-good-report" id="toc-key-components-of-a-good-report" class="nav-link" data-scroll-target="#key-components-of-a-good-report">Key Components of a Good Report</a></li>
+  <li><a href="#example-report-template" id="toc-example-report-template" class="nav-link" data-scroll-target="#example-report-template">Example Report Template</a></li>
+  </ul></li>
+  <li><a href="#repetitive-analysis-automated-report-generation" id="toc-repetitive-analysis-automated-report-generation" class="nav-link" data-scroll-target="#repetitive-analysis-automated-report-generation">Repetitive Analysis &amp; Automated Report Generation</a>
+  <ul class="collapse">
+  <li><a href="#parameterized-reports" id="toc-parameterized-reports" class="nav-link" data-scroll-target="#parameterized-reports">Parameterized Reports</a></li>
+  <li><a href="#example-of-a-parameterized-report-using-params" id="toc-example-of-a-parameterized-report-using-params" class="nav-link" data-scroll-target="#example-of-a-parameterized-report-using-params">Example of a Parameterized Report Using <code>params</code></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#using-markdown-on-github" id="toc-using-markdown-on-github" class="nav-link" data-scroll-target="#using-markdown-on-github">9. Using Markdown on GitHub</a>
+  <ul class="collapse">
+  <li><a href="#the-role-of-markdown-on-github" id="toc-the-role-of-markdown-on-github" class="nav-link" data-scroll-target="#the-role-of-markdown-on-github">The Role of Markdown on GitHub</a>
+  <ul class="collapse">
+  <li><a href="#why-markdown-is-important-on-github" id="toc-why-markdown-is-important-on-github" class="nav-link" data-scroll-target="#why-markdown-is-important-on-github">Why Markdown is Important on GitHub</a></li>
+  <li><a href="#common-use-cases" id="toc-common-use-cases" class="nav-link" data-scroll-target="#common-use-cases">Common Use Cases</a></li>
+  </ul></li>
+  <li><a href="#writing-a-readme.md-file" id="toc-writing-a-readme.md-file" class="nav-link" data-scroll-target="#writing-a-readme.md-file">Writing a README.md File</a>
+  <ul class="collapse">
+  <li><a href="#basic-readme.md-template" id="toc-basic-readme.md-template" class="nav-link" data-scroll-target="#basic-readme.md-template">Basic README.md Template</a></li>
+  </ul></li>
+  <li><a href="#using-markdown-in-github-issues-pull-requests" id="toc-using-markdown-in-github-issues-pull-requests" class="nav-link" data-scroll-target="#using-markdown-in-github-issues-pull-requests">Using Markdown in GitHub Issues &amp; Pull Requests</a>
+  <ul class="collapse">
+  <li><a href="#markdown-in-issues" id="toc-markdown-in-issues" class="nav-link" data-scroll-target="#markdown-in-issues">Markdown in Issues</a></li>
+  <li><a href="#issue-template-example" id="toc-issue-template-example" class="nav-link" data-scroll-target="#issue-template-example">Issue Template Example</a></li>
+  <li><a href="#markdown-in-pull-requests-prs" id="toc-markdown-in-pull-requests-prs" class="nav-link" data-scroll-target="#markdown-in-pull-requests-prs">Markdown in Pull Requests (PRs)</a></li>
+  <li><a href="#pull-request-template-example" id="toc-pull-request-template-example" class="nav-link" data-scroll-target="#pull-request-template-example">Pull Request Template Example</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -750,9 +837,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Markdown Example</strong></p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Analysis Results</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Here we compute some basic summary statistics.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>R Code Example</strong></p>
-<pre class="{r}"><code>summary(cars)</code></pre>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Here we compute some basic summary statistics.</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="in">summary(cars)</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>R code chunks (<code>```{r}</code>)</strong> allow you to run R code inside the document.</li>
 </ul>
@@ -763,6 +852,391 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>After writing your <code>.Rmd</code> file, click the <strong>Knit</strong> button to render the document.</li>
 <li>Requires the <code>rmarkdown</code> package.</li>
 </ul>
+</section>
+</section>
+</section>
+<section id="using-markdown-rmarkdown-tables-code-blocks-math" class="level1">
+<h1>6. Using Markdown &amp; RMarkdown: Tables, Code Blocks, Math</h1>
+<section id="tables-code-blocks-and-math-in-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="tables-code-blocks-and-math-in-markdown">Tables, Code Blocks, and Math in Markdown</h2>
+<section id="creating-tables-in-markdown" class="level3">
+<h3 class="anchored" data-anchor-id="creating-tables-in-markdown">1. Creating Tables in Markdown</h3>
+<p>Markdown uses pipes <code>|</code> and hyphens <code>-</code> to format tables.</p>
+<p><strong>Basic Table Example:</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>| Name         | Date of Birth | Nationality   |</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>|--------------|----------------|----------------|</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>| Luka Modrić  | 1985-09-09     | Croatia        |</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>| Eden Hazard  | 1991-01-07     | Belgium        |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Date of Birth</th>
+<th>Nationality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Luka Modrić</td>
+<td>1985-09-09</td>
+<td>Croatia</td>
+</tr>
+<tr class="even">
+<td>Eden Hazard</td>
+<td>1991-01-07</td>
+<td>Belgium</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="writing-code-blocks" class="level3">
+<h3 class="anchored" data-anchor-id="writing-code-blocks">2. Writing Code Blocks</h3>
+<p>Useful for displaying analysis code or command-line instructions clearly.</p>
+<ul>
+<li><p><strong>Inline Code:</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="in">`summary(mtcars)`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Multi-line Code Block (R):</strong></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="writing-math-with-latex" class="level3">
+<h3 class="anchored" data-anchor-id="writing-math-with-latex">3. Writing Math with LaTeX</h3>
+<p>In RMarkdown, you can use LaTeX syntax to render math equations.</p>
+<ul>
+<li><strong>Inline Math:</strong></li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="in">`$ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x - \mu)^2}{2\sigma^2} \right) $`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="math inline">\(f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x - \mu)^2}{2\sigma^2} \right)\)</span></p>
+<ul>
+<li><strong>Block Math:</strong><br>
+</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x - \mu)^2}{2\sigma^2} \right)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="math display">\[f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x - \mu)^2}{2\sigma^2} \right)\]</span></p>
+</section>
+</section>
+<section id="using-ggplot2-and-data-tables-in-rmarkdown" class="level2">
+<h2 class="anchored" data-anchor-id="using-ggplot2-and-data-tables-in-rmarkdown">Using ggplot2 and Data Tables in RMarkdown</h2>
+<section id="inserting-ggplot2-plots" class="level3">
+<h3 class="anchored" data-anchor-id="inserting-ggplot2-plots">Inserting ggplot2 Plots</h3>
+<p>R code chunks can include plots using <code>ggplot2</code>.</p>
+<p><strong>Basic ggplot2 Example:</strong></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(mtcars, aes(x = mpg, y = hp, color = factor(cyl))) +</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="printing-clean-tables-with-kable" class="level3">
+<h3 class="anchored" data-anchor-id="printing-clean-tables-with-kable">Printing Clean Tables with <code>kable()</code></h3>
+<p>Use <code>knitr::kable()</code> in RMarkdown to generate clean and formatted tables.</p>
+<p><strong>Basic kable Table Example:</strong></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="in">library(knitr)</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="in">kable(head(mtcars))</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="advanced-use-of-rmarkdown" class="level1">
+<h1>7. Advanced Use of RMarkdown</h1>
+<section id="document-format-conversion-in-rmarkdown" class="level2">
+<h2 class="anchored" data-anchor-id="document-format-conversion-in-rmarkdown">Document Format Conversion in RMarkdown</h2>
+<section id="output-format-options" class="level3">
+<h3 class="anchored" data-anchor-id="output-format-options">Output Format Options</h3>
+<p>RMarkdown supports rendering into various formats:</p>
+<ul>
+<li>HTML document (<code>html_document</code>)</li>
+<li>PDF document (<code>pdf_document</code>)</li>
+<li>Word document (<code>word_document</code>)</li>
+</ul>
+<p><strong>Basic YAML Header Example:</strong></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Analysis Report"</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Soonwon KWON"</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"`r Sys.Date()`"</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>toc: true</code>: Adds a table of contents<br>
+</li>
+<li><code>number_sections: true</code>: Adds numbered headings</li>
+</ul>
+</section>
+</section>
+<section id="creating-interactive-documents" class="level2">
+<h2 class="anchored" data-anchor-id="creating-interactive-documents">Creating Interactive Documents</h2>
+<section id="using-shiny-in-rmarkdown" class="level3">
+<h3 class="anchored" data-anchor-id="using-shiny-in-rmarkdown">Using Shiny in RMarkdown</h3>
+<ul>
+<li>You can add interactive features by setting <code>runtime: shiny</code> in the YAML header.</li>
+</ul>
+<p><strong>Shiny Document Example:</strong></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Interactive Shiny Document"</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">runtime</span><span class="kw">:</span><span class="at"> shiny</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Markdown Example</strong></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary Based on Input</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="in">library(shiny)</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="in">sliderInput("obs", "Number of observations to show:", min = 1, max = 100, value = 10)</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="in">renderPrint({</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="in">  summary(mtcars[1:input$obs, ])</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="in">})</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="introduction-to-flexdashboard" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-to-flexdashboard">Introduction to Flexdashboard</h3>
+<ul>
+<li><strong>Flexdashboard</strong> is a package built on RMarkdown to easily create dashboards.</li>
+<li>It is useful for displaying multiple visualizations in a single screen layout.</li>
+</ul>
+<p><strong>Basic Flexdashboard YAML Header:</strong></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Flexdashboard Example"</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> flexdashboard::flex_dashboard</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Flexdashboard Example Layout:</strong></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>Column {data-width=650}</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>-------------------------------------</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">### ggplot2 Scatter Plot</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(mtcars, aes(x = mpg, y = hp, color = factor(cyl))) +</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>Column {data-width=350}</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>-------------------------------------</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Table</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a><span class="in">library(DT)</span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a><span class="in">datatable(mtcars)</span></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="writing-practical-reports-automating-analysis-with-rmarkdown" class="level1">
+<h1>8. Writing Practical Reports &amp; Automating Analysis with RMarkdown</h1>
+<section id="writing-a-practical-report" class="level2">
+<h2 class="anchored" data-anchor-id="writing-a-practical-report">Writing a Practical Report</h2>
+<section id="key-components-of-a-good-report" class="level3">
+<h3 class="anchored" data-anchor-id="key-components-of-a-good-report">Key Components of a Good Report</h3>
+<ul>
+<li>Set title, author, and date using a YAML header<br>
+</li>
+<li>Include a table of contents (<code>toc: true</code>) and section numbering (<code>number_sections: true</code>)<br>
+</li>
+<li>Summarize data, visualize results, and report key statistics<br>
+</li>
+<li>Present conclusions and directions for further analysis</li>
+</ul>
+</section>
+<section id="example-report-template" class="level3">
+<h3 class="anchored" data-anchor-id="example-report-template">Example Report Template</h3>
+<p><strong>YAML Header Example:</strong></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Customer Data Analysis Report"</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Soonwon KWON"</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"`r Sys.Date()`"</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Markdown Example:</strong></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Data Overview</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>This report presents an analysis of customer data.</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="in">library(dplyr)</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="in">data &lt;- mtcars %&gt;% group_by(cyl) %&gt;% summarise(avg_mpg = mean(mpg))</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(data)</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Visualization</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(mtcars, aes(x = mpg, y = hp, color = factor(cyl))) +</span></span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Conclusion &amp; Insights</span></span>
+<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cars with a higher number of cylinders (<span class="in">`cyl`</span>) tend to have lower fuel efficiency (<span class="in">`mpg`</span>).  </span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Further data collection and analysis are recommended.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="repetitive-analysis-automated-report-generation" class="level2">
+<h2 class="anchored" data-anchor-id="repetitive-analysis-automated-report-generation">Repetitive Analysis &amp; Automated Report Generation</h2>
+<section id="parameterized-reports" class="level3">
+<h3 class="anchored" data-anchor-id="parameterized-reports">Parameterized Reports</h3>
+<ul>
+<li>Useful when applying the same analysis to different datasets<br>
+</li>
+<li>You can use <code>params</code> to dynamically insert input values and automate report generation</li>
+</ul>
+</section>
+<section id="example-of-a-parameterized-report-using-params" class="level3">
+<h3 class="anchored" data-anchor-id="example-of-a-parameterized-report-using-params">Example of a Parameterized Report Using <code>params</code></h3>
+<p><strong>YAML Header Example:</strong></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Automated Analysis Report"</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">dataset</span><span class="kw">:</span><span class="at"> </span><span class="st">"mtcars"</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Markdown Example:</strong></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Summary</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>Target dataset: <span class="in">`r params$dataset`</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="in">dataset &lt;- get(params$dataset)</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="in">summary(dataset)</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="using-markdown-on-github" class="level1">
+<h1>9. Using Markdown on GitHub</h1>
+<section id="the-role-of-markdown-on-github" class="level2">
+<h2 class="anchored" data-anchor-id="the-role-of-markdown-on-github">The Role of Markdown on GitHub</h2>
+<section id="why-markdown-is-important-on-github" class="level3">
+<h3 class="anchored" data-anchor-id="why-markdown-is-important-on-github">Why Markdown is Important on GitHub</h3>
+<ul>
+<li>GitHub uses <strong>Markdown (.md files)</strong> as the default format for writing project documents<br>
+</li>
+<li>Markdown is useful for explaining project details, installation steps, and usage examples<br>
+</li>
+<li>It also enhances formatting inside <strong>GitHub Issues</strong> and <strong>Pull Requests (PRs)</strong></li>
+</ul>
+</section>
+<section id="common-use-cases" class="level3">
+<h3 class="anchored" data-anchor-id="common-use-cases">Common Use Cases</h3>
+<ul>
+<li><code>README.md</code> – Describe the project, how to install/use it<br>
+</li>
+<li><code>CONTRIBUTING.md</code> – Guide for contributing to the project<br>
+</li>
+<li>Issues / Pull Requests – Report bugs, request features, summarize changes</li>
+</ul>
+</section>
+</section>
+<section id="writing-a-readme.md-file" class="level2">
+<h2 class="anchored" data-anchor-id="writing-a-readme.md-file">Writing a README.md File</h2>
+<section id="basic-readme.md-template" class="level3">
+<h3 class="anchored" data-anchor-id="basic-readme.md-template">Basic README.md Template</h3>
+<div class="sourceCode" id="cb46"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Project Title</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>This project is an example to learn **how to use Markdown on GitHub**.</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installation</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Clone this repository:</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="in">   git clone https://github.com/username/repository.git</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Install the required packages  </span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Run the project  </span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Usage Example</span></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello, GitHub Markdown!"</span>)</span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## How to Contribute</span></span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Open an issue  </span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Create a branch and make your changes  </span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Submit a Pull Request (PR)  </span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## License</span></span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a>MIT License</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Use <code>#</code> for section headings<br>
+</li>
+<li>Use <code>**bold**</code> to emphasize text<br>
+</li>
+<li>Use backticks for <code>inline code</code> and code blocks</li>
+</ul>
+</section>
+</section>
+<section id="using-markdown-in-github-issues-pull-requests" class="level2">
+<h2 class="anchored" data-anchor-id="using-markdown-in-github-issues-pull-requests">Using Markdown in GitHub Issues &amp; Pull Requests</h2>
+<section id="markdown-in-issues" class="level3">
+<h3 class="anchored" data-anchor-id="markdown-in-issues">Markdown in Issues</h3>
+<ul>
+<li>Use Markdown to clearly format bug reports, feature requests, and tasks<br>
+</li>
+<li>Use checklists, mentions (<code>@username</code>), and issue references (<code>#issue-number</code>)</li>
+</ul>
+</section>
+<section id="issue-template-example" class="level3">
+<h3 class="anchored" data-anchor-id="issue-template-example">Issue Template Example</h3>
+<div class="sourceCode" id="cb47"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🐞 Bug Report</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Description</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Behavior is different from expected  </span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Certain feature is not working  </span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### Steps to Reproduce</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Run this command: <span class="in">`python script.py`</span>  </span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Error message:  </span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="in">   Error: File not found.</span></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### Expected Result</span></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>It should run without errors.</span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### Environment</span></span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>OS: Ubuntu 22.04  </span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>R Version: 4.1.2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="markdown-in-pull-requests-prs" class="level3">
+<h3 class="anchored" data-anchor-id="markdown-in-pull-requests-prs">Markdown in Pull Requests (PRs)</h3>
+<ul>
+<li>Use Markdown to document changes, summarize commits, and list test results<br>
+</li>
+<li>Include checklists to guide code review</li>
+</ul>
+</section>
+<section id="pull-request-template-example" class="level3">
+<h3 class="anchored" data-anchor-id="pull-request-template-example">Pull Request Template Example</h3>
+<div class="sourceCode" id="cb48"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Changes Made</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Added new feature (<span class="in">`feature-branch`</span>)  </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Refactored existing code  </span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Checklist</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Code successfully runs  </span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Documentation updated  </span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Additional tests needed  </span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Screenshots</span></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>(Include UI or output images if applicable)</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Related Issues</span></span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>Fixes #12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
