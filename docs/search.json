@@ -280,6 +280,104 @@
     "text": "Conclusion\nPPDAC is the most general statistical problem-solving process, but different frameworks can be utilized depending on specific purposes such as education, business, experimental design, or machine learning.\n\nEducation and research purposes: GAISE, Hypothesis Testing Process\n\nBusiness analysis and optimization: DDDM, DCOVA\n\nExperiment and test-based analysis: DOE\n\nMachine learning and data mining: CRISP-DM\n\n\nIn statistical problem-solving, PPDAC is the most versatile framework, but it is essential to use other frameworks as needed!"
   },
   {
+    "objectID": "posts/crawling_ko.html",
+    "href": "posts/crawling_ko.html",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "",
+    "text": "웹 크롤링: 여러 웹페이지를 탐색하며 데이터를 수집하는 작업\n\n웹 스크래핑: 한 웹페이지에서 필요한 정보를 추출하는 작업\n\n대상에 따라 정적 크롤링(HTML 기반)과 동적 크롤링(JavaScript 기반)으로 구분됨"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#정적-웹-크롤링-rvest",
+    "href": "posts/crawling_ko.html#정적-웹-크롤링-rvest",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "정적 웹 크롤링 (rvest)",
+    "text": "정적 웹 크롤링 (rvest)\n\nrvest 패키지를 활용하여 HTML 페이지에서 직접 콘텐츠를 추출\n\nread_html(), html_nodes(), html_text() 등의 함수로 텍스트, 링크 등을 수집\n\n&lt;table&gt; 태그로 구성된 표는 html_table()을 사용해 데이터프레임으로 변환 가능\n\n수집한 데이터는 dplyr로 정제하고, write.csv()로 저장할 수 있음"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#api-기반-데이터-수집-httr-jsonlite",
+    "href": "posts/crawling_ko.html#api-기반-데이터-수집-httr-jsonlite",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "API 기반 데이터 수집 (httr, jsonlite)",
+    "text": "API 기반 데이터 수집 (httr, jsonlite)\n\nAPI는 서버로부터 구조화된 데이터(JSON/XML)를 직접 제공\n\nhttr::GET()으로 요청하고, jsonlite::fromJSON()으로 JSON 응답을 파싱\n\nHTML 스크래핑보다 더 빠르고 안정적임\n\n기사 제목, 링크, 날짜 등의 필드를 추출하여 CSV로 저장 가능"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#javascript-기반-동적-크롤링-rselenium",
+    "href": "posts/crawling_ko.html#javascript-기반-동적-크롤링-rselenium",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "JavaScript 기반 동적 크롤링 (RSelenium)",
+    "text": "JavaScript 기반 동적 크롤링 (RSelenium)\n\nJavaScript로 렌더링되는 페이지는 rvest로는 수집할 수 없음\n\nRSelenium을 활용하여 브라우저를 자동화하고 동적 요소에 접근 가능\n\n버튼 클릭, 스크롤 다운, 무한 스크롤 등의 사용자 동작을 시뮬레이션 가능\n\n웹 드라이버 설정이 필요하며 시스템 환경에 따라 다를 수 있음"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#로그인-및-세션-유지-처리-httrpost",
+    "href": "posts/crawling_ko.html#로그인-및-세션-유지-처리-httrpost",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "로그인 및 세션 유지 처리 (httr::POST())",
+    "text": "로그인 및 세션 유지 처리 (httr::POST())\n\n일부 웹사이트는 로그인 후에만 데이터 접근이 가능함\n\nhttr::POST()를 통해 로그인 시도 후 세션 쿠키를 유지하며 접근 가능\n\n단, 많은 웹사이트가 CAPTCHA나 2단계 인증을 사용하여 자동 로그인을 차단함\n\n가능하다면 공식 API를 통한 인증 방식 사용을 권장"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#자동화-및-실전-프로젝트",
+    "href": "posts/crawling_ko.html#자동화-및-실전-프로젝트",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "자동화 및 실전 프로젝트",
+    "text": "자동화 및 실전 프로젝트\n\n크롤링을 정기적으로 실행하려면 자동화 도구가 필요함\n\nLinux: cronR 사용, Windows: taskscheduleR 사용\n\n예시 프로젝트:\n\n매일 인기 뉴스 수집 및 CSV 누적 저장\n상품 가격 변화나 실시간 키워드 추적\n\n\n자동화 시에는 로그 저장, 날짜 기록, 중복 제거 등도 함께 고려해야 함"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#핵심-요약",
+    "href": "posts/crawling_ko.html#핵심-요약",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "핵심 요약",
+    "text": "핵심 요약\n\n정적 크롤링: rvest, html_table, dplyr\n\nAPI 기반: httr::GET(), jsonlite::fromJSON()\n\n동적 페이지 처리: RSelenium으로 JavaScript 인터랙션\n\n로그인/세션 처리: httr::POST()\n\n자동화 실행: cronR(Linux), taskscheduleR(Windows)\n\n위 기술들을 종합하면 실질적인 데이터 수집 프로젝트를 구현할 수 있음"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#정적-웹-크롤링-requests-beautifulsoup",
+    "href": "posts/crawling_ko.html#정적-웹-크롤링-requests-beautifulsoup",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "정적 웹 크롤링 (requests, BeautifulSoup)",
+    "text": "정적 웹 크롤링 (requests, BeautifulSoup)\n\nrequests 패키지로 HTML 페이지를 요청하고, BeautifulSoup으로 원하는 데이터를 추출\n\nHTML 태그 및 클래스 구조를 기반으로 텍스트, 링크, 테이블 등 수집 가능\n\n&lt;table&gt; 형식의 데이터는 pandas.read_html() 또는 BeautifulSoup + 수작업 파싱으로 처리 가능\n\npandas를 활용하여 데이터 정제 후 to_csv()로 저장 가능"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#api-기반-데이터-수집-requests-json-or-pandas",
+    "href": "posts/crawling_ko.html#api-기반-데이터-수집-requests-json-or-pandas",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "API 기반 데이터 수집 (requests, json or pandas)",
+    "text": "API 기반 데이터 수집 (requests, json or pandas)\n\nREST API를 활용하면 JSON 또는 XML로 구조화된 데이터를 직접 가져올 수 있음\n\nrequests.get()으로 API 호출, response.json() 또는 json.loads()로 파싱\n\n데이터는 pandas.DataFrame으로 변환 후 분석 및 저장 가능\n\nHTML 크롤링보다 빠르고 안정적이며, 유지보수가 쉬움"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#javascript-기반-동적-크롤링-selenium",
+    "href": "posts/crawling_ko.html#javascript-기반-동적-크롤링-selenium",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "JavaScript 기반 동적 크롤링 (Selenium)",
+    "text": "JavaScript 기반 동적 크롤링 (Selenium)\n\nJavaScript가 실행되어야 나타나는 콘텐츠는 requests나 BeautifulSoup으로는 수집 불가\n\nSelenium을 사용하면 실제 브라우저를 조작하듯 클릭, 스크롤 등 사용자 동작을 시뮬레이션 가능\n\n동적 콘텐츠가 로드된 이후의 HTML을 driver.page_source로 가져와 파싱\n\n무한스크롤, 버튼 클릭, 드롭다운 처리 등에 적합"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#로그인-및-세션-유지-requests.session-또는-selenium",
+    "href": "posts/crawling_ko.html#로그인-및-세션-유지-requests.session-또는-selenium",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "로그인 및 세션 유지 (requests.Session() 또는 Selenium)",
+    "text": "로그인 및 세션 유지 (requests.Session() 또는 Selenium)\n\n로그인 후 접근 가능한 페이지의 경우, 세션 쿠키를 유지하며 요청 필요\n\nrequests.Session()을 사용해 로그인 요청을 보내고 이후 페이지 접근\n\n또는 Selenium으로 로그인 과정을 자동화하고 이후 페이지 조작\n\n단, CAPTCHA, OTP 등 인증 절차가 있으면 자동화가 제한될 수 있음 → 가능하면 API 사용 권장"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#자동화-및-실전-프로젝트-1",
+    "href": "posts/crawling_ko.html#자동화-및-실전-프로젝트-1",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "자동화 및 실전 프로젝트",
+    "text": "자동화 및 실전 프로젝트\n\n크롤링 작업을 자동화하려면 스케줄러 또는 배치 시스템이 필요\n\nPython에서는 schedule, APScheduler, cron(Linux), 작업 스케줄러(Windows) 등을 활용\n\n예시 프로젝트:\n\n매일 뉴스 기사 수집 및 CSV 저장\n실시간 인기 키워드 또는 상품 가격 추적\n\n\n자동화 시 로그 저장, 중복 제거, 날짜 기록 등의 예외 처리가 중요함"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#핵심-요약-1",
+    "href": "posts/crawling_ko.html#핵심-요약-1",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "핵심 요약",
+    "text": "핵심 요약\n\n정적 크롤링: requests, BeautifulSoup, pandas\n\nAPI 활용: requests, json, pandas\n\n동적 크롤링: Selenium을 통한 JavaScript 제어\n\n로그인/세션 처리: requests.Session() 또는 Selenium 로그인 시퀀스\n\n자동화: schedule, APScheduler, cron, task scheduler\n\n이들을 조합하면 실전 웹 크롤링 및 데이터 수집 시스템 구축 가능"
+  },
+  {
+    "objectID": "posts/crawling_ko.html#요약",
+    "href": "posts/crawling_ko.html#요약",
+    "title": "Static and Dynamic Web Crawling with R & Python",
+    "section": "요약",
+    "text": "요약\n\nR은 분석 친화적인 환경에서 간단한 크롤링 & 정제 작업에 강하고,\n\nPython은 대규모 자동화, 복잡한 웹 구조 대응, API 중심 작업에 더 적합."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -291,7 +389,7 @@
     "href": "index.html",
     "title": "CapstoneDesign1",
     "section": "",
-    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nApr 5, 2025\n\n\nStatic and Dynamic Web Crawling with R & Python\n\n\nsw1kwon \n\n\n\n\nMar 31, 2025\n\n\nHTML & Markdown Practice\n\n\nsw1kwon \n\n\n\n\nMar 30, 2025\n\n\nHTML & Markdown\n\n\nsw1kwon \n\n\n\n\nMar 24, 2025\n\n\nCreating a Two-Digit Number from Two Dice Rolls: A Game Strategy\n\n\nsw1kwon \n\n\n\n\nMar 23, 2025\n\n\nStatistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving\n\n\nsw1kwon \n\n\n\n\n\nNo matching items"
+    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nApr 5, 2025\n\n\nStatic and Dynamic Web Crawling with R & Python\n\n\nsw1kwon \n\n\n\n\nApr 5, 2025\n\n\nStatic and Dynamic Web Crawling with R & Python\n\n\nsw1kwon \n\n\n\n\nMar 31, 2025\n\n\nHTML & Markdown Practice\n\n\nsw1kwon \n\n\n\n\nMar 30, 2025\n\n\nHTML & Markdown\n\n\nsw1kwon \n\n\n\n\nMar 24, 2025\n\n\nCreating a Two-Digit Number from Two Dice Rolls: A Game Strategy\n\n\nsw1kwon \n\n\n\n\nMar 23, 2025\n\n\nStatistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving\n\n\nsw1kwon \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/htmlmarkdownpractice.html",
