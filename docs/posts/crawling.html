@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="sw1kwon">
+<meta name="dcterms.date" content="2025-04-05">
 
-<title>CapstoneDesign1</title>
+<title>Static and Dynamic Web Crawling with R and Python – CapstoneDesign1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-0626ff4d7a71b55c8707dcae1d04a9b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3f453be5ec2ee49e579b43b94346acdb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0626ff4d7a71b55c8707dcae1d04a9b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3f453be5ec2ee49e579b43b94346acdb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +68,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">CapstoneDesign1</span>
     </a>
   </div>
@@ -149,7 +91,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -170,115 +112,320 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Static and Dynamic Web Crawling with R and Python</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>sw1kwon </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 5, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-web-crawling" id="toc-introduction-to-web-crawling" class="nav-link active" data-scroll-target="#introduction-to-web-crawling">Introduction to Web Crawling</a></li>
+  <li><a href="#web-crawling-with-r-summary" id="toc-web-crawling-with-r-summary" class="nav-link" data-scroll-target="#web-crawling-with-r-summary">Web Crawling with R – Summary</a>
+  <ul class="collapse">
+  <li><a href="#static-web-crawling-rvest" id="toc-static-web-crawling-rvest" class="nav-link" data-scroll-target="#static-web-crawling-rvest">Static Web Crawling (<code>rvest</code>)</a></li>
+  <li><a href="#api-based-data-collection-httr-jsonlite" id="toc-api-based-data-collection-httr-jsonlite" class="nav-link" data-scroll-target="#api-based-data-collection-httr-jsonlite">API-Based Data Collection (<code>httr</code>, <code>jsonlite</code>)</a></li>
+  <li><a href="#dynamic-crawling-with-javascript-rselenium" id="toc-dynamic-crawling-with-javascript-rselenium" class="nav-link" data-scroll-target="#dynamic-crawling-with-javascript-rselenium">Dynamic Crawling with JavaScript (<code>RSelenium</code>)</a></li>
+  <li><a href="#handling-login-and-sessions-httrpost" id="toc-handling-login-and-sessions-httrpost" class="nav-link" data-scroll-target="#handling-login-and-sessions-httrpost">Handling Login and Sessions (<code>httr::POST()</code>)</a></li>
+  <li><a href="#automation-and-real-world-projects" id="toc-automation-and-real-world-projects" class="nav-link" data-scroll-target="#automation-and-real-world-projects">Automation and Real-World Projects</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  </ul></li>
+  <li><a href="#web-crawling-with-python-summary" id="toc-web-crawling-with-python-summary" class="nav-link" data-scroll-target="#web-crawling-with-python-summary">Web Crawling with Python – Summary</a>
+  <ul class="collapse">
+  <li><a href="#static-web-crawling-requests-beautifulsoup" id="toc-static-web-crawling-requests-beautifulsoup" class="nav-link" data-scroll-target="#static-web-crawling-requests-beautifulsoup">Static Web Crawling (<code>requests</code>, <code>BeautifulSoup</code>)</a></li>
+  <li><a href="#api-based-data-collection-requests-json-pandas" id="toc-api-based-data-collection-requests-json-pandas" class="nav-link" data-scroll-target="#api-based-data-collection-requests-json-pandas">API-Based Data Collection (<code>requests</code>, <code>json</code>, <code>pandas</code>)</a></li>
+  <li><a href="#javascript-based-dynamic-crawling-selenium" id="toc-javascript-based-dynamic-crawling-selenium" class="nav-link" data-scroll-target="#javascript-based-dynamic-crawling-selenium">JavaScript-Based Dynamic Crawling (<code>Selenium</code>)</a></li>
+  <li><a href="#login-and-session-management-requests.session-or-selenium" id="toc-login-and-session-management-requests.session-or-selenium" class="nav-link" data-scroll-target="#login-and-session-management-requests.session-or-selenium">Login and Session Management (<code>requests.Session()</code> or <code>Selenium</code>)</a></li>
+  <li><a href="#automation-and-real-world-projects-1" id="toc-automation-and-real-world-projects-1" class="nav-link" data-scroll-target="#automation-and-real-world-projects-1">Automation and Real-World Projects</a></li>
+  <li><a href="#key-takeaways-1" id="toc-key-takeaways-1" class="nav-link" data-scroll-target="#key-takeaways-1">Key Takeaways</a></li>
+  </ul></li>
+  <li><a href="#web-crawling-r-vs-python" id="toc-web-crawling-r-vs-python" class="nav-link" data-scroll-target="#web-crawling-r-vs-python">Web Crawling: R vs Python</a>
+  <ul class="collapse">
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">CapstoneDesign1</h1>
-</div>
-
-
-
-<div class="quarto-title-meta column-page-left">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
+<section id="introduction-to-web-crawling" class="level1">
+<h1>Introduction to Web Crawling</h1>
+<ul>
+<li><strong>Web crawling</strong>: Navigating and collecting data from across multiple web pages<br>
+</li>
+<li><strong>Web scraping</strong>: Extracting specific information from a single page<br>
+</li>
+<li>Depending on the target, crawling is categorized as <strong>static (HTML-based)</strong> or <strong>dynamic (JavaScript-based)</strong></li>
+</ul>
+</section>
+<section id="web-crawling-with-r-summary" class="level1">
+<h1>Web Crawling with R – Summary</h1>
+<section id="static-web-crawling-rvest" class="level2">
+<h2 class="anchored" data-anchor-id="static-web-crawling-rvest">Static Web Crawling (<code>rvest</code>)</h2>
+<ul>
+<li>Use the <code>rvest</code> package to extract content directly from HTML pages<br>
+</li>
+<li>Functions like <code>read_html()</code>, <code>html_nodes()</code>, and <code>html_text()</code> help collect text, links, etc.<br>
+</li>
+<li>Tables built with <code>&lt;table&gt;</code> tags can be converted into data frames using <code>html_table()</code><br>
+</li>
+<li>Use <code>dplyr</code> for cleaning the data and <code>write.csv()</code> to save it</li>
+</ul>
+</section>
+<section id="api-based-data-collection-httr-jsonlite" class="level2">
+<h2 class="anchored" data-anchor-id="api-based-data-collection-httr-jsonlite">API-Based Data Collection (<code>httr</code>, <code>jsonlite</code>)</h2>
+<ul>
+<li>APIs provide structured data (JSON/XML) directly from the server<br>
+</li>
+<li>Use <code>httr::GET()</code> to request data and <code>jsonlite::fromJSON()</code> to parse the JSON response<br>
+</li>
+<li>API-based collection is faster and more stable than HTML scraping<br>
+</li>
+<li>You can extract fields like article titles, links, and dates, and save them as CSV</li>
+</ul>
+</section>
+<section id="dynamic-crawling-with-javascript-rselenium" class="level2">
+<h2 class="anchored" data-anchor-id="dynamic-crawling-with-javascript-rselenium">Dynamic Crawling with JavaScript (<code>RSelenium</code>)</h2>
+<ul>
+<li>Pages rendered by JavaScript cannot be scraped using <code>rvest</code><br>
+</li>
+<li>Use <code>RSelenium</code> to automate a browser and interact with JavaScript-based pages<br>
+</li>
+<li>Simulate user actions like clicking buttons, scrolling down, or handling infinite scroll<br>
+</li>
+<li>Requires setting up a web driver, and may depend on the system configuration</li>
+</ul>
+</section>
+<section id="handling-login-and-sessions-httrpost" class="level2">
+<h2 class="anchored" data-anchor-id="handling-login-and-sessions-httrpost">Handling Login and Sessions (<code>httr::POST()</code>)</h2>
+<ul>
+<li>Some websites require login before data can be accessed<br>
+</li>
+<li>Simulate login with <code>httr::POST()</code> and maintain session cookies<br>
+</li>
+<li>Note: Many modern websites use CAPTCHA or 2FA, so automatic login may be blocked<br>
+</li>
+<li>When possible, prefer official APIs with proper authentication</li>
+</ul>
+</section>
+<section id="automation-and-real-world-projects" class="level2">
+<h2 class="anchored" data-anchor-id="automation-and-real-world-projects">Automation and Real-World Projects</h2>
+<ul>
+<li>To run crawlers regularly, you need automation tools<br>
+</li>
+<li><strong>Linux</strong>: Use <code>cronR</code>; <strong>Windows</strong>: Use <code>taskscheduleR</code><br>
+</li>
+<li>Example projects:
+<ul>
+<li>Daily crawling of trending news, saved to a cumulative CSV</li>
+<li>Monitoring product price changes or trending keywords<br>
+</li>
+</ul></li>
+<li>When automating, also consider logging, date-tracking, and duplicate removal</li>
+</ul>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Static scraping</strong>: <code>rvest</code>, <code>html_table</code>, <code>dplyr</code><br>
+</li>
+<li><strong>API-based</strong>: <code>httr::GET()</code>, <code>jsonlite::fromJSON()</code><br>
+</li>
+<li><strong>Dynamic pages</strong>: <code>RSelenium</code> for JavaScript interactions<br>
+</li>
+<li><strong>Login/session handling</strong>: <code>httr::POST()</code><br>
+</li>
+<li><strong>Automation</strong>: <code>cronR</code> (Linux), <code>taskscheduleR</code> (Windows)<br>
+</li>
+<li>All techniques come together in real-world data collection projects</li>
+</ul>
+</section>
+</section>
+<section id="web-crawling-with-python-summary" class="level1">
+<h1>Web Crawling with Python – Summary</h1>
+<section id="static-web-crawling-requests-beautifulsoup" class="level2">
+<h2 class="anchored" data-anchor-id="static-web-crawling-requests-beautifulsoup">Static Web Crawling (<code>requests</code>, <code>BeautifulSoup</code>)</h2>
+<ul>
+<li>Use <code>requests</code> to fetch HTML pages and <code>BeautifulSoup</code> to parse them<br>
+</li>
+<li>Extract text, links, or tables based on HTML tags and class structures<br>
+</li>
+<li>Use <code>pandas.read_html()</code> for tables, or manually parse with <code>BeautifulSoup</code><br>
+</li>
+<li>Clean data using <code>pandas</code> and save with <code>.to_csv()</code></li>
+</ul>
+</section>
+<section id="api-based-data-collection-requests-json-pandas" class="level2">
+<h2 class="anchored" data-anchor-id="api-based-data-collection-requests-json-pandas">API-Based Data Collection (<code>requests</code>, <code>json</code>, <code>pandas</code>)</h2>
+<ul>
+<li>REST APIs provide structured data (JSON/XML) directly<br>
+</li>
+<li>Use <code>requests.get()</code> and <code>response.json()</code> or <code>json.loads()</code> to parse responses<br>
+</li>
+<li>Convert JSON to <code>pandas.DataFrame</code> for analysis and export<br>
+</li>
+<li>More stable and faster than HTML scraping</li>
+</ul>
+</section>
+<section id="javascript-based-dynamic-crawling-selenium" class="level2">
+<h2 class="anchored" data-anchor-id="javascript-based-dynamic-crawling-selenium">JavaScript-Based Dynamic Crawling (<code>Selenium</code>)</h2>
+<ul>
+<li>JavaScript-rendered pages can’t be scraped with <code>requests</code> or <code>BeautifulSoup</code><br>
+</li>
+<li>Use <code>Selenium</code> to simulate browser actions (clicks, scrolling, etc.)<br>
+</li>
+<li>Extract final content using <code>driver.page_source</code> after the page loads<br>
+</li>
+<li>Ideal for infinite scrolls, pop-ups, and dynamic interactions</li>
+</ul>
+</section>
+<section id="login-and-session-management-requests.session-or-selenium" class="level2">
+<h2 class="anchored" data-anchor-id="login-and-session-management-requests.session-or-selenium">Login and Session Management (<code>requests.Session()</code> or <code>Selenium</code>)</h2>
+<ul>
+<li>Use <code>requests.Session()</code> to maintain cookies and login credentials<br>
+</li>
+<li>For complex interactions, automate login via <code>Selenium</code><br>
+</li>
+<li>Beware of CAPTCHA or multi-factor authentication – prefer APIs if available</li>
+</ul>
+</section>
+<section id="automation-and-real-world-projects-1" class="level2">
+<h2 class="anchored" data-anchor-id="automation-and-real-world-projects-1">Automation and Real-World Projects</h2>
+<ul>
+<li>Use schedulers or job runners to automate crawling<br>
+</li>
+<li>Tools: <code>schedule</code>, <code>APScheduler</code>, <code>cron</code> (Linux), Task Scheduler (Windows)<br>
+</li>
+<li>Example use cases:
+<ul>
+<li>Daily news scraping into CSV<br>
+</li>
+<li>Monitoring product price trends or real-time keywords<br>
+</li>
+</ul></li>
+<li>Include logging, duplicate checks, and date-stamping for reliability</li>
+</ul>
+</section>
+<section id="key-takeaways-1" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways-1">Key Takeaways</h2>
+<ul>
+<li><strong>Static scraping</strong>: <code>requests</code>, <code>BeautifulSoup</code>, <code>pandas</code><br>
+</li>
+<li><strong>API collection</strong>: <code>requests</code>, <code>json</code>, <code>pandas</code><br>
+</li>
+<li><strong>Dynamic scraping</strong>: <code>Selenium</code> for full browser interaction<br>
+</li>
+<li><strong>Login/session</strong>: <code>requests.Session()</code> or automated login via <code>Selenium</code><br>
+</li>
+<li><strong>Automation</strong>: <code>schedule</code>, <code>APScheduler</code>, <code>cron</code>, Task Scheduler<br>
+</li>
+<li>Together, these tools can power scalable, real-world web crawling workflows</li>
+</ul>
+</section>
+</section>
+<section id="web-crawling-r-vs-python" class="level1">
+<h1>Web Crawling: R vs Python</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 38%">
+<col style="width: 44%">
+</colgroup>
 <thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
+<tr class="header">
+<th>Feature</th>
+<th>R</th>
+<th>Python</th>
 </tr>
 </thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1743778800000" data-listing-file-modified-sort="1743859455955" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1106" data-listing-title-sort="Static and Dynamic Web Crawling with R and Python" data-listing-filename-sort="crawling.ipynb">
-<td>
-<span class="listing-date">Apr 5, 2025</span>
-</td>
-<td>
-<a href="./posts/crawling.html" class="title listing-title">Static and Dynamic Web Crawling with R and Python</a>
-</td>
-<td>
-<span class="listing-author">sw1kwon </span>
-</td>
+<tbody>
+<tr class="odd">
+<td><strong>Static Crawling</strong></td>
+<td><code>rvest</code>, <code>html_table</code>, <code>dplyr</code></td>
+<td><code>requests</code>, <code>BeautifulSoup</code>, <code>pandas</code></td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1743346800000" data-listing-file-modified-sort="1743439337560" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2475" data-listing-title-sort="HTML &amp; Markdown Practice" data-listing-filename-sort="htmlmarkdownpractice.ipynb">
-<td>
-<span class="listing-date">Mar 31, 2025</span>
-</td>
-<td>
-<a href="./posts/htmlmarkdownpractice.html" class="title listing-title">HTML &amp; Markdown Practice</a>
-</td>
-<td>
-<span class="listing-author">sw1kwon </span>
-</td>
+<tr class="even">
+<td><strong>Table Extraction</strong></td>
+<td><code>html_table()</code> + <code>dplyr</code> for cleaning</td>
+<td><code>pandas.read_html()</code> or manual parsing with BeautifulSoup</td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1743260400000" data-listing-file-modified-sort="1743401140415" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2561" data-listing-title-sort="HTML &amp; Markdown" data-listing-filename-sort="htmlmarkdown.ipynb">
-<td>
-<span class="listing-date">Mar 30, 2025</span>
-</td>
-<td>
-<a href="./posts/htmlmarkdown.html" class="title listing-title">HTML &amp; Markdown</a>
-</td>
-<td>
-<span class="listing-author">sw1kwon </span>
-</td>
+<tr class="odd">
+<td><strong>API Requests</strong></td>
+<td><code>httr::GET()</code> + <code>jsonlite::fromJSON()</code></td>
+<td><code>requests.get()</code> + <code>response.json()</code> or <code>json.loads()</code></td>
 </tr>
-<tr data-index="3" data-listing-date-sort="1742742000000" data-listing-file-modified-sort="1742797149418" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="920" data-listing-title-sort="Creating a Two-Digit Number from Two Dice Rolls: A Game Strategy" data-listing-filename-sort="q14.ipynb">
-<td>
-<span class="listing-date">Mar 24, 2025</span>
-</td>
-<td>
-<a href="./posts/q14.html" class="title listing-title">Creating a Two-Digit Number from Two Dice Rolls: A Game Strategy</a>
-</td>
-<td>
-<span class="listing-author">sw1kwon </span>
-</td>
+<tr class="even">
+<td><strong>Dynamic Crawling</strong></td>
+<td><code>RSelenium</code></td>
+<td><code>Selenium</code></td>
 </tr>
-<tr data-index="4" data-listing-date-sort="1742655600000" data-listing-file-modified-sort="1742794756961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3071" data-listing-title-sort="Statistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving" data-listing-filename-sort="PPDAC.ipynb">
-<td>
-<span class="listing-date">Mar 23, 2025</span>
-</td>
-<td>
-<a href="./posts/PPDAC.html" class="title listing-title">Statistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving</a>
-</td>
-<td>
-<span class="listing-author">sw1kwon </span>
-</td>
+<tr class="odd">
+<td><strong>Login Handling</strong></td>
+<td><code>httr::POST()</code> + session cookies</td>
+<td><code>requests.Session()</code> or login via <code>Selenium</code></td>
+</tr>
+<tr class="even">
+<td><strong>Automation Tools</strong></td>
+<td><code>cronR</code> (Linux), <code>taskscheduleR</code> (Windows)</td>
+<td><code>cron</code>, <code>schedule</code>, <code>APScheduler</code>, Windows Task Scheduler</td>
+</tr>
+<tr class="odd">
+<td><strong>Strengths</strong></td>
+<td>Strong for statistics and quick data cleaning</td>
+<td>Broad ecosystem, powerful libraries, large community</td>
+</tr>
+<tr class="even">
+<td><strong>Weaknesses</strong></td>
+<td>Setup can be tricky; less real-time flexibility</td>
+<td>Steeper learning curve when combining with web tech</td>
 </tr>
 </tbody>
 </table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<ul>
+<li><strong>R</strong> is great for statistical workflows and lightweight crawling combined with data wrangling.</li>
+<li><strong>Python</strong> excels in scalable automation, complex website handling, and API-based data pipelines.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
