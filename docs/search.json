@@ -280,6 +280,20 @@
     "text": "Conclusion\nPPDAC is the most general statistical problem-solving process, but different frameworks can be utilized depending on specific purposes such as education, business, experimental design, or machine learning.\n\nEducation and research purposes: GAISE, Hypothesis Testing Process\n\nBusiness analysis and optimization: DDDM, DCOVA\n\nExperiment and test-based analysis: DOE\n\nMachine learning and data mining: CRISP-DM\n\n\nIn statistical problem-solving, PPDAC is the most versatile framework, but it is essential to use other frameworks as needed!"
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CapstoneDesign1",
+    "section": "",
+    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nApr 5, 2025\n\n\nStatic and Dynamic Web Crawling with R & Python\n\n\nsw1kwon \n\n\n\n\nMar 31, 2025\n\n\nHTML & Markdown Practice\n\n\nsw1kwon \n\n\n\n\nMar 30, 2025\n\n\nHTML & Markdown\n\n\nsw1kwon \n\n\n\n\nMar 24, 2025\n\n\nCreating a Two-Digit Number from Two Dice Rolls: A Game Strategy\n\n\nsw1kwon \n\n\n\n\nMar 23, 2025\n\n\nStatistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving\n\n\nsw1kwon \n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "posts/htmlmarkdownpractice.html",
     "href": "posts/htmlmarkdownpractice.html",
     "title": "HTML & Markdown Practice",
@@ -329,114 +343,100 @@
     "text": "Practice\n\nGitHub repository URL (with a README.md file)\nhttps://github.com/sw1kwon/EPLdata\n\n\n\nCreate an Issue template under .github/ISSUE_TEMPLATE/\n\n\n\nAdd a Pull Request template using .github/PULL_REQUEST_TEMPLATE.md\n\n\n\nWrite a README.md file in your GitHub repository including:\n# rank\n\nEach file contains season-specific standings, separated into:\n\n## Data Coverage\n\n- Seasons: 1992–93 (`9293`) to 2023–24 (`2324`)\n- Match Type:\n  - `All` (overall matches)\n  - `Home` (home performance only)\n  - `Away` (away performance only)\n\n## Repository Structure\n\n```\n/rank/\n├── rank_9293All.csv\n├── rank_9293Home.csv\n├── rank_9293Away.csv\n├── ...\n└── rank_2324All.csv\n```\n\n# season_dashboard.Rmd\n\n## EPL Dashboard Overview\n\nThis dashboard, written in R using **RMarkdown + Flexdashboard + Plotly**, provides a visual summary of EPL standings for a given season and match type (All / Home / Away).\n\n## How It Works\n\n- CSV data is loaded directly from GitHub using the `params$season` and `params$type` values.\n\n## Dashboard Layout\n\nThe dashboard consists of two columns:\n\n### Left Column: Full Standings Table\n\n- Displays the full league table using `DT::datatable()`\n- Supports pagination and horizontal scroll for better viewing\n\n### Right Column: Visual Analytics\n\n#### 1. **Top 5 Teams by Points**\n\n- Bar chart showing the top 5 teams\n- Each bar includes a tooltip with:\n  - Win / Draw / Loss record\n  - GF, GA, GD values\n- Points are labeled outside the bar\n\n#### 2. **Points vs Goal Difference**\n\n- Scatter plot comparing `Points` vs `GD` for all teams\n- Color gradient represents `Pos` (position):  \n  - `darkorange` for higher rank (lower number)  \n  - `skyblue` for lower rank (higher number)\n- Interactive tooltips show team names and key stats\n\n## Parameters Used\n\n```yaml\nparams:\n  season: \"2223\"\n  type: \"All\"\n```\n\n\nseason_dashboard.Rmd\n---\ntitle: \"EPL Season Report\"\nauthor: \"Soonwon KWON\"\ndate: \"`r Sys.Date()`\"\noutput: \n  flexdashboard::flex_dashboard:\n    orientation: columns\n    vertical_layout: scroll\n    theme: flatly\nparams:\n  season: \"9293\"\n  type: \"All\"    # All, Home, Away\n---\n\n```{r setup, include=FALSE}\nlibrary(tidyverse)\nlibrary(DT)\n\nbase_url &lt;- \"https://raw.githubusercontent.com/sw1kwon/EPLdata/refs/heads/main/rank/\"\n\ncsv_file &lt;- paste0(\"rank_\", params$season, params$type, \".csv\")\nfull_url &lt;- paste0(base_url, csv_file)\n\ndf &lt;- read.csv(full_url)\n\nstr(df)\n```\n\n### Column {data-width=500}\n-----------------------------------------------------------------------\n\n### 🏆 Full Standings Table\n\n```{r}\ndatatable(df, options = list(pageLength = 10, scrollX = TRUE))\n```\n\n---\n\n### Column {data-width=500}\n-----------------------------------------------------------------------\n\n### 🔝 Top 5 Teams by Points\n\n```{r}\nlibrary(plotly)\n\ntop_n &lt;- df %&gt;% \n  arrange(desc(Points)) %&gt;% \n  slice_head(n = 5)\n\np1 &lt;- ggplot(top_n, aes(x = reorder(Team, Points), y = Points,\n                        fill = Team,\n                        text = paste0(\n                          \"Won: \", Won, \", Drawn: \", Drawn, \", Lost: \", Lost, \"&lt;br&gt;\",\n                          \"GF: \", GF, \", GA: \", GA, \"&lt;br&gt;\",\n                          \"GD: \", GD\n                        ))) +\n  geom_col(show.legend = FALSE) +\n  geom_text(aes(label = Points), hjust = -0.2, size = 4) +\n  coord_flip() +\n  labs(title = paste(\"Top 5 Teams -\", params$season, params$type),\n       x = \"Team\", y = \"Points\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\nggplotly(p1, tooltip = \"text\")\n```\n\n---\n\n### ⚽ Points vs Goal Difference\n\n```{r}\np2 &lt;- ggplot(df, aes(x = GD, y = Points,\n                     color = Pos,\n                     text = paste0(\n                       \"Team: \", Team, \"&lt;br&gt;\",\n                       \"Pos: \", Pos, \" | Points: \", Points, \"&lt;br&gt;\",\n                       \"GF: \", GF, \", GA: \", GA, \" | GD: \", GD\n                     ))) +\n  geom_point(size = 3) +\n  scale_color_gradient(low = \"darkorange\", high = \"skyblue\") +\n  labs(\n    title = paste(\"Performance Overview -\", params$season, params$type),\n    x = \"Goal Difference (GD)\", y = \"Points (Pts)\"\n  ) +\n  theme_minimal()\n\nggplotly(p2, tooltip = \"text\")\n```\n\n\nCreate an Issue on GitHub and describe it using Markdown formatting\n\n\n\nCreate a Pull Request and write a Markdown-formatted message\n\n\nData Notes\n\nAt the time, I was working on a database project. During the crawling and preprocessing phase, I intentionally removed the GD (Goal Difference) column, since it could be calculated using GF - GA.\nHowever, I chose to keep the Points column because in some cases, the points did not follow the standard formula 3 × Won + 1 × Drawn + 0 × Lost, due to point deductions from disciplinary sanctions.\n\n\n\n\nImportant Notes\n\nAt the bottom of the edit page, select “Create a new branch for this commit and start a pull request”\nSuggested branch name: fix/add-gd-column\nMake sure to include the line Fixes #1 in the pull request description (replace 1 with your actual issue number)\nGitHub does not distinguish letter case: fixes, Fixes, and FIXES are all valid\nThe issue will only be automatically closed after the pull request is merged into the main branch\n\n\n\n\n\n\nEdit a README.md file\n\nAdd the following sentence:\n\nIf the dataset does not contain the GD (Goal Difference) column, it is automatically calculated as GF - GA.\n# rank\n\nEach file contains season-specific standings, separated into:\n\n## Data Coverage\n\n- Seasons: 1992–93 (`9293`) to 2023–24 (`2324`)\n- Match Type:\n  - `All` (overall matches)\n  - `Home` (home performance only)\n  - `Away` (away performance only)\n\n## Repository Structure\n\n```\n/rank/\n├── rank_9293All.csv\n├── rank_9293Home.csv\n├── rank_9293Away.csv\n├── ...\n└── rank_2324All.csv\n```\n\n# season_dashboard.Rmd\n\n## EPL Dashboard Overview\n\nThis dashboard, written in R using **RMarkdown + Flexdashboard + Plotly**, provides a visual summary of EPL standings for a given season and match type (All / Home / Away).\n\n## How It Works\n\n- CSV data is loaded directly from GitHub using the `params$season` and `params$type` values.\n- If the dataset does not contain the `GD` (Goal Difference) column, it is automatically calculated as `GF - GA`.\n\n## Dashboard Layout\n\nThe dashboard consists of two columns:\n\n### Left Column: Full Standings Table\n\n- Displays the full league table using `DT::datatable()`\n- Supports pagination and horizontal scroll for better viewing\n\n### Right Column: Visual Analytics\n\n#### 1. **Top 5 Teams by Points**\n\n- Bar chart showing the top 5 teams\n- Each bar includes a tooltip with:\n  - Win / Draw / Loss record\n  - GF, GA, GD values\n- Points are labeled outside the bar\n\n#### 2. **Points vs Goal Difference**\n\n- Scatter plot comparing `Points` vs `GD` for all teams\n- Color gradient represents `Pos` (position):  \n  - `darkorange` for higher rank (lower number)  \n  - `skyblue` for lower rank (higher number)\n- Interactive tooltips show team names and key stats\n\n## Parameters Used\n\n```yaml\nparams:\n  season: \"2223\"\n  type: \"All\"\n```\n\n\nModified Dashboard Example\nhttps://sw1kwon.github.io/assets/html/final_report.html\n\nseason_dashboard.Rmd\n\nhttps://github.com/sw1kwon/EPLdata/blob/main/rank/season_dashboard.Rmd\n---\ntitle: \"EPL Season Report\"\nauthor: \"Soonwon KWON\"\ndate: \"`r Sys.Date()`\"\noutput: \n  flexdashboard::flex_dashboard:\n    orientation: columns\n    vertical_layout: scroll\n    theme: flatly\nparams:\n  season: \"9293\"\n  type: \"All\"    # All, Home, Away\n---\n\n```{r setup, include=FALSE}\nlibrary(tidyverse)\nlibrary(DT)\n\nbase_url &lt;- \"https://raw.githubusercontent.com/sw1kwon/EPLdata/refs/heads/main/rank/\"\n\ncsv_file &lt;- paste0(\"rank_\", params$season, params$type, \".csv\")\nfull_url &lt;- paste0(base_url, csv_file)\n\ndf &lt;- read.csv(full_url)\n\n\n# GD (Goal Difference)\nif (!\"GD\" %in% names(df) & all(c(\"GF\", \"GA\") %in% names(df))) {\n  df &lt;- df %&gt;% mutate(GD = GF - GA)\n}\n\n\nstr(df)\n```\n\n### Column {data-width=500}\n-----------------------------------------------------------------------\n\n### 🏆 Full Standings Table\n\n```{r}\ndatatable(df, options = list(pageLength = 10, scrollX = TRUE))\n```\n\n---\n\n### Column {data-width=500}\n-----------------------------------------------------------------------\n\n### 🔝 Top 5 Teams by Points\n\n```{r}\nlibrary(plotly)\n\ntop_n &lt;- df %&gt;% \n  arrange(desc(Points)) %&gt;% \n  slice_head(n = 5)\n\np1 &lt;- ggplot(top_n, aes(x = reorder(Team, Points), y = Points,\n                        fill = Team,\n                        text = paste0(\n                          \"Won: \", Won, \", Drawn: \", Drawn, \", Lost: \", Lost, \"&lt;br&gt;\",\n                          \"GF: \", GF, \", GA: \", GA, \"&lt;br&gt;\",\n                          \"GD: \", GD\n                        ))) +\n  geom_col(show.legend = FALSE) +\n  geom_text(aes(label = Points), hjust = -0.2, size = 4) +\n  coord_flip() +\n  labs(title = paste(\"Top 5 Teams -\", params$season, params$type),\n       x = \"Team\", y = \"Points\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\nggplotly(p1, tooltip = \"text\")\n```\n\n---\n\n### ⚽ Points vs Goal Difference\n\n```{r}\np2 &lt;- ggplot(df, aes(x = GD, y = Points,\n                     color = Pos,\n                     text = paste0(\n                       \"Team: \", Team, \"&lt;br&gt;\",\n                       \"Pos: \", Pos, \" | Points: \", Points, \"&lt;br&gt;\",\n                       \"GF: \", GF, \", GA: \", GA, \" | GD: \", GD\n                     ))) +\n  geom_point(size = 3) +\n  scale_color_gradient(low = \"darkorange\", high = \"skyblue\") +\n  labs(\n    title = paste(\"Performance Overview -\", params$season, params$type),\n    x = \"Goal Difference (GD)\", y = \"Points (Pts)\"\n  ) +\n  theme_minimal()\n\nggplotly(p2, tooltip = \"text\")\n```"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "CapstoneDesign1",
-    "section": "",
-    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nApr 5, 2025\n\n\nStatic and Dynamic Web Crawling with R and Python\n\n\nsw1kwon \n\n\n\n\nMar 31, 2025\n\n\nHTML & Markdown Practice\n\n\nsw1kwon \n\n\n\n\nMar 30, 2025\n\n\nHTML & Markdown\n\n\nsw1kwon \n\n\n\n\nMar 24, 2025\n\n\nCreating a Two-Digit Number from Two Dice Rolls: A Game Strategy\n\n\nsw1kwon \n\n\n\n\nMar 23, 2025\n\n\nStatistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving\n\n\nsw1kwon \n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
     "objectID": "posts/crawling.html",
     "href": "posts/crawling.html",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "",
     "text": "Web crawling: Navigating and collecting data from across multiple web pages\n\nWeb scraping: Extracting specific information from a single page\n\nDepending on the target, crawling is categorized as static (HTML-based) or dynamic (JavaScript-based)"
   },
   {
     "objectID": "posts/crawling.html#static-web-crawling-rvest",
     "href": "posts/crawling.html#static-web-crawling-rvest",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "Static Web Crawling (rvest)",
     "text": "Static Web Crawling (rvest)\n\nUse the rvest package to extract content directly from HTML pages\n\nFunctions like read_html(), html_nodes(), and html_text() help collect text, links, etc.\n\nTables built with &lt;table&gt; tags can be converted into data frames using html_table()\n\nUse dplyr for cleaning the data and write.csv() to save it"
   },
   {
     "objectID": "posts/crawling.html#api-based-data-collection-httr-jsonlite",
     "href": "posts/crawling.html#api-based-data-collection-httr-jsonlite",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "API-Based Data Collection (httr, jsonlite)",
     "text": "API-Based Data Collection (httr, jsonlite)\n\nAPIs provide structured data (JSON/XML) directly from the server\n\nUse httr::GET() to request data and jsonlite::fromJSON() to parse the JSON response\n\nAPI-based collection is faster and more stable than HTML scraping\n\nYou can extract fields like article titles, links, and dates, and save them as CSV"
   },
   {
     "objectID": "posts/crawling.html#dynamic-crawling-with-javascript-rselenium",
     "href": "posts/crawling.html#dynamic-crawling-with-javascript-rselenium",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "Dynamic Crawling with JavaScript (RSelenium)",
     "text": "Dynamic Crawling with JavaScript (RSelenium)\n\nPages rendered by JavaScript cannot be scraped using rvest\n\nUse RSelenium to automate a browser and interact with JavaScript-based pages\n\nSimulate user actions like clicking buttons, scrolling down, or handling infinite scroll\n\nRequires setting up a web driver, and may depend on the system configuration"
   },
   {
     "objectID": "posts/crawling.html#handling-login-and-sessions-httrpost",
     "href": "posts/crawling.html#handling-login-and-sessions-httrpost",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "Handling Login and Sessions (httr::POST())",
     "text": "Handling Login and Sessions (httr::POST())\n\nSome websites require login before data can be accessed\n\nSimulate login with httr::POST() and maintain session cookies\n\nNote: Many modern websites use CAPTCHA or 2FA, so automatic login may be blocked\n\nWhen possible, prefer official APIs with proper authentication"
   },
   {
     "objectID": "posts/crawling.html#automation-and-real-world-projects",
     "href": "posts/crawling.html#automation-and-real-world-projects",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "Automation and Real-World Projects",
     "text": "Automation and Real-World Projects\n\nTo run crawlers regularly, you need automation tools\n\nLinux: Use cronR; Windows: Use taskscheduleR\n\nExample projects:\n\nDaily crawling of trending news, saved to a cumulative CSV\nMonitoring product price changes or trending keywords\n\n\nWhen automating, also consider logging, date-tracking, and duplicate removal"
   },
   {
     "objectID": "posts/crawling.html#key-takeaways",
     "href": "posts/crawling.html#key-takeaways",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "Key Takeaways",
     "text": "Key Takeaways\n\nStatic scraping: rvest, html_table, dplyr\n\nAPI-based: httr::GET(), jsonlite::fromJSON()\n\nDynamic pages: RSelenium for JavaScript interactions\n\nLogin/session handling: httr::POST()\n\nAutomation: cronR (Linux), taskscheduleR (Windows)\n\nAll techniques come together in real-world data collection projects"
   },
   {
     "objectID": "posts/crawling.html#static-web-crawling-requests-beautifulsoup",
     "href": "posts/crawling.html#static-web-crawling-requests-beautifulsoup",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "Static Web Crawling (requests, BeautifulSoup)",
     "text": "Static Web Crawling (requests, BeautifulSoup)\n\nUse requests to fetch HTML pages and BeautifulSoup to parse them\n\nExtract text, links, or tables based on HTML tags and class structures\n\nUse pandas.read_html() for tables, or manually parse with BeautifulSoup\n\nClean data using pandas and save with .to_csv()"
   },
   {
     "objectID": "posts/crawling.html#api-based-data-collection-requests-json-pandas",
     "href": "posts/crawling.html#api-based-data-collection-requests-json-pandas",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "API-Based Data Collection (requests, json, pandas)",
     "text": "API-Based Data Collection (requests, json, pandas)\n\nREST APIs provide structured data (JSON/XML) directly\n\nUse requests.get() and response.json() or json.loads() to parse responses\n\nConvert JSON to pandas.DataFrame for analysis and export\n\nMore stable and faster than HTML scraping"
   },
   {
     "objectID": "posts/crawling.html#javascript-based-dynamic-crawling-selenium",
     "href": "posts/crawling.html#javascript-based-dynamic-crawling-selenium",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "JavaScript-Based Dynamic Crawling (Selenium)",
     "text": "JavaScript-Based Dynamic Crawling (Selenium)\n\nJavaScript-rendered pages can’t be scraped with requests or BeautifulSoup\n\nUse Selenium to simulate browser actions (clicks, scrolling, etc.)\n\nExtract final content using driver.page_source after the page loads\n\nIdeal for infinite scrolls, pop-ups, and dynamic interactions"
   },
   {
     "objectID": "posts/crawling.html#login-and-session-management-requests.session-or-selenium",
     "href": "posts/crawling.html#login-and-session-management-requests.session-or-selenium",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "Login and Session Management (requests.Session() or Selenium)",
     "text": "Login and Session Management (requests.Session() or Selenium)\n\nUse requests.Session() to maintain cookies and login credentials\n\nFor complex interactions, automate login via Selenium\n\nBeware of CAPTCHA or multi-factor authentication – prefer APIs if available"
   },
   {
     "objectID": "posts/crawling.html#automation-and-real-world-projects-1",
     "href": "posts/crawling.html#automation-and-real-world-projects-1",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "Automation and Real-World Projects",
     "text": "Automation and Real-World Projects\n\nUse schedulers or job runners to automate crawling\n\nTools: schedule, APScheduler, cron (Linux), Task Scheduler (Windows)\n\nExample use cases:\n\nDaily news scraping into CSV\n\nMonitoring product price trends or real-time keywords\n\n\nInclude logging, duplicate checks, and date-stamping for reliability"
   },
   {
     "objectID": "posts/crawling.html#key-takeaways-1",
     "href": "posts/crawling.html#key-takeaways-1",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "Key Takeaways",
     "text": "Key Takeaways\n\nStatic scraping: requests, BeautifulSoup, pandas\n\nAPI collection: requests, json, pandas\n\nDynamic scraping: Selenium for full browser interaction\n\nLogin/session: requests.Session() or automated login via Selenium\n\nAutomation: schedule, APScheduler, cron, Task Scheduler\n\nTogether, these tools can power scalable, real-world web crawling workflows"
   },
   {
     "objectID": "posts/crawling.html#summary",
     "href": "posts/crawling.html#summary",
-    "title": "Static and Dynamic Web Crawling with R and Python",
+    "title": "Static and Dynamic Web Crawling with R & Python",
     "section": "Summary",
     "text": "Summary\n\nR is great for statistical workflows and lightweight crawling combined with data wrangling.\nPython excels in scalable automation, complex website handling, and API-based data pipelines."
   },
