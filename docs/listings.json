@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/crawling_ko.html",
       "/posts/crawling.html",
       "/posts/htmlmarkdownpractice.html",
       "/posts/htmlmarkdown.html",

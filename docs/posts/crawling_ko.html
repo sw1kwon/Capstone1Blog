@@ -9,7 +9,7 @@
 <meta name="author" content="sw1kwon">
 <meta name="dcterms.date" content="2025-04-05">
 
-<title>Static and Dynamic Web Crawling with R &amp; Python – CapstoneDesign1</title>
+<title>Static and Dynamic Web Crawling with R &amp; Python (ko) – CapstoneDesign1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Static and Dynamic Web Crawling with R &amp; Python</h1>
+      <h1 class="title">Static and Dynamic Web Crawling with R &amp; Python (ko)</h1>
                       </div>
   </div>
     
@@ -148,28 +148,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-web-crawling" id="toc-introduction-to-web-crawling" class="nav-link active" data-scroll-target="#introduction-to-web-crawling">Introduction to Web Crawling</a></li>
-  <li><a href="#web-crawling-with-r-summary" id="toc-web-crawling-with-r-summary" class="nav-link" data-scroll-target="#web-crawling-with-r-summary">Web Crawling with R – Summary</a>
+  <li><a href="#웹-크롤링-소개" id="toc-웹-크롤링-소개" class="nav-link active" data-scroll-target="#웹-크롤링-소개">웹 크롤링 소개</a></li>
+  <li><a href="#r을-활용한-웹-크롤링-요약" id="toc-r을-활용한-웹-크롤링-요약" class="nav-link" data-scroll-target="#r을-활용한-웹-크롤링-요약">R을 활용한 웹 크롤링 요약</a>
   <ul class="collapse">
-  <li><a href="#static-web-crawling-rvest" id="toc-static-web-crawling-rvest" class="nav-link" data-scroll-target="#static-web-crawling-rvest">Static Web Crawling (<code>rvest</code>)</a></li>
-  <li><a href="#api-based-data-collection-httr-jsonlite" id="toc-api-based-data-collection-httr-jsonlite" class="nav-link" data-scroll-target="#api-based-data-collection-httr-jsonlite">API-Based Data Collection (<code>httr</code>, <code>jsonlite</code>)</a></li>
-  <li><a href="#dynamic-crawling-with-javascript-rselenium" id="toc-dynamic-crawling-with-javascript-rselenium" class="nav-link" data-scroll-target="#dynamic-crawling-with-javascript-rselenium">Dynamic Crawling with JavaScript (<code>RSelenium</code>)</a></li>
-  <li><a href="#handling-login-and-sessions-httrpost" id="toc-handling-login-and-sessions-httrpost" class="nav-link" data-scroll-target="#handling-login-and-sessions-httrpost">Handling Login and Sessions (<code>httr::POST()</code>)</a></li>
-  <li><a href="#automation-and-real-world-projects" id="toc-automation-and-real-world-projects" class="nav-link" data-scroll-target="#automation-and-real-world-projects">Automation and Real-World Projects</a></li>
-  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#정적-웹-크롤링-rvest" id="toc-정적-웹-크롤링-rvest" class="nav-link" data-scroll-target="#정적-웹-크롤링-rvest">정적 웹 크롤링 (<code>rvest</code>)</a></li>
+  <li><a href="#api-기반-데이터-수집-httr-jsonlite" id="toc-api-기반-데이터-수집-httr-jsonlite" class="nav-link" data-scroll-target="#api-기반-데이터-수집-httr-jsonlite">API 기반 데이터 수집 (<code>httr</code>, <code>jsonlite</code>)</a></li>
+  <li><a href="#javascript-기반-동적-크롤링-rselenium" id="toc-javascript-기반-동적-크롤링-rselenium" class="nav-link" data-scroll-target="#javascript-기반-동적-크롤링-rselenium">JavaScript 기반 동적 크롤링 (<code>RSelenium</code>)</a></li>
+  <li><a href="#로그인-및-세션-유지-처리-httrpost" id="toc-로그인-및-세션-유지-처리-httrpost" class="nav-link" data-scroll-target="#로그인-및-세션-유지-처리-httrpost">로그인 및 세션 유지 처리 (<code>httr::POST()</code>)</a></li>
+  <li><a href="#자동화-및-실전-프로젝트" id="toc-자동화-및-실전-프로젝트" class="nav-link" data-scroll-target="#자동화-및-실전-프로젝트">자동화 및 실전 프로젝트</a></li>
+  <li><a href="#핵심-요약" id="toc-핵심-요약" class="nav-link" data-scroll-target="#핵심-요약">핵심 요약</a></li>
   </ul></li>
-  <li><a href="#web-crawling-with-python-summary" id="toc-web-crawling-with-python-summary" class="nav-link" data-scroll-target="#web-crawling-with-python-summary">Web Crawling with Python – Summary</a>
+  <li><a href="#python을-활용한-웹-크롤링-요약" id="toc-python을-활용한-웹-크롤링-요약" class="nav-link" data-scroll-target="#python을-활용한-웹-크롤링-요약">Python을 활용한 웹 크롤링 요약</a>
   <ul class="collapse">
-  <li><a href="#static-web-crawling-requests-beautifulsoup" id="toc-static-web-crawling-requests-beautifulsoup" class="nav-link" data-scroll-target="#static-web-crawling-requests-beautifulsoup">Static Web Crawling (<code>requests</code>, <code>BeautifulSoup</code>)</a></li>
-  <li><a href="#api-based-data-collection-requests-json-pandas" id="toc-api-based-data-collection-requests-json-pandas" class="nav-link" data-scroll-target="#api-based-data-collection-requests-json-pandas">API-Based Data Collection (<code>requests</code>, <code>json</code>, <code>pandas</code>)</a></li>
-  <li><a href="#javascript-based-dynamic-crawling-selenium" id="toc-javascript-based-dynamic-crawling-selenium" class="nav-link" data-scroll-target="#javascript-based-dynamic-crawling-selenium">JavaScript-Based Dynamic Crawling (<code>Selenium</code>)</a></li>
-  <li><a href="#login-and-session-management-requests.session-or-selenium" id="toc-login-and-session-management-requests.session-or-selenium" class="nav-link" data-scroll-target="#login-and-session-management-requests.session-or-selenium">Login and Session Management (<code>requests.Session()</code> or <code>Selenium</code>)</a></li>
-  <li><a href="#automation-and-real-world-projects-1" id="toc-automation-and-real-world-projects-1" class="nav-link" data-scroll-target="#automation-and-real-world-projects-1">Automation and Real-World Projects</a></li>
-  <li><a href="#key-takeaways-1" id="toc-key-takeaways-1" class="nav-link" data-scroll-target="#key-takeaways-1">Key Takeaways</a></li>
+  <li><a href="#정적-웹-크롤링-requests-beautifulsoup" id="toc-정적-웹-크롤링-requests-beautifulsoup" class="nav-link" data-scroll-target="#정적-웹-크롤링-requests-beautifulsoup">정적 웹 크롤링 (<code>requests</code>, <code>BeautifulSoup</code>)</a></li>
+  <li><a href="#api-기반-데이터-수집-requests-json-or-pandas" id="toc-api-기반-데이터-수집-requests-json-or-pandas" class="nav-link" data-scroll-target="#api-기반-데이터-수집-requests-json-or-pandas">API 기반 데이터 수집 (<code>requests</code>, <code>json</code> or <code>pandas</code>)</a></li>
+  <li><a href="#javascript-기반-동적-크롤링-selenium" id="toc-javascript-기반-동적-크롤링-selenium" class="nav-link" data-scroll-target="#javascript-기반-동적-크롤링-selenium">JavaScript 기반 동적 크롤링 (<code>Selenium</code>)</a></li>
+  <li><a href="#로그인-및-세션-유지-requests.session-또는-selenium" id="toc-로그인-및-세션-유지-requests.session-또는-selenium" class="nav-link" data-scroll-target="#로그인-및-세션-유지-requests.session-또는-selenium">로그인 및 세션 유지 (<code>requests.Session()</code> 또는 <code>Selenium</code>)</a></li>
+  <li><a href="#자동화-및-실전-프로젝트-1" id="toc-자동화-및-실전-프로젝트-1" class="nav-link" data-scroll-target="#자동화-및-실전-프로젝트-1">자동화 및 실전 프로젝트</a></li>
+  <li><a href="#핵심-요약-1" id="toc-핵심-요약-1" class="nav-link" data-scroll-target="#핵심-요약-1">핵심 요약</a></li>
   </ul></li>
-  <li><a href="#web-crawling-r-vs-python" id="toc-web-crawling-r-vs-python" class="nav-link" data-scroll-target="#web-crawling-r-vs-python">Web Crawling: R vs Python</a>
+  <li><a href="#r-vs-python-웹-크롤링-비교표" id="toc-r-vs-python-웹-크롤링-비교표" class="nav-link" data-scroll-target="#r-vs-python-웹-크롤링-비교표">R vs Python 웹 크롤링 비교표</a>
   <ul class="collapse">
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#요약" id="toc-요약" class="nav-link" data-scroll-target="#요약">요약</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -181,332 +181,333 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="introduction-to-web-crawling" class="level1">
-<h1>Introduction to Web Crawling</h1>
+<section id="웹-크롤링-소개" class="level1">
+<h1>웹 크롤링 소개</h1>
 <ul>
-<li><strong>Web crawling</strong>: Navigating and collecting data from across multiple web pages<br>
+<li><strong>웹 크롤링</strong>: 여러 웹페이지를 탐색하며 데이터를 수집하는 작업<br>
 </li>
-<li><strong>Web scraping</strong>: Extracting specific information from a single page<br>
+<li><strong>웹 스크래핑</strong>: 한 웹페이지에서 필요한 정보를 추출하는 작업<br>
 </li>
-<li>Depending on the target, crawling is categorized as <strong>static (HTML-based)</strong> or <strong>dynamic (JavaScript-based)</strong></li>
+<li>대상에 따라 <strong>정적 크롤링(HTML 기반)</strong>과 <strong>동적 크롤링(JavaScript 기반)</strong>으로 구분됨</li>
 </ul>
 </section>
-<section id="web-crawling-with-r-summary" class="level1">
-<h1>Web Crawling with R – Summary</h1>
-<section id="static-web-crawling-rvest" class="level2">
-<h2 class="anchored" data-anchor-id="static-web-crawling-rvest">Static Web Crawling (<code>rvest</code>)</h2>
+<section id="r을-활용한-웹-크롤링-요약" class="level1">
+<h1>R을 활용한 웹 크롤링 요약</h1>
+<section id="정적-웹-크롤링-rvest" class="level2">
+<h2 class="anchored" data-anchor-id="정적-웹-크롤링-rvest">정적 웹 크롤링 (<code>rvest</code>)</h2>
 <ul>
-<li>Use the <code>rvest</code> package to extract content directly from HTML pages<br>
+<li><code>rvest</code> 패키지를 활용하여 HTML 페이지에서 직접 콘텐츠를 추출<br>
 </li>
-<li>Functions like <code>read_html()</code>, <code>html_nodes()</code>, and <code>html_text()</code> help collect text, links, etc.<br>
+<li><code>read_html()</code>, <code>html_nodes()</code>, <code>html_text()</code> 등의 함수로 텍스트, 링크 등을 수집<br>
 </li>
-<li>Tables built with <code>&lt;table&gt;</code> tags can be converted into data frames using <code>html_table()</code><br>
+<li><code>&lt;table&gt;</code> 태그로 구성된 표는 <code>html_table()</code>을 사용해 데이터프레임으로 변환 가능<br>
 </li>
-<li>Use <code>dplyr</code> for cleaning the data and <code>write.csv()</code> to save it</li>
+<li>수집한 데이터는 <code>dplyr</code>로 정제하고, <code>write.csv()</code>로 저장할 수 있음</li>
 </ul>
 </section>
-<section id="api-based-data-collection-httr-jsonlite" class="level2">
-<h2 class="anchored" data-anchor-id="api-based-data-collection-httr-jsonlite">API-Based Data Collection (<code>httr</code>, <code>jsonlite</code>)</h2>
+<section id="api-기반-데이터-수집-httr-jsonlite" class="level2">
+<h2 class="anchored" data-anchor-id="api-기반-데이터-수집-httr-jsonlite">API 기반 데이터 수집 (<code>httr</code>, <code>jsonlite</code>)</h2>
 <ul>
-<li>Web Crawling vs.&nbsp;API Data Collection</li>
+<li>웹 크롤링 vs.&nbsp;API 데이터 수집</li>
 </ul>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
-<col style="width: 35%">
-<col style="width: 50%">
+<col style="width: 34%">
+<col style="width: 52%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Category</th>
-<th>Web Crawling</th>
-<th>API Data Collection</th>
+<th>구분</th>
+<th>웹 크롤링</th>
+<th>API 데이터 수집</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Method</td>
-<td>Extract data from HTML</td>
-<td>Structured data provided by server (JSON/XML)</td>
+<td>방식</td>
+<td>HTML에서 데이터 추출</td>
+<td>서버에서 구조화된 데이터(JSON/XML) 제공</td>
 </tr>
 <tr class="even">
-<td>Tools</td>
+<td>도구</td>
 <td><code>rvest</code>, <code>RSelenium</code></td>
 <td><code>httr</code>, <code>jsonlite</code></td>
 </tr>
 <tr class="odd">
-<td>Speed</td>
-<td>Slower (requires HTML parsing)</td>
-<td>Faster (data is returned directly)</td>
+<td>속도</td>
+<td>느림 (페이지 파싱 필요)</td>
+<td>빠름 (바로 데이터 제공)</td>
 </tr>
 <tr class="even">
-<td>Stability</td>
-<td>Fragile (HTML changes break code)</td>
-<td>Stable (API structure is maintained)</td>
+<td>안정성</td>
+<td>HTML 변경 시 코드 수정 필요</td>
+<td>안정적 (API 구조가 유지됨)</td>
 </tr>
 <tr class="odd">
-<td>Legal Issues</td>
-<td>Must check <code>robots.txt</code></td>
-<td>Generally allowed (API key may be required)</td>
+<td>법적 이슈</td>
+<td><code>robots.txt</code> 확인 필요</td>
+<td>일반적으로 허용됨 (API 키 필요할 수도 있음)</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>APIs provide structured data (JSON/XML) directly from the server<br>
+<li>API는 서버로부터 구조화된 데이터(JSON/XML)를 직접 제공<br>
 </li>
-<li>Use <code>httr::GET()</code> to request data and <code>jsonlite::fromJSON()</code> to parse the JSON response<br>
+<li><code>httr::GET()</code>으로 요청하고, <code>jsonlite::fromJSON()</code>으로 JSON 응답을 파싱<br>
 </li>
-<li>API-based collection is faster and more stable than HTML scraping<br>
+<li>HTML 스크래핑보다 더 빠르고 안정적임<br>
 </li>
-<li>You can extract fields like article titles, links, and dates, and save them as CSV</li>
+<li>기사 제목, 링크, 날짜 등의 필드를 추출하여 CSV로 저장 가능</li>
 </ul>
 </section>
-<section id="dynamic-crawling-with-javascript-rselenium" class="level2">
-<h2 class="anchored" data-anchor-id="dynamic-crawling-with-javascript-rselenium">Dynamic Crawling with JavaScript (<code>RSelenium</code>)</h2>
+<section id="javascript-기반-동적-크롤링-rselenium" class="level2">
+<h2 class="anchored" data-anchor-id="javascript-기반-동적-크롤링-rselenium">JavaScript 기반 동적 크롤링 (<code>RSelenium</code>)</h2>
 <ul>
-<li>Pages rendered by JavaScript cannot be scraped using <code>rvest</code><br>
+<li>JavaScript로 렌더링되는 페이지는 <code>rvest</code>로는 수집할 수 없음<br>
 </li>
-<li>Use <code>RSelenium</code> to automate a browser and interact with JavaScript-based pages<br>
+<li><code>RSelenium</code>을 활용하여 브라우저를 자동화하고 동적 요소에 접근 가능<br>
 </li>
-<li>Simulate user actions like clicking buttons, scrolling down, or handling infinite scroll<br>
+<li>버튼 클릭, 스크롤 다운, 무한 스크롤 등의 사용자 동작을 시뮬레이션 가능<br>
 </li>
-<li>Requires setting up a web driver, and may depend on the system configuration</li>
+<li>웹 드라이버 설정이 필요하며 시스템 환경에 따라 다를 수 있음</li>
 </ul>
 </section>
-<section id="handling-login-and-sessions-httrpost" class="level2">
-<h2 class="anchored" data-anchor-id="handling-login-and-sessions-httrpost">Handling Login and Sessions (<code>httr::POST()</code>)</h2>
+<section id="로그인-및-세션-유지-처리-httrpost" class="level2">
+<h2 class="anchored" data-anchor-id="로그인-및-세션-유지-처리-httrpost">로그인 및 세션 유지 처리 (<code>httr::POST()</code>)</h2>
 <ul>
-<li>Some websites require login before data can be accessed<br>
+<li>일부 웹사이트는 로그인 후에만 데이터 접근이 가능함<br>
 </li>
-<li>Simulate login with <code>httr::POST()</code> and maintain session cookies<br>
+<li><code>httr::POST()</code>를 통해 로그인 시도 후 세션 쿠키를 유지하며 접근 가능<br>
 </li>
-<li>Note: Many modern websites use CAPTCHA or 2FA, so automatic login may be blocked<br>
+<li>단, 많은 웹사이트가 CAPTCHA나 2단계 인증을 사용하여 자동 로그인을 차단함<br>
 </li>
-<li>When possible, prefer official APIs with proper authentication</li>
+<li>가능하다면 공식 API를 통한 인증 방식 사용을 권장</li>
 </ul>
 </section>
-<section id="automation-and-real-world-projects" class="level2">
-<h2 class="anchored" data-anchor-id="automation-and-real-world-projects">Automation and Real-World Projects</h2>
+<section id="자동화-및-실전-프로젝트" class="level2">
+<h2 class="anchored" data-anchor-id="자동화-및-실전-프로젝트">자동화 및 실전 프로젝트</h2>
 <ul>
-<li>To run crawlers regularly, you need automation tools<br>
+<li>크롤링을 정기적으로 실행하려면 자동화 도구가 필요함<br>
 </li>
-<li><strong>Linux</strong>: Use <code>cronR</code>; <strong>Windows</strong>: Use <code>taskscheduleR</code><br>
+<li><strong>Linux</strong>: <code>cronR</code> 사용, <strong>Windows</strong>: <code>taskscheduleR</code> 사용<br>
 </li>
-<li>Example projects:
+<li>예시 프로젝트:
 <ul>
-<li>Daily crawling of trending news, saved to a cumulative CSV</li>
-<li>Monitoring product price changes or trending keywords<br>
+<li>매일 인기 뉴스 수집 및 CSV 누적 저장</li>
+<li>상품 가격 변화나 실시간 키워드 추적<br>
 </li>
 </ul></li>
-<li>When automating, also consider logging, date-tracking, and duplicate removal</li>
+<li>자동화 시에는 로그 저장, 날짜 기록, 중복 제거 등도 함께 고려해야 함</li>
 </ul>
 </section>
-<section id="key-takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<section id="핵심-요약" class="level2">
+<h2 class="anchored" data-anchor-id="핵심-요약">핵심 요약</h2>
 <ul>
-<li><strong>Static scraping</strong>: <code>rvest</code>, <code>html_table</code>, <code>dplyr</code><br>
+<li><strong>정적 크롤링</strong>: <code>rvest</code>, <code>html_table</code>, <code>dplyr</code><br>
 </li>
-<li><strong>API-based</strong>: <code>httr::GET()</code>, <code>jsonlite::fromJSON()</code><br>
+<li><strong>API 기반</strong>: <code>httr::GET()</code>, <code>jsonlite::fromJSON()</code><br>
 </li>
-<li><strong>Dynamic pages</strong>: <code>RSelenium</code> for JavaScript interactions<br>
+<li><strong>동적 페이지 처리</strong>: <code>RSelenium</code>으로 JavaScript 인터랙션<br>
 </li>
-<li><strong>Login/session handling</strong>: <code>httr::POST()</code><br>
+<li><strong>로그인/세션 처리</strong>: <code>httr::POST()</code><br>
 </li>
-<li><strong>Automation</strong>: <code>cronR</code> (Linux), <code>taskscheduleR</code> (Windows)<br>
+<li><strong>자동화 실행</strong>: <code>cronR</code>(Linux), <code>taskscheduleR</code>(Windows)<br>
 </li>
-<li>All techniques come together in real-world data collection projects</li>
+<li>위 기술들을 종합하면 실질적인 데이터 수집 프로젝트를 구현할 수 있음</li>
 </ul>
 </section>
 </section>
-<section id="web-crawling-with-python-summary" class="level1">
-<h1>Web Crawling with Python – Summary</h1>
-<section id="static-web-crawling-requests-beautifulsoup" class="level2">
-<h2 class="anchored" data-anchor-id="static-web-crawling-requests-beautifulsoup">Static Web Crawling (<code>requests</code>, <code>BeautifulSoup</code>)</h2>
+<section id="python을-활용한-웹-크롤링-요약" class="level1">
+<h1>Python을 활용한 웹 크롤링 요약</h1>
+<section id="정적-웹-크롤링-requests-beautifulsoup" class="level2">
+<h2 class="anchored" data-anchor-id="정적-웹-크롤링-requests-beautifulsoup">정적 웹 크롤링 (<code>requests</code>, <code>BeautifulSoup</code>)</h2>
 <ul>
-<li>Use <code>requests</code> to fetch HTML pages and <code>BeautifulSoup</code> to parse them<br>
+<li><code>requests</code> 패키지로 HTML 페이지를 요청하고, <code>BeautifulSoup</code>으로 원하는 데이터를 추출<br>
 </li>
-<li>Extract text, links, or tables based on HTML tags and class structures<br>
+<li>HTML 태그 및 클래스 구조를 기반으로 텍스트, 링크, 테이블 등 수집 가능<br>
 </li>
-<li>Use <code>pandas.read_html()</code> for tables, or manually parse with <code>BeautifulSoup</code><br>
+<li><code>&lt;table&gt;</code> 형식의 데이터는 <code>pandas.read_html()</code> 또는 <code>BeautifulSoup</code> + 수작업 파싱으로 처리 가능<br>
 </li>
-<li>Clean data using <code>pandas</code> and save with <code>.to_csv()</code></li>
+<li><code>pandas</code>를 활용하여 데이터 정제 후 <code>to_csv()</code>로 저장 가능</li>
 </ul>
 </section>
-<section id="api-based-data-collection-requests-json-pandas" class="level2">
-<h2 class="anchored" data-anchor-id="api-based-data-collection-requests-json-pandas">API-Based Data Collection (<code>requests</code>, <code>json</code>, <code>pandas</code>)</h2>
+<section id="api-기반-데이터-수집-requests-json-or-pandas" class="level2">
+<h2 class="anchored" data-anchor-id="api-기반-데이터-수집-requests-json-or-pandas">API 기반 데이터 수집 (<code>requests</code>, <code>json</code> or <code>pandas</code>)</h2>
 <ul>
-<li>Web Crawling vs.&nbsp;API Data Collection (Python)</li>
+<li>웹 크롤링 vs.&nbsp;API 데이터 수집</li>
 </ul>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 12%">
-<col style="width: 40%">
-<col style="width: 46%">
+<col style="width: 37%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Category</th>
-<th>Web Crawling</th>
-<th>API Data Collection</th>
+<th>구분</th>
+<th>웹 크롤링</th>
+<th>API 데이터 수집</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Method</td>
-<td>Extract data from HTML</td>
-<td>Structured data provided by server (JSON/XML)</td>
+<td>방식</td>
+<td>HTML에서 데이터 추출</td>
+<td>서버에서 구조화된 데이터(JSON/XML) 제공</td>
 </tr>
 <tr class="even">
-<td>Tools</td>
+<td>도구</td>
 <td><code>requests</code>, <code>BeautifulSoup</code>, <code>Selenium</code></td>
 <td><code>requests</code>, <code>json</code>, <code>pandas</code></td>
 </tr>
 <tr class="odd">
-<td>Speed</td>
-<td>Slower (needs to parse full page)</td>
-<td>Faster (data directly returned from server)</td>
+<td>속도</td>
+<td>느림 (페이지 파싱 필요)</td>
+<td>빠름 (바로 데이터 제공)</td>
 </tr>
 <tr class="even">
-<td>Stability</td>
-<td>Fragile (breaks if HTML structure changes)</td>
-<td>Stable (API format rarely changes)</td>
+<td>안정성</td>
+<td>HTML 변경 시 코드 수정 필요</td>
+<td>안정적 (API 구조가 유지됨)</td>
 </tr>
 <tr class="odd">
-<td>Legal Issues</td>
-<td>Must check <code>robots.txt</code></td>
-<td>Generally allowed (may require an API key)</td>
+<td>법적 이슈</td>
+<td><code>robots.txt</code> 확인 필요</td>
+<td>일반적으로 허용됨 (API 키 필요할 수도 있음)</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>REST APIs provide structured data (JSON/XML) directly<br>
+<li>REST API를 활용하면 JSON 또는 XML로 구조화된 데이터를 직접 가져올 수 있음<br>
 </li>
-<li>Use <code>requests.get()</code> and <code>response.json()</code> or <code>json.loads()</code> to parse responses<br>
+<li><code>requests.get()</code>으로 API 호출, <code>response.json()</code> 또는 <code>json.loads()</code>로 파싱<br>
 </li>
-<li>Convert JSON to <code>pandas.DataFrame</code> for analysis and export<br>
+<li>데이터는 <code>pandas.DataFrame</code>으로 변환 후 분석 및 저장 가능<br>
 </li>
-<li>More stable and faster than HTML scraping</li>
+<li>HTML 크롤링보다 빠르고 안정적이며, 유지보수가 쉬움</li>
 </ul>
 </section>
-<section id="javascript-based-dynamic-crawling-selenium" class="level2">
-<h2 class="anchored" data-anchor-id="javascript-based-dynamic-crawling-selenium">JavaScript-Based Dynamic Crawling (<code>Selenium</code>)</h2>
+<section id="javascript-기반-동적-크롤링-selenium" class="level2">
+<h2 class="anchored" data-anchor-id="javascript-기반-동적-크롤링-selenium">JavaScript 기반 동적 크롤링 (<code>Selenium</code>)</h2>
 <ul>
-<li>JavaScript-rendered pages can’t be scraped with <code>requests</code> or <code>BeautifulSoup</code><br>
+<li>JavaScript가 실행되어야 나타나는 콘텐츠는 <code>requests</code>나 <code>BeautifulSoup</code>으로는 수집 불가<br>
 </li>
-<li>Use <code>Selenium</code> to simulate browser actions (clicks, scrolling, etc.)<br>
+<li><code>Selenium</code>을 사용하면 실제 브라우저를 조작하듯 클릭, 스크롤 등 사용자 동작을 시뮬레이션 가능<br>
 </li>
-<li>Extract final content using <code>driver.page_source</code> after the page loads<br>
+<li>동적 콘텐츠가 로드된 이후의 HTML을 <code>driver.page_source</code>로 가져와 파싱<br>
 </li>
-<li>Ideal for infinite scrolls, pop-ups, and dynamic interactions</li>
+<li>무한스크롤, 버튼 클릭, 드롭다운 처리 등에 적합</li>
 </ul>
 </section>
-<section id="login-and-session-management-requests.session-or-selenium" class="level2">
-<h2 class="anchored" data-anchor-id="login-and-session-management-requests.session-or-selenium">Login and Session Management (<code>requests.Session()</code> or <code>Selenium</code>)</h2>
+<section id="로그인-및-세션-유지-requests.session-또는-selenium" class="level2">
+<h2 class="anchored" data-anchor-id="로그인-및-세션-유지-requests.session-또는-selenium">로그인 및 세션 유지 (<code>requests.Session()</code> 또는 <code>Selenium</code>)</h2>
 <ul>
-<li>Use <code>requests.Session()</code> to maintain cookies and login credentials<br>
+<li>로그인 후 접근 가능한 페이지의 경우, 세션 쿠키를 유지하며 요청 필요<br>
 </li>
-<li>For complex interactions, automate login via <code>Selenium</code><br>
+<li><code>requests.Session()</code>을 사용해 로그인 요청을 보내고 이후 페이지 접근<br>
 </li>
-<li>Beware of CAPTCHA or multi-factor authentication – prefer APIs if available</li>
+<li>또는 <code>Selenium</code>으로 로그인 과정을 자동화하고 이후 페이지 조작<br>
+</li>
+<li>단, CAPTCHA, OTP 등 인증 절차가 있으면 자동화가 제한될 수 있음 → 가능하면 API 사용 권장</li>
 </ul>
 </section>
-<section id="automation-and-real-world-projects-1" class="level2">
-<h2 class="anchored" data-anchor-id="automation-and-real-world-projects-1">Automation and Real-World Projects</h2>
+<section id="자동화-및-실전-프로젝트-1" class="level2">
+<h2 class="anchored" data-anchor-id="자동화-및-실전-프로젝트-1">자동화 및 실전 프로젝트</h2>
 <ul>
-<li>Use schedulers or job runners to automate crawling<br>
+<li>크롤링 작업을 자동화하려면 스케줄러 또는 배치 시스템이 필요<br>
 </li>
-<li>Tools: <code>schedule</code>, <code>APScheduler</code>, <code>cron</code> (Linux), Task Scheduler (Windows)<br>
+<li>Python에서는 <code>schedule</code>, <code>APScheduler</code>, <code>cron</code>(Linux), 작업 스케줄러(Windows) 등을 활용<br>
 </li>
-<li>Example use cases:
+<li>예시 프로젝트:
 <ul>
-<li>Daily news scraping into CSV<br>
-</li>
-<li>Monitoring product price trends or real-time keywords<br>
+<li>매일 뉴스 기사 수집 및 CSV 저장</li>
+<li>실시간 인기 키워드 또는 상품 가격 추적<br>
 </li>
 </ul></li>
-<li>Include logging, duplicate checks, and date-stamping for reliability</li>
+<li>자동화 시 로그 저장, 중복 제거, 날짜 기록 등의 예외 처리가 중요함</li>
 </ul>
 </section>
-<section id="key-takeaways-1" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaways-1">Key Takeaways</h2>
+<section id="핵심-요약-1" class="level2">
+<h2 class="anchored" data-anchor-id="핵심-요약-1">핵심 요약</h2>
 <ul>
-<li><strong>Static scraping</strong>: <code>requests</code>, <code>BeautifulSoup</code>, <code>pandas</code><br>
+<li><strong>정적 크롤링</strong>: <code>requests</code>, <code>BeautifulSoup</code>, <code>pandas</code><br>
 </li>
-<li><strong>API collection</strong>: <code>requests</code>, <code>json</code>, <code>pandas</code><br>
+<li><strong>API 활용</strong>: <code>requests</code>, <code>json</code>, <code>pandas</code><br>
 </li>
-<li><strong>Dynamic scraping</strong>: <code>Selenium</code> for full browser interaction<br>
+<li><strong>동적 크롤링</strong>: <code>Selenium</code>을 통한 JavaScript 제어<br>
 </li>
-<li><strong>Login/session</strong>: <code>requests.Session()</code> or automated login via <code>Selenium</code><br>
+<li><strong>로그인/세션 처리</strong>: <code>requests.Session()</code> 또는 <code>Selenium</code> 로그인 시퀀스<br>
 </li>
-<li><strong>Automation</strong>: <code>schedule</code>, <code>APScheduler</code>, <code>cron</code>, Task Scheduler<br>
+<li><strong>자동화</strong>: <code>schedule</code>, <code>APScheduler</code>, <code>cron</code>, <code>task scheduler</code><br>
 </li>
-<li>Together, these tools can power scalable, real-world web crawling workflows</li>
+<li>이들을 조합하면 실전 웹 크롤링 및 데이터 수집 시스템 구축 가능</li>
 </ul>
 </section>
 </section>
-<section id="web-crawling-r-vs-python" class="level1">
-<h1>Web Crawling: R vs Python</h1>
+<section id="r-vs-python-웹-크롤링-비교표" class="level1">
+<h1>R vs Python 웹 크롤링 비교표</h1>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 35%">
 <col style="width: 17%">
-<col style="width: 38%">
-<col style="width: 44%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Feature</th>
+<th>항목</th>
 <th>R</th>
 <th>Python</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Static Crawling</strong></td>
+<td><strong>정적 크롤링</strong></td>
 <td><code>rvest</code>, <code>html_table</code>, <code>dplyr</code></td>
 <td><code>requests</code>, <code>BeautifulSoup</code>, <code>pandas</code></td>
 </tr>
 <tr class="even">
-<td><strong>Table Extraction</strong></td>
-<td><code>html_table()</code> + <code>dplyr</code> for cleaning</td>
-<td><code>pandas.read_html()</code> or manual parsing with BeautifulSoup</td>
+<td><strong>표 데이터 처리</strong></td>
+<td><code>html_table()</code> + <code>dplyr</code></td>
+<td><code>pandas.read_html()</code> 또는 직접 파싱</td>
 </tr>
 <tr class="odd">
-<td><strong>API Requests</strong></td>
+<td><strong>API 요청</strong></td>
 <td><code>httr::GET()</code> + <code>jsonlite::fromJSON()</code></td>
-<td><code>requests.get()</code> + <code>response.json()</code> or <code>json.loads()</code></td>
+<td><code>requests.get()</code> + <code>response.json()</code> 또는 <code>json.loads()</code></td>
 </tr>
 <tr class="even">
-<td><strong>Dynamic Crawling</strong></td>
+<td><strong>동적 크롤링</strong></td>
 <td><code>RSelenium</code></td>
 <td><code>Selenium</code></td>
 </tr>
 <tr class="odd">
-<td><strong>Login Handling</strong></td>
-<td><code>httr::POST()</code> + session cookies</td>
-<td><code>requests.Session()</code> or login via <code>Selenium</code></td>
+<td><strong>로그인 처리</strong></td>
+<td><code>httr::POST()</code> + 세션 유지</td>
+<td><code>requests.Session()</code> 또는 <code>Selenium</code></td>
 </tr>
 <tr class="even">
-<td><strong>Automation Tools</strong></td>
-<td><code>cronR</code> (Linux), <code>taskscheduleR</code> (Windows)</td>
-<td><code>cron</code>, <code>schedule</code>, <code>APScheduler</code>, Windows Task Scheduler</td>
+<td><strong>자동화 도구</strong></td>
+<td><code>cronR</code>, <code>taskscheduleR</code></td>
+<td><code>cron</code>, <code>APScheduler</code>, <code>schedule</code>, Windows Task Scheduler</td>
 </tr>
 <tr class="odd">
-<td><strong>Strengths</strong></td>
-<td>Strong for statistics and quick data cleaning</td>
-<td>Broad ecosystem, powerful libraries, large community</td>
+<td><strong>장점</strong></td>
+<td>통계 및 데이터 처리에 강함</td>
+<td>생태계 다양, 커뮤니티 방대, 크롤링 라이브러리 풍부</td>
 </tr>
 <tr class="even">
-<td><strong>Weaknesses</strong></td>
-<td>Setup can be tricky; less real-time flexibility</td>
-<td>Steeper learning curve when combining with web tech</td>
+<td><strong>단점</strong></td>
+<td>환경 설정이 까다로운 편, 실시간 처리 부족</td>
+<td>웹 개발 요소와 통합 시 학습 곡선 있음</td>
 </tr>
 </tbody>
 </table>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<section id="요약" class="level2">
+<h2 class="anchored" data-anchor-id="요약">요약</h2>
 <ul>
-<li><strong>R</strong> is great for statistical workflows and lightweight crawling combined with data wrangling.</li>
-<li><strong>Python</strong> excels in scalable automation, complex website handling, and API-based data pipelines.</li>
+<li><strong>R</strong>은 분석 친화적인 환경에서 간단한 크롤링 &amp; 정제 작업에 강함</li>
+<li><strong>Python</strong>은 대규모 자동화, 복잡한 웹 구조 대응, API 중심 작업에 더 적합</li>
 </ul>
 
 
