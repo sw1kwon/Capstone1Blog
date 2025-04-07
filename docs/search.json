@@ -378,18 +378,74 @@
     "text": "요약\n\nR은 분석 친화적인 환경에서 간단한 크롤링 & 정제 작업에 강함\nPython은 대규모 자동화, 복잡한 웹 구조 대응, API 중심 작업에 더 적합"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "posts/prj1_1_ko.html",
+    "href": "posts/prj1_1_ko.html",
+    "title": "Web Crawling Project (ko)",
     "section": "",
-    "text": "About this blog"
+    "text": "조선시대 국왕들이 대중매체(드라마, 영화 등)에서 어떻게 재현되고 있는지를 확인하기 위해, 위키백과로부터 관련 데이터를 크롤링\n\n\n\n\n\n전체 조선 국왕 개별 문서 내의\n‘대중문화 속 등장’ 관련 항목에 등장하는\n작품 제목, 연도, 출연 배우 등의 정보를 크롤링 후\n하나의 통일된 형태로 전처리 후 분석\n(확장) 조선왕조실록의 텍스트도 크롤링하여 함께 분석\n\n\n\n\n\n현재 대중문화에서 조선의 왕들은 어떻게 재현되고 있는가?\n특정 왕을 맡은 배우들의 이미지를 일반화할 수 있는가?\n어떤 배우가 자주 왕 역할을 맡는 경향이 있는가?\n(확장) 왕이 재현된 이미지와 사료(예: 조선왕조실록) 속 실제 묘사는 얼마나 일치하는가?"
+  },
+  {
+    "objectID": "posts/prj1_1_ko.html#목표",
+    "href": "posts/prj1_1_ko.html#목표",
+    "title": "Web Crawling Project (ko)",
+    "section": "",
+    "text": "조선시대 국왕들이 대중매체(드라마, 영화 등)에서 어떻게 재현되고 있는지를 확인하기 위해, 위키백과로부터 관련 데이터를 크롤링"
+  },
+  {
+    "objectID": "posts/prj1_1_ko.html#구체적-목표",
+    "href": "posts/prj1_1_ko.html#구체적-목표",
+    "title": "Web Crawling Project (ko)",
+    "section": "",
+    "text": "전체 조선 국왕 개별 문서 내의\n‘대중문화 속 등장’ 관련 항목에 등장하는\n작품 제목, 연도, 출연 배우 등의 정보를 크롤링 후\n하나의 통일된 형태로 전처리 후 분석\n(확장) 조선왕조실록의 텍스트도 크롤링하여 함께 분석"
+  },
+  {
+    "objectID": "posts/prj1_1_ko.html#관련-질문",
+    "href": "posts/prj1_1_ko.html#관련-질문",
+    "title": "Web Crawling Project (ko)",
+    "section": "",
+    "text": "현재 대중문화에서 조선의 왕들은 어떻게 재현되고 있는가?\n특정 왕을 맡은 배우들의 이미지를 일반화할 수 있는가?\n어떤 배우가 자주 왕 역할을 맡는 경향이 있는가?\n(확장) 왕이 재현된 이미지와 사료(예: 조선왕조실록) 속 실제 묘사는 얼마나 일치하는가?"
+  },
+  {
+    "objectID": "posts/prj1_1_ko.html#데이터-수집",
+    "href": "posts/prj1_1_ko.html#데이터-수집",
+    "title": "Web Crawling Project (ko)",
+    "section": "데이터 수집",
+    "text": "데이터 수집\n\n위키백과에 정리된 조선시대 국왕들의 표를 통해 개별 국왕 문서에 접속\n\nhttps://ko.wikipedia.org/wiki/%EC%A1%B0%EC%84%A0_%EA%B5%AD%EC%99%95#%EC%8B%A4%EC%A0%9C_%EC%A6%89%EC%9C%84%ED%95%9C_%EA%B5%AD%EC%99%95_%EB%AA%A9%EB%A1%9D\n\n각 국왕들의 문서 중에는 대중문화에서 나타난 국왕(드라마, 영화 등)과 관련한 문서 존재\n\n(예시) https://ko.wikipedia.org/wiki/%ED%83%9C%EC%A1%B0_(%EC%A1%B0%EC%84%A0)#%EB%8C%80%EC%A4%91_%EB%AC%B8%ED%99%94%EC%86%8D%EC%97%90_%EB%82%98%ED%83%80%EB%82%98%EB%8A%94_%ED%83%9C%EC%A1%B0\n\n배우 이름이 위키백과에 링크되어 있다면 함께 수집하여 추후 분석에 활용\nR을 활용하여 정적 웹크롤링 진행, 같은 조원은 Python으로 진행 (중간에 지속적으로 내용 공유)\n(확장) 조선왕조실록\n\nhttps://sillok.history.go.kr/main/main.do\n전체를 크롤링하기보다 분석 주제 관련 단어를 검색 후 나온 내용들을 원문과 함께 크롤링\n동적 웹크롤링 예상"
+  },
+  {
+    "objectID": "posts/prj1_1_ko.html#분석-방법-초안",
+    "href": "posts/prj1_1_ko.html#분석-방법-초안",
+    "title": "Web Crawling Project (ko)",
+    "section": "분석 방법 (초안)",
+    "text": "분석 방법 (초안)\n\n국왕 대중문화 관련 데이터 활용\n\n등장 횟수가 많은 왕\n2명 이상 왕 역할을 한 배우, 같은 왕 역할을 2번 이상 맡은 배우 등 (연결 링크로 동명이인 구분)\n드라마/영화 방영 연도 분포, 시대별 왕 묘사 빈도 변화 확인\n\n국왕 대중문화 관련 데이터 + 배우 문서 활용\n\n함께 크롤링한 배우 문서 링크로 배우 이미지, 평가 등을 파악\n배우들의 이미지를 일반화할 수 있는지 확인 (텍스트 분석?)\n현재 대중문화에서 묘사되는 왕의 모습과 연결\n\n(확장) 조선왕조실록 활용\n\n왕들의 이미지와 관련된 단어(예시: 성격 관련 단어)를 포함한 실록 내용 분석\n한자 단어로 검색 후 나온 결과를 크롤링 후 분석\n\n같은 단어도 한자로 검색했을 때 검색 결과가 많음\n실록의 한계 중 하나로 지적되는 번역 문제 보완\n\n이를 현재 대중문화에서 묘사되는 왕의 이미지와 비교"
+  },
+  {
+    "objectID": "posts/prj1_1_ko.html#위키백과-1차",
+    "href": "posts/prj1_1_ko.html#위키백과-1차",
+    "title": "Web Crawling Project (ko)",
+    "section": "위키백과 1차",
+    "text": "위키백과 1차\n\n수집 전 생각한 규칙\n\n문서에 있는 내용 (영화, 드라마) 그대로 수집\n가능하다면 처음 열에 영화, 드라마 구분\n마지막 열에 배우 문서 연결 링크 추가\n한 배역에 배우가 2명 이상이어도 한 칸에 다 수집 (링크도 마찬가지)\n한 명의 왕을 기준으로 코드를 짠 뒤 전체 왕에게 적용하고 이후 안되는 왕 중 1명을 기준으로 코드를 짠 뒤 전부 적용하는 과정을 반복\n\n과정 및 크롤링 결과\n\nhttps://like-quotation-d12.notion.site/1-1ce4bf8cbb7480bab26cf8a31a6e421e\n\n코드 정리는 전부 하지 못하고 태조 기준 코드만 정리\n\nlibrary(rvest)\nlibrary(httr)\nlibrary(dplyr)\nlibrary(purrr)\nlibrary(stringr)\n\n# 국왕 리스트\nkings &lt;- list(\n  list(name = \"태조\", url = \"https://ko.wikipedia.org/wiki/태조_(조선)\", rank = 1, gunho = \"태조\"),\n  list(name = \"정종\", url = \"https://ko.wikipedia.org/wiki/정종_(조선)\", rank = 2, gunho = \"정종\"),\n  list(name = \"태종\", url = \"https://ko.wikipedia.org/wiki/태종_(조선)\", rank = 3, gunho = \"태종\"),\n  list(name = \"세종\", url = \"https://ko.wikipedia.org/wiki/세종_(조선)\", rank = 4, gunho = \"세종\"),\n  list(name = \"문종\", url = \"https://ko.wikipedia.org/wiki/문종\", rank = 5, gunho = \"문종\"),\n  list(name = \"단종\", url = \"https://ko.wikipedia.org/wiki/단종\", rank = 6, gunho = \"단종\"),\n  list(name = \"세조\", url = \"https://ko.wikipedia.org/wiki/세조\", rank = 7, gunho = \"세조\"),\n  list(name = \"예종\", url = \"https://ko.wikipedia.org/wiki/예종_(조선)\", rank = 8, gunho = \"예종\"),\n  list(name = \"성종\", url = \"https://ko.wikipedia.org/wiki/성종_(조선)\", rank = 9, gunho = \"성종\"),\n  list(name = \"연산군\", url = \"https://ko.wikipedia.org/wiki/연산군\", rank = 10, gunho = \"연산군\"),\n  list(name = \"중종\", url = \"https://ko.wikipedia.org/wiki/중종_(조선)\", rank = 11, gunho = \"중종\"),\n  list(name = \"인종\", url = \"https://ko.wikipedia.org/wiki/인종_(조선)\", rank = 12, gunho = \"인종\"),\n  list(name = \"명종\", url = \"https://ko.wikipedia.org/wiki/명종_(조선)\", rank = 13, gunho = \"명종\"),\n  list(name = \"선조\", url = \"https://ko.wikipedia.org/wiki/선조\", rank = 14, gunho = \"선조\"),\n  list(name = \"광해군\", url = \"https://ko.wikipedia.org/wiki/광해군\", rank = 15, gunho = \"광해군\"),\n  list(name = \"인조\", url = \"https://ko.wikipedia.org/wiki/인조\", rank = 16, gunho = \"인조\"),\n  list(name = \"효종\", url = \"https://ko.wikipedia.org/wiki/효종\", rank = 17, gunho = \"효종\"),\n  list(name = \"현종\", url = \"https://ko.wikipedia.org/wiki/현종\", rank = 18, gunho = \"현종\"),\n  list(name = \"숙종\", url = \"https://ko.wikipedia.org/wiki/숙종\", rank = 19, gunho = \"숙종\"),\n  list(name = \"경종\", url = \"https://ko.wikipedia.org/wiki/경종\", rank = 20, gunho = \"경종\"),\n  list(name = \"영조\", url = \"https://ko.wikipedia.org/wiki/영조\", rank = 21, gunho = \"영조\"),\n  list(name = \"정조\", url = \"https://ko.wikipedia.org/wiki/정조\", rank = 22, gunho = \"정조\"),\n  list(name = \"순조\", url = \"https://ko.wikipedia.org/wiki/순조\", rank = 23, gunho = \"순조\"),\n  list(name = \"헌종\", url = \"https://ko.wikipedia.org/wiki/헌종\", rank = 24, gunho = \"헌종\"),\n  list(name = \"철종\", url = \"https://ko.wikipedia.org/wiki/철종\", rank = 25, gunho = \"철종\"),\n  list(name = \"고종\", url = \"https://ko.wikipedia.org/wiki/고종_(조선)\", rank = 26, gunho = \"고종\")\n)\n\n\n# 배우 정보 포함된 표 파싱 함수\nparse_actor_tables &lt;- function(king) {\n  res &lt;- tryCatch(GET(king$url, user_agent(\"Mozilla/5.0\")), error = function(e) return(NULL))\n  if (is.null(res) || http_error(res)) return(NULL)\n  \n  page &lt;- tryCatch(read_html(content(res, as = \"text\", encoding = \"UTF-8\")), error = function(e) return(NULL))\n  if (is.null(page)) return(NULL)\n  \n  tables &lt;- page %&gt;% html_nodes(\"table.wikitable\")\n  result &lt;- list()\n  \n  for (i in seq_along(tables)) {\n    table &lt;- tables[[i]]\n    \n    headers &lt;- table %&gt;% html_nodes(\"th\") %&gt;% html_text(trim = TRUE)\n    if (!all(c(\"연도\", \"제목\", \"배우\") %in% headers)) next\n    \n    df &lt;- table %&gt;% html_table(fill = TRUE)\n    actor_col_idx &lt;- which(headers == \"배우\")\n    if (length(actor_col_idx) == 0 || nrow(df) == 0) next\n    \n    actor_links &lt;- table %&gt;%\n      html_nodes(\"tr\") %&gt;%\n      .[-1] %&gt;%\n      map_chr(function(row) {\n        tds &lt;- html_nodes(row, \"td\")\n        if (length(tds) &lt; actor_col_idx) return(NA)\n        \n        actor_cell &lt;- tds[[actor_col_idx]]\n        links &lt;- html_nodes(actor_cell, \"a\")\n        \n        if (length(links) == 0) return(NA)\n        \n        names &lt;- html_text(links, trim = TRUE)\n        hrefs &lt;- html_attr(links, \"href\")\n        valid &lt;- !is.na(hrefs) & str_starts(hrefs, \"/wiki/\")\n        \n        names &lt;- names[valid]\n        hrefs &lt;- hrefs[valid]\n        full_links &lt;- paste0(\"https://ko.wikipedia.org\", hrefs)\n        \n        paste0(names, \" (\", full_links, \")\", collapse = \"; \")\n      })\n    \n    df$배우_링크 &lt;- actor_links[seq_len(nrow(df))]\n    result[[length(result) + 1]] &lt;- df\n  }\n  \n  if (length(result) == 0) return(NULL) else return(result)\n}\n\n# 크롤링 실행\nresults &lt;- list()\nerrors &lt;- list()\n\nfor (king in kings) {\n  message(king$name, \" 처리 중...\")\n  \n  result &lt;- tryCatch({\n    parse_actor_tables(king)\n  }, error = function(e) {\n    message(king$name, \" 처리 중 오류 발생: \", e$message)\n    return(NULL)\n  })\n  \n  if (is.null(result)) {\n    errors[[length(errors) + 1]] &lt;- king$name\n  } else {\n    results[[king$name]] &lt;- result\n  }\n}\n\n# 결과 요약 출력\ncat(\"\\n성공한 문서 수:\", length(results), \"\\n\")\ncat(\"실패한 문서 목록:\\n\")\nprint(errors)\n\nView(results)\n\n세부 작업 단계 설명\n\n\n패키지 로드\n\nlibrary(rvest)     # HTML 파싱\nlibrary(httr)      # HTTP 요청 (User-Agent 포함)\nlibrary(dplyr)     # 데이터 가공\nlibrary(purrr)     # 반복문 map 함수\nlibrary(stringr)   # 문자열 조작\n\n함수 parse_actor_tables(king) 정의\n\n왕 한 명의 위키백과 문서에서 조건에 맞는 표를 찾아 배우 정보를 수집하는 함수\n\n입력\n\nking: 리스트로 king$name, king$url 속성 포함\n\n처리 절차\n\n\nHTTP 요청\n\n\n\nGET(king$url)로 페이지 요청\nUser-Agent 지정으로 Wikipedia 서버 차단 회피\n에러가 나거나 404면 NULL 반환\n\n\nHTML 파싱\n\n\n\nhtml_nodes(\"table.wikitable\")로 class가 wikitable인 표 모두 수집\n\n\n표 필터링\n\n\nth 태그(헤더)에 \"연도\", \"제목\", \"배우\" 3가지 열이 모두 있는 경우만 통과\n\n\n배우 링크 추출\n\n\n\"배우\" 열에 들어 있는 &lt;a&gt; 태그를 찾아 이름과 href를 추출\n/wiki/로 시작하는 링크만 유효하다고 판단\n\"이름 (링크)\" 형태로 결합해 배우_링크 열 생성\n\n\n결과 반환\n\n\n위 조건을 만족한 모든 표를 data.frame 리스트 형태로 반환\n조건을 만족하는 표가 하나도 없으면 NULL\n\n\n\n\n왕들에 대해 반복 수행\n\nfor (king in kings) {\n  result &lt;- parse_actor_tables(king)\n  ...\n}\n\n반복적으로 parse_actor_tables() 호출\n결과가 있으면 results[[king$name]]에 저장\n실패하거나 조건을 만족하는 표가 없으면 errors에 이름만 저장\n\n\n결과 요약 출력\n\ncat(\"성공한 문서 수:\", length(results))\ncat(\"실패한 문서 목록:\")\nprint(errors)\n\n수집 성공한 문서 개수 출력\n실패하거나 데이터가 없는 문서 이름 출력\n\n\n최종 결과 형태\n\n\nresults 리스트:\n\n구조: results[[\"세종\"]] → list of data.frames\n각 data.frame에는 \"연도\", \"제목\", \"배우\", \"배우_링크\" 컬럼 포함\n\nerrors 리스트:\n\n구조: c(\"정종\", \"예종\", ...)\n이유: 문서 없음 / 표 없음 / HTML 파싱 실패 등\n\n\n\nView(results) 사용\n\n\nRStudio에서는 View(results)로 리스트 전체 구조 탐색 가능\n\n단, 이 결과는 리스트이므로 bind_rows()로 병합 후 분석하는 것이 일반적\n후기\n\n관련 문서가 없는 헌종 제외 모든 왕의 관련 대중매체(영화, 드라마) 문서를 크롤링하긴 하였으나\n전처리는 하나도 안함 (방법에 따라 형식도 제각각, 많은 시간 필요 예상)\n배우 링크도 크롤링은 거의 다 했으나 안된 부분도 있고 2명이 있는데 1명의 링크만 있는 경우 하나하나 확인 및 수작업 필요 예상\n일반화된 방법이 필요하다고 생각하여 위 방식의 시도는 중단\n그래도 이 과정에서 데이터들을 전체적으로 살펴봤기 때문에 의미는 있었음"
+  },
+  {
+    "objectID": "posts/prj1_1_ko.html#위키백과-2차",
+    "href": "posts/prj1_1_ko.html#위키백과-2차",
+    "title": "Web Crawling Project (ko)",
+    "section": "위키백과 2차",
+    "text": "위키백과 2차\n\n위의 코드로 크롤링 되지 않았던 문종을 기준으로 다시 코드를 작성\n모든 왕에게 적용하려면 많은 작업이 필요하겠지만 위 방식보다는 깔끔하게 데이터를 수집할 수 있을 것으로 예상\n\nlibrary(rvest)\nlibrary(httr)\nlibrary(xml2)\n\n# URL 설정\nurl &lt;- \"https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%A2%85_(%EC%A1%B0%EC%84%A0)\"\n\n# HTML 읽기\npage &lt;- read_html(url)\n\n# 모든 표 추출 (table 태그 기준)\ntables &lt;- page %&gt;% html_elements(\"table\")\n\n# 표 수 확인\ncat(\"총 표 개수:\", length(tables), \"\\n\")\n\n# 표들을 데이터프레임 리스트로 변환\ntable_list &lt;- lapply(tables, function(tbl) {\n  tryCatch({\n    html_table(tbl, fill = TRUE)\n  }, error = function(e) NULL)\n})\n\n# 유효한 표만 필터링\ntable_list &lt;- Filter(Negate(is.null), table_list)\n\n# 표 수 확인\ncat(\"총 유용한 표 개수:\", length(table_list), \"\\n\")\n\n\n# 첫 번째 표 출력\nprint(table_list[[1]])\n\n# 관심있는 표 출력\nView(table_list[[10]])\n\n\n###\nraw_table &lt;- table_list[[10]]\n\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\n\n# 원본 데이터\nraw_table &lt;- table_list[[10]]\n\n# X1과 X2 따로 처리\ndf1 &lt;- tibble(X = str_split(raw_table$X1, \"\\n\")) %&gt;%\n  unnest(X) %&gt;%\n  mutate(type = \"드라마\")\n\ndf2 &lt;- tibble(X = str_split(raw_table$X2, \"\\n\")) %&gt;%\n  unnest(X) %&gt;%\n  mutate(type = \"영화\")\n\n# 두 개 합치기\ndf_combined &lt;- bind_rows(df1, df2)\n\n# 결과 확인\nView(df_combined)\n\n###\n\n# 추가 팁: 각 줄에서 드라마 제목, 방송사, 연도, 배우를 정규식으로 분리하고 싶다면?\n\ndf_combined &lt;- df_combined %&gt;%\n  mutate(\n    title = str_extract(X, \"《[^》]+》\") %&gt;% str_remove_all(\"《|》\"),\n    year = str_extract(X, \"\\\\d{4}\"),\n    actor = str_extract(X, \"배우[:：]\\\\s*[^)]+\") %&gt;% str_remove(\"배우[:：]\\\\s*\")\n  )\n\n# 결과 확인\nView(df_combined)\n\n\n###\n# 해당 표를 다시 가져옴 (예: 대중문화 표)\ntarget_table &lt;- page %&gt;% html_elements(\"table\") %&gt;% .[[10]]\n\n# a 태그 전체 추출\nactor_links &lt;- target_table %&gt;%\n  html_elements(\"a\")\n\n# 이름 추출\nactor_names &lt;- actor_links %&gt;% html_text()\n\n# 링크 추출\nactor_urls &lt;- actor_links %&gt;% html_attr(\"href\") %&gt;% paste0(\"https://ko.wikipedia.org\", .)\n\n# 데이터프레임으로 정리\nactor_df &lt;- data.frame(\n  name = actor_names,\n  url = actor_urls,\n  stringsAsFactors = FALSE\n)\n\n# View로 확인\nView(actor_df)\n\n###\n\n# 한글 이름만 남기기 (정규식 활용, 2~4자 한글)\nactor_df_filtered &lt;- actor_df %&gt;%\n  filter(str_detect(name, \"^[가-힣]{2,4}$\"))\n\nView(actor_df_filtered)"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "CapstoneDesign1",
     "section": "",
-    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nApr 5, 2025\n\n\nStatic and Dynamic Web Crawling with R & Python (ko)\n\n\nsw1kwon \n\n\n\n\nApr 5, 2025\n\n\nStatic and Dynamic Web Crawling with R & Python\n\n\nsw1kwon \n\n\n\n\nMar 31, 2025\n\n\nHTML & Markdown Practice\n\n\nsw1kwon \n\n\n\n\nMar 30, 2025\n\n\nHTML & Markdown\n\n\nsw1kwon \n\n\n\n\nMar 24, 2025\n\n\nCreating a Two-Digit Number from Two Dice Rolls: A Game Strategy (ko)\n\n\nsw1kwon \n\n\n\n\nMar 23, 2025\n\n\nStatistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving\n\n\nsw1kwon \n\n\n\n\n\nNo matching items"
+    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nApr 7, 2025\n\n\nWeb Crawling Project (ko)\n\n\nsw1kwon \n\n\n\n\nApr 5, 2025\n\n\nStatic and Dynamic Web Crawling with R & Python (ko)\n\n\nsw1kwon \n\n\n\n\nApr 5, 2025\n\n\nStatic and Dynamic Web Crawling with R & Python\n\n\nsw1kwon \n\n\n\n\nMar 31, 2025\n\n\nHTML & Markdown Practice\n\n\nsw1kwon \n\n\n\n\nMar 30, 2025\n\n\nHTML & Markdown\n\n\nsw1kwon \n\n\n\n\nMar 24, 2025\n\n\nCreating a Two-Digit Number from Two Dice Rolls: A Game Strategy (ko)\n\n\nsw1kwon \n\n\n\n\nMar 23, 2025\n\n\nStatistical Reasoning and Statistical Inference – Utilizing Frameworks for Problem Solving\n\n\nsw1kwon \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
   },
   {
     "objectID": "posts/htmlmarkdownpractice.html",
