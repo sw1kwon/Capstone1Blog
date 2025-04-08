@@ -2,8 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/prj1_1_ko.html",
-      "/posts/crawling_ko.html",
       "/posts/crawling.html",
       "/posts/htmlmarkdownpractice.html",
       "/posts/htmlmarkdown.html",
