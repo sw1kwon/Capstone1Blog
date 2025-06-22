@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="sw1kwon">
+<meta name="dcterms.date" content="2025-06-22">
+
+<title>yes24 parsing 2 – CapstoneDesign1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0626ff4d7a71b55c8707dcae1d04a9b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3f453be5ec2ee49e579b43b94346acdb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CapstoneDesign1</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">yes24 parsing 2</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>sw1kwon </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 22, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#page_html2" id="toc-page_html2" class="nav-link active" data-scroll-target="#page_html2">page_html2</a>
+  <ul class="collapse">
+  <li><a href="#parrelel-processing-x" id="toc-parrelel-processing-x" class="nav-link" data-scroll-target="#parrelel-processing-x">Parrelel Processing X</a></li>
+  <li><a href="#parrelel-processing-o" id="toc-parrelel-processing-o" class="nav-link" data-scroll-target="#parrelel-processing-o">Parrelel Processing O</a></li>
+  <li><a href="#전체-실행-시간-비교" id="toc-전체-실행-시간-비교" class="nav-link" data-scroll-target="#전체-실행-시간-비교">전체 실행 시간 비교</a></li>
+  </ul></li>
+  <li><a href="#book_html2" id="toc-book_html2" class="nav-link" data-scroll-target="#book_html2">book_html2</a>
+  <ul class="collapse">
+  <li><a href="#error" id="toc-error" class="nav-link" data-scroll-target="#error">error?</a></li>
+  <li><a href="#parrelel-processing-o-1" id="toc-parrelel-processing-o-1" class="nav-link" data-scroll-target="#parrelel-processing-o-1">Parrelel Processing O</a></li>
+  <li><a href="#전체-실행-시간" id="toc-전체-실행-시간" class="nav-link" data-scroll-target="#전체-실행-시간">전체 실행 시간</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="page_html2" class="level1">
+<h1>page_html2</h1>
+<section id="parrelel-processing-x" class="level2">
+<h2 class="anchored" data-anchor-id="parrelel-processing-x">Parrelel Processing X</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------- 안전 파서 유틸리티 (최종 통합본 유지) -----------</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>safe_css_text <span class="ot">&lt;-</span> <span class="cf">function</span>(page, selector, <span class="at">attr =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    node <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, selector)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(node)) <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(attr)) {</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      val <span class="ot">&lt;-</span> <span class="fu">html_attr</span>(node, attr)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>      val <span class="ot">&lt;-</span> <span class="fu">html_text</span>(node, <span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (val <span class="sc">==</span> <span class="st">""</span>) <span class="cn">NA_character_</span> <span class="cf">else</span> val</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NA_character_</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>safe_css_text_list <span class="ot">&lt;-</span> <span class="cf">function</span>(page, selector) {</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    nodes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, selector)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(nodes) <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    vals <span class="ot">&lt;-</span> <span class="fu">html_text</span>(nodes, <span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    vals <span class="ot">&lt;-</span> vals[<span class="sc">!</span><span class="fu">str_detect</span>(vals, <span class="st">"정보 더 보기/감추기"</span>)]</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    vals <span class="ot">&lt;-</span> <span class="fu">unique</span>(vals)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(vals, <span class="at">collapse =</span> <span class="st">"; "</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NA_character_</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>safe_css_attr_list <span class="ot">&lt;-</span> <span class="cf">function</span>(page, selector, attr) {</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    nodes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, selector)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(nodes) <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    texts <span class="ot">&lt;-</span> <span class="fu">html_text</span>(nodes, <span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    urls  <span class="ot">&lt;-</span> <span class="fu">html_attr</span>(nodes, attr)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    keep <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(texts, <span class="st">"정보 더 보기/감추기"</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    urls <span class="ot">&lt;-</span> urls[keep]</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    urls <span class="ot">&lt;-</span> <span class="fu">unique</span>(urls)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(urls, <span class="at">collapse =</span> <span class="st">"; "</span>)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NA_character_</span>)</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>safe_css_exist <span class="ot">&lt;-</span> <span class="cf">function</span>(page, selector) {</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    nodes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, selector)</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(nodes) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="st">"Y"</span> <span class="cf">else</span> <span class="st">"N"</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error =</span> <span class="cf">function</span>(e) <span class="st">"N"</span>)</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>parse_yes24_item <span class="ot">&lt;-</span> <span class="cf">function</span>(item, category) {</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  preview_exist <span class="ot">&lt;-</span> <span class="fu">safe_css_exist</span>(item, <span class="st">".btn_preview"</span>)</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  ebook_nodes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(item, <span class="st">".info_relG a"</span>)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  ebook_texts <span class="ot">&lt;-</span> <span class="fu">html_text</span>(ebook_nodes, <span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  ebook_price <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">any</span>(<span class="fu">str_detect</span>(ebook_texts, <span class="st">"eBook"</span>))) {</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_extract</span>(ebook_texts[<span class="fu">which</span>(<span class="fu">str_detect</span>(ebook_texts, <span class="st">"eBook"</span>))], <span class="st">"[0-9,]+원?"</span>)</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    <span class="cn">NA_character_</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  ebook_exist <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(ebook_price), <span class="st">"N"</span>, <span class="st">"Y"</span>)</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">category       =</span> category,</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">goods_no       =</span> <span class="fu">html_attr</span>(item, <span class="st">"data-goods-no"</span>),</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">title          =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".gd_name"</span>),</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle       =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".gd_nameF, .gd_nameE"</span>),</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">author         =</span> <span class="fu">safe_css_text_list</span>(item, <span class="st">".info_auth a"</span>),</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">author_url     =</span> <span class="fu">safe_css_attr_list</span>(item, <span class="st">".info_auth a"</span>, <span class="st">"href"</span>),</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">publisher      =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_pub a"</span>),</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">publisher_url  =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_pub a"</span>, <span class="at">attr =</span> <span class="st">"href"</span>),</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">publish_date   =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_date"</span>),</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">discount_rate  =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".txt_sale em.num"</span>),</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">price_discount =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".txt_num em.yes_b"</span>),</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>    <span class="at">price_original =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".txt_num.dash em.yes_m"</span>),</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>    <span class="at">point          =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".yPoint"</span>),</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">review_count   =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".rating_rvCount em.txC_blue"</span>),</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">review_score   =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".rating_grade em.yes_b"</span>),</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">sale_count     =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".saleNum"</span>),</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">sale_status    =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_soldOut .shortV"</span>),</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_title    =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_event .txt a"</span>),</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_period   =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_event .date"</span>),</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">tag            =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_tag .tag a"</span>),</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">used_count     =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".relG_num"</span>),</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">ebook_exist    =</span> ebook_exist,</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>    <span class="at">ebook_price    =</span> ebook_price,</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>    <span class="at">preview_exist  =</span> preview_exist,</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>    <span class="at">revised_info   =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_revised"</span>),</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    <span class="at">image_url      =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".img_bdr img"</span>, <span class="at">attr =</span> <span class="st">"src"</span>),</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    <span class="at">detail_url     =</span> <span class="fu">paste0</span>(<span class="st">"https://www.yes24.com"</span>, <span class="fu">safe_css_text</span>(item, <span class="st">".gd_name"</span>, <span class="at">attr =</span> <span class="st">"href"</span>)),</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">delivery_info  =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_deli .deli_date"</span>),</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">description    =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_read"</span>)</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------- 전체 폴더 반복 수집 시작 -----------</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="co"># 전체 처리 시간 기록 시작</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>overall_start <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="co"># 시작 폴더 목록 정의</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>base_path <span class="ot">&lt;-</span> <span class="st">"~/yes24"</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>folder_names <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"001001003%03d"</span>, <span class="dv">19</span><span class="sc">:</span><span class="dv">32</span>)   <span class="co"># 019 ~ 032</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>folder_paths <span class="ot">&lt;-</span> <span class="fu">file.path</span>(base_path, folder_names)</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="co"># 전체 반복</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (folder_path <span class="cf">in</span> folder_paths) {</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>  start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>  folder_name <span class="ot">&lt;-</span> <span class="fu">path_file</span>(folder_path)</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">&gt;&gt; Processing:"</span>, folder_name, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>  file_list <span class="ot">&lt;-</span> <span class="fu">dir</span>(folder_path, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.html$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>  df_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (file <span class="cf">in</span> file_list) {</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>    html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(file)</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>    books <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(html, <span class="st">"li[data-goods-no]"</span>)</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(books) <span class="sc">==</span> <span class="dv">0</span>) <span class="cf">next</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>    category_path <span class="ot">&lt;-</span> <span class="fu">html_element</span>(html, <span class="st">"u.cate"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>    df <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(books, <span class="sc">~</span> <span class="fu">parse_yes24_item</span>(.x, category_path))</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>    df_list[[file]] <span class="ot">&lt;-</span> df</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>  df_all <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(df_list)</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>  <span class="co"># CSV 저장</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>  output_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(folder_path, <span class="fu">paste0</span>(folder_name, <span class="st">".csv"</span>))</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>  tmp_path <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">".csv"</span>)</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write.csv</span>(df_all, <span class="at">file =</span> tmp_path, <span class="at">row.names =</span> <span class="cn">FALSE</span>, <span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>  lines <span class="ot">&lt;-</span> <span class="fu">readLines</span>(tmp_path, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>  lines[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"\ufeff"</span>, lines[<span class="dv">1</span>])</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">writeLines</span>(lines, output_path, <span class="at">useBytes =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 로그 저장</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>  end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>  duration <span class="ot">&lt;-</span> end_time <span class="sc">-</span> start_time</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>  log_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(folder_path, <span class="fu">paste0</span>(folder_name, <span class="st">"_log.txt"</span>))</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>  log_msg <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Scraping started at: "</span>, <span class="fu">format</span>(start_time, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Scraping ended at: "</span>, <span class="fu">format</span>(end_time, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Elapsed time: "</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(duration, <span class="at">units =</span> <span class="st">"secs"</span>), <span class="dv">2</span>), <span class="st">" seconds ("</span>, <span class="fu">round</span>(duration, <span class="dv">2</span>), <span class="st">")</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total books collected: "</span>, <span class="fu">nrow</span>(df_all), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total HTML files processed: "</span>, <span class="fu">length</span>(file_list), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">writeLines</span>(log_msg, log_path)</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"✅ Completed:"</span>, folder_name, <span class="st">"- Books:"</span>, <span class="fu">nrow</span>(df_all), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="co"># 전체 처리 종료</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>overall_end <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>overall_duration <span class="ot">&lt;-</span> overall_end <span class="sc">-</span> overall_start</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="co"># 전체 로그</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>overall_log_msg <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Scraping started at: "</span>, <span class="fu">format</span>(overall_start, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Scraping ended at: "</span>, <span class="fu">format</span>(overall_end, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Elapsed time: "</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(overall_duration, <span class="at">units =</span> <span class="st">"secs"</span>), <span class="dv">2</span>), <span class="st">" seconds ("</span>, <span class="fu">round</span>(overall_duration, <span class="dv">2</span>), <span class="st">")</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(overall_log_msg, <span class="fu">file.path</span>(root_dir, <span class="st">"yes24_overall_log.txt"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="parrelel-processing-o" class="level2">
+<h2 class="anchored" data-anchor-id="parrelel-processing-o">Parrelel Processing O</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(future)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(future.apply)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------- 안전 파싱 유틸리티 ----------</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>safe_css_text <span class="ot">&lt;-</span> <span class="cf">function</span>(page, selector, <span class="at">attr =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    node <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, selector)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(node)) <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(attr)) {</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      val <span class="ot">&lt;-</span> <span class="fu">html_attr</span>(node, attr)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      val <span class="ot">&lt;-</span> <span class="fu">html_text</span>(node, <span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (val <span class="sc">==</span> <span class="st">""</span>) <span class="cn">NA_character_</span> <span class="cf">else</span> val</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NA_character_</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>safe_css_text_list <span class="ot">&lt;-</span> <span class="cf">function</span>(page, selector) {</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    nodes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, selector)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(nodes) <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    vals <span class="ot">&lt;-</span> <span class="fu">html_text</span>(nodes, <span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    vals <span class="ot">&lt;-</span> vals[<span class="sc">!</span><span class="fu">str_detect</span>(vals, <span class="st">"정보 더 보기/감추기"</span>)]</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    vals <span class="ot">&lt;-</span> <span class="fu">unique</span>(vals)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(vals, <span class="at">collapse =</span> <span class="st">"; "</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NA_character_</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>safe_css_attr_list <span class="ot">&lt;-</span> <span class="cf">function</span>(page, selector, attr) {</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    nodes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, selector)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(nodes) <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    texts <span class="ot">&lt;-</span> <span class="fu">html_text</span>(nodes, <span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    urls  <span class="ot">&lt;-</span> <span class="fu">html_attr</span>(nodes, attr)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    keep <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(texts, <span class="st">"정보 더 보기/감추기"</span>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    urls <span class="ot">&lt;-</span> urls[keep]</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    urls <span class="ot">&lt;-</span> <span class="fu">unique</span>(urls)</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(urls, <span class="at">collapse =</span> <span class="st">"; "</span>)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NA_character_</span>)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>safe_css_exist <span class="ot">&lt;-</span> <span class="cf">function</span>(page, selector) {</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>({</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    nodes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, selector)</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(nodes) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="st">"Y"</span> <span class="cf">else</span> <span class="st">"N"</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error =</span> <span class="cf">function</span>(e) <span class="st">"N"</span>)</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>parse_yes24_item <span class="ot">&lt;-</span> <span class="cf">function</span>(item, category) {</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  preview_exist <span class="ot">&lt;-</span> <span class="fu">safe_css_exist</span>(item, <span class="st">".btn_preview"</span>)</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  ebook_nodes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(item, <span class="st">".info_relG a"</span>)</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  ebook_texts <span class="ot">&lt;-</span> <span class="fu">html_text</span>(ebook_nodes, <span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  ebook_price <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">any</span>(<span class="fu">str_detect</span>(ebook_texts, <span class="st">"eBook"</span>))) {</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_extract</span>(ebook_texts[<span class="fu">which</span>(<span class="fu">str_detect</span>(ebook_texts, <span class="st">"eBook"</span>))], <span class="st">"[0-9,]+원?"</span>)</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    <span class="cn">NA_character_</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>  ebook_exist <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(ebook_price), <span class="st">"N"</span>, <span class="st">"Y"</span>)</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">category       =</span> category,</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">goods_no       =</span> <span class="fu">html_attr</span>(item, <span class="st">"data-goods-no"</span>),</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">title          =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".gd_name"</span>),</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle       =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".gd_nameF, .gd_nameE"</span>),</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">author         =</span> <span class="fu">safe_css_text_list</span>(item, <span class="st">".info_auth a"</span>),</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">author_url     =</span> <span class="fu">safe_css_attr_list</span>(item, <span class="st">".info_auth a"</span>, <span class="st">"href"</span>),</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">publisher      =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_pub a"</span>),</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">publisher_url  =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_pub a"</span>, <span class="at">attr =</span> <span class="st">"href"</span>),</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">publish_date   =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_date"</span>),</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">discount_rate  =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".txt_sale em.num"</span>),</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>    <span class="at">price_discount =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".txt_num em.yes_b"</span>),</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>    <span class="at">price_original =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".txt_num.dash em.yes_m"</span>),</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">point          =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".yPoint"</span>),</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">review_count   =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".rating_rvCount em.txC_blue"</span>),</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">review_score   =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".rating_grade em.yes_b"</span>),</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">sale_count     =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".saleNum"</span>),</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">sale_status    =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_soldOut .shortV"</span>),</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_title    =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_event .txt a"</span>),</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_period   =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_event .date"</span>),</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">tag            =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_tag .tag a"</span>),</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">used_count     =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".relG_num"</span>),</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>    <span class="at">ebook_exist    =</span> ebook_exist,</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>    <span class="at">ebook_price    =</span> ebook_price,</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    <span class="at">preview_exist  =</span> preview_exist,</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>    <span class="at">revised_info   =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_revised"</span>),</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>    <span class="at">image_url      =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".img_bdr img"</span>, <span class="at">attr =</span> <span class="st">"src"</span>),</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">detail_url     =</span> <span class="fu">paste0</span>(<span class="st">"https://www.yes24.com"</span>, <span class="fu">safe_css_text</span>(item, <span class="st">".gd_name"</span>, <span class="at">attr =</span> <span class="st">"href"</span>)),</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">delivery_info  =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_deli .deli_date"</span>),</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>    <span class="at">description    =</span> <span class="fu">safe_css_text</span>(item, <span class="st">".info_read"</span>)</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------- 병렬 엔진 시작 ----------</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="co"># 전체 병렬 처리 시간 기록 시작</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>overall_start <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="co"># 폴더 목록 정의</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>root_dir <span class="ot">&lt;-</span> <span class="st">"~/yes24"</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>folder_names <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"001001003%03d"</span>, <span class="dv">19</span><span class="sc">:</span><span class="dv">32</span>)  <span class="co"># 19~32</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>folder_paths <span class="ot">&lt;-</span> <span class="fu">file.path</span>(root_dir, folder_names)</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="co"># 병렬 세팅 (코어 64개 사용)</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession, <span class="at">workers =</span> <span class="dv">64</span>)</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="co"># 병렬 실행</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="fu">future_lapply</span>(folder_paths, <span class="cf">function</span>(folder_path) {</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>  start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>  folder_name <span class="ot">&lt;-</span> <span class="fu">path_file</span>(folder_path)</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">&gt;&gt; Processing:"</span>, folder_name, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>  file_list <span class="ot">&lt;-</span> <span class="fu">dir</span>(folder_path, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.html$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>  df_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (file <span class="cf">in</span> file_list) {</span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>    html <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">read_html</span>(file), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="fu">return</span>(<span class="cn">NULL</span>))</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(html)) <span class="cf">next</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>    books <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(html, <span class="st">"li[data-goods-no]"</span>)</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(books) <span class="sc">==</span> <span class="dv">0</span>) <span class="cf">next</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>    category_path <span class="ot">&lt;-</span> <span class="fu">html_element</span>(html, <span class="st">"u.cate"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>    df <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(books, <span class="sc">~</span> <span class="fu">parse_yes24_item</span>(.x, category_path))</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>    df_list[[file]] <span class="ot">&lt;-</span> df</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>  df_all <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(df_list)</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>  <span class="co"># CSV 저장</span></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>  csv_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(folder_path, <span class="fu">paste0</span>(folder_name, <span class="st">"_p.csv"</span>))</span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>  tmp_path <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">"_p.csv"</span>)</span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write.csv</span>(df_all, <span class="at">file =</span> tmp_path, <span class="at">row.names =</span> <span class="cn">FALSE</span>, <span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>  lines <span class="ot">&lt;-</span> <span class="fu">readLines</span>(tmp_path, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>  lines[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"\ufeff"</span>, lines[<span class="dv">1</span>])</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">writeLines</span>(lines, csv_path, <span class="at">useBytes =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 로그 기록</span></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>  end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>  duration <span class="ot">&lt;-</span> end_time <span class="sc">-</span> start_time</span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>  log_msg <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Scraping started at: "</span>, <span class="fu">format</span>(start_time, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Scraping ended at: "</span>, <span class="fu">format</span>(end_time, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Elapsed time: "</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(duration, <span class="at">units =</span> <span class="st">"secs"</span>), <span class="dv">2</span>), <span class="st">" seconds ("</span>, <span class="fu">round</span>(duration, <span class="dv">2</span>), <span class="st">")</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total books collected: "</span>, <span class="fu">nrow</span>(df_all), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total HTML files processed: "</span>, <span class="fu">length</span>(file_list), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">writeLines</span>(log_msg, <span class="fu">file.path</span>(folder_path, <span class="fu">paste0</span>(folder_name, <span class="st">"_p_log.txt"</span>)))</span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"✅ Completed:"</span>, folder_name, <span class="st">"- Books:"</span>, <span class="fu">nrow</span>(df_all), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a><span class="co"># 전체 병렬 처리 종료</span></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>overall_end <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>overall_duration <span class="ot">&lt;-</span> overall_end <span class="sc">-</span> overall_start</span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="co"># 전체 병렬 전체 로그</span></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>overall_log_msg <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Scraping started at: "</span>, <span class="fu">format</span>(overall_start, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Scraping ended at: "</span>, <span class="fu">format</span>(overall_end, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Elapsed time: "</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(overall_duration, <span class="at">units =</span> <span class="st">"secs"</span>), <span class="dv">2</span>), <span class="st">" seconds ("</span>, <span class="fu">round</span>(overall_duration, <span class="dv">2</span>), <span class="st">")</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(overall_log_msg, <span class="fu">file.path</span>(root_dir, <span class="st">"yes24_parallel_overall_log.txt"</span>))</span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a><span class="co"># 병렬 모드 종료</span></span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(sequential)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="전체-실행-시간-비교" class="level2">
+<h2 class="anchored" data-anchor-id="전체-실행-시간-비교">전체 실행 시간 비교</h2>
+<blockquote class="blockquote">
+<p>yes24/page_html2/yes24_overall_log.txt</p>
+</blockquote>
+<pre><code>Scraping started at: 2025-06-20 18:53:56
+Scraping ended at: 2025-06-20 19:49:27
+Elapsed time: 3330.6 seconds (55.51)</code></pre>
+<blockquote class="blockquote">
+<p>yes24/page_html2/yes24_parallel_overall_log.txt</p>
+</blockquote>
+<pre><code>Scraping started at: 2025-06-21 00:37:35
+Scraping ended at: 2025-06-21 00:45:37
+Elapsed time: 482.14 seconds (8.04)</code></pre>
+<div id="b4e2726c-708f-4525-b910-b76cc2e25d02" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fl">3330.6</span> <span class="op">/</span> <span class="fl">482.14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>6.907952047123242</code></pre>
+</div>
+</div>
+<ul>
+<li>병렬 실행을 한 경우, 전체 실행 시간이 약 1/7로 감소</li>
+</ul>
+</section>
+</section>
+<section id="book_html2" class="level1">
+<h1>book_html2</h1>
+<section id="error" class="level2">
+<h2 class="anchored" data-anchor-id="error">error?</h2>
+<ul>
+<li>parsing을 하다가 다음과 같은 error가 발생</li>
+</ul>
+<pre><code>▶ Processing: ~/yes24_22 
+Error in (function (.x, .f, ..., .progress = FALSE)  : 
+  ℹ In index: 1.
+Caused by error in `map()`:
+ℹ In index: 121.
+ℹ With name: /root/yes24_22/001001003022_02/128815962.html.
+Caused by error in `UseMethod()`:
+! no applicable method for 'xml_find_first' applied to an object of class "c('tbl_df', 'tbl', 'data.frame')"</code></pre>
+<ul>
+<li>html 파일은 잘 있지만 parsing이 되지 않아 파일을 확인
+<ul>
+<li>https://www.yes24.com/Product/Goods/128815962 현재 접속은 잘 됨</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="parsing2_files/figure-html/737734be-41b0-4708-bd3a-296695cebe07-1-5d957408-2889-45d7-8770-f8dcd97ef428.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<ul>
+<li>전체 파일 중 이런 경우가 또 있는지 확인하기 위해 코드를 실행</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(furrr)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>base_path <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>folder_names <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"yes24_%02d"</span>, <span class="dv">19</span><span class="sc">:</span><span class="dv">32</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>folder_paths <span class="ot">&lt;-</span> <span class="fu">file.path</span>(base_path, folder_names)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession, <span class="at">workers =</span> <span class="dv">64</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">future_walk</span>(folder_paths, <span class="cf">function</span>(folder_path) {</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">🔍 Checking folder:"</span>, folder_path, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  file_list <span class="ot">&lt;-</span> <span class="fu">dir_ls</span>(folder_path, <span class="at">recurse =</span> <span class="cn">TRUE</span>, <span class="at">regexp =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.html$"</span>, <span class="at">type =</span> <span class="st">"file"</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(file_list) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"❗ No HTML files found.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  bad_files <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"character"</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (file <span class="cf">in</span> file_list) {</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    result <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>({</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">read_html</span>(file)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>      <span class="cn">NULL</span>  </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    }, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>      file  <span class="co"># 실패시 전체 경로 반환</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(result)) {</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>      bad_files <span class="ot">&lt;-</span> <span class="fu">c</span>(bad_files, result)</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>      <span class="co"># ★ 바로바로 콘솔에 출력 ★</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"❌ Failed file:"</span>, result, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(bad_files) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"✅ All files loaded successfully.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"❌ Total failed files in folder:"</span>, <span class="fu">length</span>(bad_files), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(sequential)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>결과</li>
+</ul>
+<pre><code>▶ Processing: /root/yes24_19 
+✅ Completed: yes24_19  - Books: 4075 
+
+▶ Processing: /root/yes24_20 
+❗ Parse error: /root/yes24_20/001001003020_09/6971577.html 
+✅ Completed: yes24_20  - Books: 2332 
+
+▶ Processing: /root/yes24_21 
+✅ Completed: yes24_21  - Books: 848 
+
+▶ Processing: /root/yes24_22 
+❗ Parse error: /root/yes24_22/001001003022_02/128815962.html 
+❗ Parse error: /root/yes24_22/001001003022_09/108929583.html 
+❗ Parse error: /root/yes24_22/001001003022_21/59417581.html 
+✅ Completed: yes24_22  - Books: 7638 
+
+▶ Processing: /root/yes24_23 
+✅ Completed: yes24_23  - Books: 954 
+
+▶ Processing: /root/yes24_24 
+✅ Completed: yes24_24  - Books: 2513 
+
+▶ Processing: /root/yes24_25 
+✅ Completed: yes24_25  - Books: 3331 
+
+▶ Processing: /root/yes24_26 
+❗ Parse error: /root/yes24_26/001001003026_04/84794503.html 
+❗ Parse error: /root/yes24_26/001001003026_10/56939.html 
+✅ Completed: yes24_26  - Books: 1154 
+
+▶ Processing: /root/yes24_27 
+✅ Completed: yes24_27  - Books: 1618 
+
+▶ Processing: /root/yes24_28 
+❗ Parse error: /root/yes24_28/001001003028_09/84794503.html 
+❗ Parse error: /root/yes24_28/001001003028_10/74597949.html 
+✅ Completed: yes24_28  - Books: 6715 
+
+▶ Processing: /root/yes24_29 
+❗ Parse error: /root/yes24_29/001001003029_08/17380968.html 
+✅ Completed: yes24_29  - Books: 3421 
+
+▶ Processing: /root/yes24_30 
+❗ Parse error: /root/yes24_30/001001003030_48/182240.html 
+✅ Completed: yes24_30  - Books: 5773 
+
+▶ Processing: /root/yes24_31 
+❗ Parse error: /root/yes24_31/001001003031_61/91957.html 
+✅ Completed: yes24_31  - Books: 7414 
+
+▶ Processing: /root/yes24_32 
+✅ Completed: yes24_32  - Books: 2175 </code></pre>
+<ul>
+<li>일단 확인만 해두고 parsing을 진행함</li>
+</ul>
+</section>
+<section id="parrelel-processing-o-1" class="level2">
+<h2 class="anchored" data-anchor-id="parrelel-processing-o-1">Parrelel Processing O</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(furrr)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------- 기존 파서 (parse_book_page 함수) ----------</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>parse_book_page <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path) {</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  book_id <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(<span class="fu">basename</span>(file_path), <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(file_path)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  extract_safe <span class="ot">&lt;-</span> <span class="cf">function</span>(selector) {</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    node <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, selector)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.na</span>(node) <span class="sc">||</span> <span class="fu">is.null</span>(node)) <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    txt <span class="ot">&lt;-</span> <span class="fu">html_text2</span>(node)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.na</span>(txt) <span class="sc">||</span> txt <span class="sc">==</span> <span class="st">""</span>) <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    txt</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 기본 서지 정보</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">&lt;-</span> <span class="fu">extract_safe</span>(<span class="st">".gd_name"</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  subtitle <span class="ot">&lt;-</span> <span class="fu">extract_safe</span>(<span class="st">".gd_nameE"</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  feature <span class="ot">&lt;-</span> <span class="fu">extract_safe</span>(<span class="st">".gd_feature"</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  author_nodes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, <span class="st">".gd_auth a"</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  authors <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(author_nodes) <span class="sc">&gt;</span> <span class="dv">0</span>) author_nodes <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">paste</span>(<span class="at">collapse =</span> <span class="st">", "</span>) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  pub_node <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, <span class="st">".gd_pub a"</span>)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  publisher <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(pub_node)) <span class="fu">html_text2</span>(pub_node) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  pub_onclick <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(pub_node)) <span class="fu">html_attr</span>(pub_node, <span class="st">"onclick"</span>) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  publisher_link <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(pub_onclick)) {</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    match <span class="ot">&lt;-</span> <span class="fu">str_match</span>(pub_onclick, <span class="st">"openUrl</span><span class="sc">\\</span><span class="st">('(.*?)'"</span>)</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(match[<span class="dv">2</span>])) <span class="fu">paste0</span>(<span class="st">"https://www.yes24.com"</span>, match[<span class="dv">2</span>]) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  rows <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, <span class="st">"table tbody tr"</span>)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>  original_price <span class="ot">&lt;-</span> sale_price <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (row <span class="cf">in</span> rows) {</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    th_node <span class="ot">&lt;-</span> <span class="fu">html_element</span>(row, <span class="st">"th"</span>)</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>    th_text <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(th_node)) <span class="fu">html_text2</span>(th_node) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(th_text) <span class="sc">&amp;&amp;</span> <span class="fu">str_detect</span>(th_text, <span class="st">"정가"</span>)) {</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>      original_price <span class="ot">&lt;-</span> <span class="fu">html_text2</span>(<span class="fu">html_element</span>(row, <span class="st">"td span em"</span>))</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(th_text) <span class="sc">&amp;&amp;</span> <span class="fu">str_detect</span>(th_text, <span class="st">"판매가"</span>)) {</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>      sale_price <span class="ot">&lt;-</span> <span class="fu">html_text2</span>(<span class="fu">html_element</span>(row, <span class="st">"td span em"</span>))</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>  rating <span class="ot">&lt;-</span> <span class="fu">extract_safe</span>(<span class="st">"#spanGdRating em"</span>)</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>  review_count <span class="ot">&lt;-</span> <span class="fu">extract_safe</span>(<span class="st">".gd_reviewCount em"</span>)</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>  sales_node <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, <span class="st">".gd_sellNum"</span>)</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>  sales_text <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(sales_node)) <span class="fu">html_text2</span>(sales_node) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>  sales_index <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(sales_text)) <span class="fu">str_extract</span>(sales_text, <span class="st">"</span><span class="sc">\\</span><span class="st">d[</span><span class="sc">\\</span><span class="st">d,]*"</span>) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>  sales_index <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(sales_index)) <span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, sales_index) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>  best_node <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, <span class="st">".gd_best dd"</span>)</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>  best_rank <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(best_node)) <span class="fu">html_text2</span>(best_node) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>  series_node <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, <span class="st">".gd_keynote .lnk_series"</span>)</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>  series <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(series_node)) <span class="fu">html_text</span>(series_node, <span class="at">trim =</span> <span class="cn">TRUE</span>) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>  series_onclick <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(series_node)) <span class="fu">html_attr</span>(series_node, <span class="st">"onclick"</span>) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>  series_link <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(series_onclick)) {</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>    match <span class="ot">&lt;-</span> <span class="fu">str_match</span>(series_onclick, <span class="st">"openUrl</span><span class="sc">\\</span><span class="st">('(.*?)'"</span>)</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(match[<span class="dv">2</span>])) <span class="fu">paste0</span>(<span class="st">"https://www.yes24.com"</span>, match[<span class="dv">2</span>]) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>  partbook_node <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, <span class="st">"#selPartBookWrap li[data-partbookvalue='1']"</span>)</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>  partbook_option <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(partbook_node)) <span class="fu">html_text2</span>(partbook_node) <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>  sale_state <span class="ot">&lt;-</span> <span class="fu">extract_safe</span>(<span class="st">".gd_saleState em"</span>)</span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>  pub_date <span class="ot">&lt;-</span> <span class="fu">extract_safe</span>(<span class="st">".gd_date"</span>)</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>  category_nodes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, <span class="st">"#infoset_goodsCate ul li"</span>)</span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>  category_all <span class="ot">&lt;-</span> category_nodes <span class="sc">%&gt;%</span> </span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map_chr</span>(<span class="sc">~</span> .x <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">"a"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">paste</span>(<span class="at">collapse =</span> <span class="st">" &gt; "</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="at">collapse =</span> <span class="st">"; "</span>)</span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (category_all <span class="sc">==</span> <span class="st">""</span>) category_all <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>  first_cat <span class="ot">&lt;-</span> category_nodes[<span class="dv">1</span>] <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">"a"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>()</span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a>  category_main <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(first_cat) <span class="sc">&gt;=</span> <span class="dv">2</span>) first_cat[<span class="dv">2</span>] <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a>  category_middle <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(first_cat) <span class="sc">&gt;=</span> <span class="dv">3</span>) first_cat[<span class="dv">3</span>] <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>  category_small <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(first_cat) <span class="sc">&gt;=</span> <span class="dv">4</span>) first_cat[<span class="dv">4</span>] <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>  get_textarea_safe <span class="ot">&lt;-</span> <span class="cf">function</span>(selector) {</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a>    node <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, selector)</span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.na</span>(node) <span class="sc">||</span> <span class="fu">is.null</span>(node)) <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>    txt <span class="ot">&lt;-</span> <span class="fu">html_text2</span>(node) <span class="sc">%&gt;%</span> <span class="fu">str_trim</span>()</span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (txt <span class="sc">==</span> <span class="st">""</span>) <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(txt)</span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>  intro <span class="ot">&lt;-</span> <span class="fu">get_textarea_safe</span>(<span class="st">"#infoset_introduce .infoWrap_txt textarea"</span>)</span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>  in_book <span class="ot">&lt;-</span> <span class="fu">get_textarea_safe</span>(<span class="st">"#infoset_inBook .infoWrap_txt textarea"</span>)</span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>  publisher_review <span class="ot">&lt;-</span> <span class="fu">get_textarea_safe</span>(<span class="st">"#infoset_pubReivew .infoWrap_txt textarea"</span>)</span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>  contents <span class="ot">&lt;-</span> <span class="fu">get_textarea_safe</span>(<span class="st">"#infoset_toc .infoWrap_txt textarea"</span>)</span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>  recomm_nodes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, <span class="st">"#infoset_nomiCmt .infoWrap_txt"</span>)</span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>  recomm_comment <span class="ot">&lt;-</span> recomm_nodes <span class="sc">%&gt;%</span> <span class="fu">map_chr</span>(<span class="sc">~</span> <span class="fu">html_text2</span>(.x) <span class="sc">%&gt;%</span> <span class="fu">str_trim</span>()) <span class="sc">%&gt;%</span> <span class="fu">paste</span>(<span class="at">collapse =</span> <span class="st">"; "</span>)</span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>  recomm_recommender <span class="ot">&lt;-</span> recomm_nodes <span class="sc">%&gt;%</span> <span class="fu">map_chr</span>(<span class="sc">~</span> <span class="fu">html_element</span>(.x, <span class="st">"b"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">str_trim</span>()) <span class="sc">%&gt;%</span> <span class="fu">paste</span>(<span class="at">collapse =</span> <span class="st">"; "</span>)</span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (recomm_comment <span class="sc">==</span> <span class="st">""</span>) recomm_comment <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (recomm_recommender <span class="sc">==</span> <span class="st">""</span>) recomm_recommender <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>  spec_rows <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, <span class="st">"#infoset_specific tbody tr"</span>)</span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a>  pub_date_specific <span class="ot">&lt;-</span> physical_info <span class="ot">&lt;-</span> isbn13 <span class="ot">&lt;-</span> isbn10 <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (row <span class="cf">in</span> spec_rows) {</span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a>    label <span class="ot">&lt;-</span> <span class="fu">html_text2</span>(<span class="fu">html_element</span>(row, <span class="st">"th"</span>))</span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a>    value <span class="ot">&lt;-</span> <span class="fu">html_text2</span>(<span class="fu">html_element</span>(row, <span class="st">"td"</span>))</span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (label <span class="sc">==</span> <span class="st">"발행일"</span>) pub_date_specific <span class="ot">&lt;-</span> value</span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (label <span class="sc">==</span> <span class="st">"쪽수, 무게, 크기"</span>) physical_info <span class="ot">&lt;-</span> value</span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (label <span class="sc">==</span> <span class="st">"ISBN13"</span>) isbn13 <span class="ot">&lt;-</span> value</span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (label <span class="sc">==</span> <span class="st">"ISBN10"</span>) isbn10 <span class="ot">&lt;-</span> value</span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a>  cover_image <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, <span class="st">".gd_imgArea .gd_3dGrp .gImg"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_attr</span>(<span class="st">"src"</span>)</span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a>  side_image <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, <span class="st">".gd_imgLft img"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_attr</span>(<span class="st">"src"</span>)</span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a>  back_image <span class="ot">&lt;-</span> <span class="fu">html_element</span>(page, <span class="st">".gd_imgBack img"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_attr</span>(<span class="st">"src"</span>)</span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a>  size_compare <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">html_elements</span>(page, <span class="st">"a:contains('사이즈비교')"</span>)) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="st">"Y"</span> <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a>  card_news <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">html_elements</span>(page, <span class="st">"a:contains('카드뉴스')"</span>)) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="st">"Y"</span> <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a>  share_enabled <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">html_elements</span>(page, <span class="st">"#shareGPop"</span>)) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="st">"Y"</span> <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a>  preview_available <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">html_elements</span>(page, <span class="st">"a:contains('미리보기')"</span>)) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="st">"Y"</span> <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a>  author_blocks <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, <span class="st">"#infoset_authorGrp .authorInfoGrp"</span>)</span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>  author_count <span class="ot">&lt;-</span> <span class="fu">length</span>(author_blocks)</span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>  extract_author_info <span class="ot">&lt;-</span> <span class="cf">function</span>(block) {</span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>    role_full <span class="ot">&lt;-</span> <span class="fu">html_element</span>(block, <span class="st">".author_name"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>()</span>
+<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a>    role <span class="ot">&lt;-</span> <span class="fu">str_split</span>(role_full, <span class="st">":"</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span>] <span class="sc">%&gt;%</span> <span class="fu">str_trim</span>()</span>
+<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a>    name <span class="ot">&lt;-</span> <span class="fu">html_element</span>(block, <span class="st">".author_name a"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>()</span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a>    id <span class="ot">&lt;-</span> <span class="fu">html_attr</span>(block, <span class="st">"authno"</span>)</span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a>    intro_node <span class="ot">&lt;-</span> <span class="fu">html_element</span>(block, <span class="st">".author_info.info_origin"</span>)</span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a>    intro <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(intro_node)) <span class="fu">html_text2</span>(intro_node) <span class="sc">%&gt;%</span> <span class="fu">str_squish</span>() <span class="cf">else</span> <span class="cn">NA_character_</span></span>
+<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">role =</span> role, <span class="at">name =</span> name, <span class="at">id =</span> id, <span class="at">intro =</span> intro)</span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a>  author_infos <span class="ot">&lt;-</span> <span class="cf">if</span> (author_count <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map_dfr</span>(author_blocks, extract_author_info)</span>
+<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">role =</span> <span class="cn">NA_character_</span>, <span class="at">name =</span> <span class="cn">NA_character_</span>, <span class="at">id =</span> <span class="cn">NA_character_</span>, <span class="at">intro =</span> <span class="cn">NA_character_</span>)</span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a>  fill_na <span class="ot">&lt;-</span> <span class="cf">function</span>(x, n) { <span class="fu">length</span>(x) <span class="ot">&lt;-</span> n; <span class="fu">replace</span>(x, <span class="fu">is.na</span>(x), <span class="cn">NA_character_</span>) }</span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a>  author_roles <span class="ot">&lt;-</span> <span class="fu">fill_na</span>(author_infos<span class="sc">$</span>role, <span class="dv">3</span>)</span>
+<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>  author_names <span class="ot">&lt;-</span> <span class="fu">fill_na</span>(author_infos<span class="sc">$</span>name, <span class="dv">3</span>)</span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>  author_ids <span class="ot">&lt;-</span> <span class="fu">fill_na</span>(author_infos<span class="sc">$</span>id, <span class="dv">3</span>)</span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a>  author_intros <span class="ot">&lt;-</span> <span class="fu">fill_na</span>(author_infos<span class="sc">$</span>intro, <span class="dv">3</span>)</span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>    book_id, title, subtitle, feature, authors, publisher, publisher_link, original_price, sale_price,</span>
+<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a>    rating, review_count, sales_index, best_rank, series, series_link, partbook_option, sale_state,</span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>    pub_date, pub_date_specific, physical_info, isbn13, isbn10,</span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a>    category_all, category_main, category_middle, category_small,</span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a>    intro, in_book, publisher_review, contents, recomm_comment, recomm_recommender,</span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a>    cover_image, side_image, back_image,</span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a>    preview_available, size_compare, card_news, share_enabled,</span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a>    author_count,</span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a>    <span class="at">author1_role =</span> author_roles[<span class="dv">1</span>], <span class="at">author1_name =</span> author_names[<span class="dv">1</span>], <span class="at">author1_id =</span> author_ids[<span class="dv">1</span>], <span class="at">author1_intro =</span> author_intros[<span class="dv">1</span>],</span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a>    <span class="at">author2_role =</span> author_roles[<span class="dv">2</span>], <span class="at">author2_name =</span> author_names[<span class="dv">2</span>], <span class="at">author2_id =</span> author_ids[<span class="dv">2</span>], <span class="at">author2_intro =</span> author_intros[<span class="dv">2</span>],</span>
+<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a>    <span class="at">author3_role =</span> author_roles[<span class="dv">3</span>], <span class="at">author3_name =</span> author_names[<span class="dv">3</span>], <span class="at">author3_id =</span> author_ids[<span class="dv">3</span>], <span class="at">author3_intro =</span> author_intros[<span class="dv">3</span>]</span>
+<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------- 병렬 수집 파이프라인 안정형 ----------------</span></span>
+<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a>process_yes24_folder <span class="ot">&lt;-</span> <span class="cf">function</span>(parent_folder) {</span>
+<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a>  start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">▶ Processing:"</span>, parent_folder, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a>  file_list <span class="ot">&lt;-</span> <span class="fu">dir_ls</span>(parent_folder, <span class="at">recurse =</span> <span class="cn">TRUE</span>, <span class="at">regexp =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.html$"</span>, <span class="at">type =</span> <span class="st">"file"</span>)</span>
+<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a>  good_results <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a>  error_files <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (f <span class="cf">in</span> file_list) {</span>
+<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a>    res <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>({</span>
+<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a>      <span class="fu">parse_book_page</span>(f)</span>
+<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a>    }, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a>      error_files <span class="ot">&lt;&lt;-</span> <span class="fu">c</span>(error_files, f)</span>
+<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a>      <span class="cn">NULL</span></span>
+<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(res)) good_results <span class="ot">&lt;-</span> <span class="fu">c</span>(good_results, <span class="fu">list</span>(res))</span>
+<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(good_results) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a>    df_all <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(good_results)</span>
+<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a>    df_all <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 파일명 설정</span></span>
+<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a>  folder_name <span class="ot">&lt;-</span> <span class="fu">basename</span>(parent_folder)</span>
+<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a>  output_name <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"ITM_001001003"</span>, <span class="fu">substr</span>(folder_name, <span class="dv">7</span>, <span class="dv">8</span>), <span class="st">".csv"</span>)</span>
+<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a>  output_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(parent_folder, output_name)</span>
+<span id="cb10-191"><a href="#cb10-191" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-192"><a href="#cb10-192" aria-hidden="true" tabindex="-1"></a>  <span class="co"># CSV 저장</span></span>
+<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a>  tmp_path <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">".csv"</span>)</span>
+<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write.csv</span>(df_all, <span class="at">file =</span> tmp_path, <span class="at">row.names =</span> <span class="cn">FALSE</span>, <span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a>  lines <span class="ot">&lt;-</span> <span class="fu">readLines</span>(tmp_path, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb10-196"><a href="#cb10-196" aria-hidden="true" tabindex="-1"></a>  lines[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"\ufeff"</span>, lines[<span class="dv">1</span>])</span>
+<span id="cb10-197"><a href="#cb10-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">writeLines</span>(lines, output_path, <span class="at">useBytes =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-198"><a href="#cb10-198" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-199"><a href="#cb10-199" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 로그 저장</span></span>
+<span id="cb10-200"><a href="#cb10-200" aria-hidden="true" tabindex="-1"></a>  end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb10-201"><a href="#cb10-201" aria-hidden="true" tabindex="-1"></a>  duration <span class="ot">&lt;-</span> end_time <span class="sc">-</span> start_time</span>
+<span id="cb10-202"><a href="#cb10-202" aria-hidden="true" tabindex="-1"></a>  log_msg <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb10-203"><a href="#cb10-203" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Folder: "</span>, folder_name, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb10-204"><a href="#cb10-204" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Start: "</span>, <span class="fu">format</span>(start_time, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb10-205"><a href="#cb10-205" aria-hidden="true" tabindex="-1"></a>    <span class="st">"End: "</span>, <span class="fu">format</span>(end_time, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb10-206"><a href="#cb10-206" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Elapsed: "</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(duration, <span class="at">units =</span> <span class="st">"secs"</span>), <span class="dv">2</span>), <span class="st">" sec ("</span>, <span class="fu">round</span>(duration, <span class="dv">2</span>), <span class="st">")</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb10-207"><a href="#cb10-207" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HTML files processed: "</span>, <span class="fu">length</span>(file_list), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb10-208"><a href="#cb10-208" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Books parsed: "</span>, <span class="fu">nrow</span>(df_all), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb10-209"><a href="#cb10-209" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-210"><a href="#cb10-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">writeLines</span>(log_msg, <span class="fu">file.path</span>(parent_folder, <span class="fu">paste0</span>(folder_name, <span class="st">"_log.txt"</span>)))</span>
+<span id="cb10-211"><a href="#cb10-211" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-212"><a href="#cb10-212" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 에러 로그 기록</span></span>
+<span id="cb10-213"><a href="#cb10-213" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(error_files) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb10-214"><a href="#cb10-214" aria-hidden="true" tabindex="-1"></a>    <span class="fu">writeLines</span>(<span class="fu">unlist</span>(error_files), <span class="fu">file.path</span>(parent_folder, <span class="fu">paste0</span>(folder_name, <span class="st">"_error.txt"</span>)))</span>
+<span id="cb10-215"><a href="#cb10-215" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-216"><a href="#cb10-216" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-217"><a href="#cb10-217" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"✅ Completed:"</span>, folder_name, <span class="st">" - Books:"</span>, <span class="fu">nrow</span>(df_all), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb10-218"><a href="#cb10-218" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-219"><a href="#cb10-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-220"><a href="#cb10-220" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------- 전체 병렬 실행 ----------------</span></span>
+<span id="cb10-221"><a href="#cb10-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-222"><a href="#cb10-222" aria-hidden="true" tabindex="-1"></a>overall_start <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb10-223"><a href="#cb10-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-224"><a href="#cb10-224" aria-hidden="true" tabindex="-1"></a>base_path <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
+<span id="cb10-225"><a href="#cb10-225" aria-hidden="true" tabindex="-1"></a>folder_names <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"yes24_%02d"</span>, <span class="dv">19</span><span class="sc">:</span><span class="dv">32</span>)</span>
+<span id="cb10-226"><a href="#cb10-226" aria-hidden="true" tabindex="-1"></a>folder_paths <span class="ot">&lt;-</span> <span class="fu">file.path</span>(base_path, folder_names)</span>
+<span id="cb10-227"><a href="#cb10-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-228"><a href="#cb10-228" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession, <span class="at">workers =</span> <span class="dv">64</span>)</span>
+<span id="cb10-229"><a href="#cb10-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-230"><a href="#cb10-230" aria-hidden="true" tabindex="-1"></a><span class="fu">future_walk</span>(folder_paths, process_yes24_folder)</span>
+<span id="cb10-231"><a href="#cb10-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-232"><a href="#cb10-232" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(sequential)</span>
+<span id="cb10-233"><a href="#cb10-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-234"><a href="#cb10-234" aria-hidden="true" tabindex="-1"></a>overall_end <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb10-235"><a href="#cb10-235" aria-hidden="true" tabindex="-1"></a>overall_duration <span class="ot">&lt;-</span> overall_end <span class="sc">-</span> overall_start</span>
+<span id="cb10-236"><a href="#cb10-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-237"><a href="#cb10-237" aria-hidden="true" tabindex="-1"></a>overall_log_msg <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb10-238"><a href="#cb10-238" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Overall Start: "</span>, <span class="fu">format</span>(overall_start, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb10-239"><a href="#cb10-239" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Overall End: "</span>, <span class="fu">format</span>(overall_end, <span class="st">"%Y-%m-%d %H:%M:%S"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb10-240"><a href="#cb10-240" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Total Elapsed: "</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(overall_duration, <span class="at">units =</span> <span class="st">"secs"</span>), <span class="dv">2</span>), <span class="st">" sec ("</span>, <span class="fu">round</span>(overall_duration, <span class="dv">2</span>), <span class="st">")</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb10-241"><a href="#cb10-241" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-242"><a href="#cb10-242" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(overall_log_msg, <span class="fu">file.path</span>(base_path, <span class="st">"yes24_overall_log.txt"</span>))</span>
+<span id="cb10-243"><a href="#cb10-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-244"><a href="#cb10-244" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">📦 ALL DONE!</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="전체-실행-시간" class="level2">
+<h2 class="anchored" data-anchor-id="전체-실행-시간">전체 실행 시간</h2>
+<blockquote class="blockquote">
+<p>yes24/book_html2/yes24_overall_log.txt</p>
+</blockquote>
+<pre><code>Overall Start: 2025-06-22 23:56:53
+Overall End: 2025-06-23 00:23:22
+Total Elapsed: 1589.09 sec (26.48)</code></pre>
+<ul>
+<li>30분이 걸리지 않았지만, 병렬 실행을 하지 않았다면 얼마나 오래 걸렸을지 모르겠음</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
