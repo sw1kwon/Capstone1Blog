@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="sw1kwon">
-<meta name="dcterms.date" content="2025-04-05">
+<meta name="dcterms.date" content="2025-12-14">
 
-<title>Static and Dynamic Web Crawling with R &amp; Python – CapstoneDesign1</title>
+<title>THE SIGNAL AND THE NOISE – CapstoneDesign1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Static and Dynamic Web Crawling with R &amp; Python</h1>
+      <h1 class="title">THE SIGNAL AND THE NOISE</h1>
                       </div>
   </div>
     
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 5, 2025</p>
+        <p class="date">December 14, 2025</p>
       </div>
     </div>
     
@@ -148,29 +148,63 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-web-crawling" id="toc-introduction-to-web-crawling" class="nav-link active" data-scroll-target="#introduction-to-web-crawling">Introduction to Web Crawling</a></li>
-  <li><a href="#web-crawling-with-r-summary" id="toc-web-crawling-with-r-summary" class="nav-link" data-scroll-target="#web-crawling-with-r-summary">Web Crawling with R – Summary</a>
+  <li><a href="#챕터-2.-정치-내가-선거-결과를-맞힌-비법" id="toc-챕터-2.-정치-내가-선거-결과를-맞힌-비법" class="nav-link active" data-scroll-target="#챕터-2.-정치-내가-선거-결과를-맞힌-비법">챕터 2. 정치: 내가 선거 결과를 맞힌 비법</a>
   <ul class="collapse">
-  <li><a href="#static-web-crawling-rvest" id="toc-static-web-crawling-rvest" class="nav-link" data-scroll-target="#static-web-crawling-rvest">Static Web Crawling (<code>rvest</code>)</a></li>
-  <li><a href="#api-based-data-collection-httr-jsonlite" id="toc-api-based-data-collection-httr-jsonlite" class="nav-link" data-scroll-target="#api-based-data-collection-httr-jsonlite">API-Based Data Collection (<code>httr</code>, <code>jsonlite</code>)</a></li>
-  <li><a href="#dynamic-crawling-with-javascript-rselenium" id="toc-dynamic-crawling-with-javascript-rselenium" class="nav-link" data-scroll-target="#dynamic-crawling-with-javascript-rselenium">Dynamic Crawling with JavaScript (<code>RSelenium</code>)</a></li>
-  <li><a href="#handling-login-and-sessions-httrpost" id="toc-handling-login-and-sessions-httrpost" class="nav-link" data-scroll-target="#handling-login-and-sessions-httrpost">Handling Login and Sessions (<code>httr::POST()</code>)</a></li>
-  <li><a href="#automation-and-real-world-projects" id="toc-automation-and-real-world-projects" class="nav-link" data-scroll-target="#automation-and-real-world-projects">Automation and Real-World Projects</a></li>
-  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
-  </ul></li>
-  <li><a href="#web-crawling-with-python-summary" id="toc-web-crawling-with-python-summary" class="nav-link" data-scroll-target="#web-crawling-with-python-summary">Web Crawling with Python – Summary</a>
+  <li><a href="#요약" id="toc-요약" class="nav-link" data-scroll-target="#요약">1. 요약</a></li>
+  <li><a href="#예측과-불확실성-분석" id="toc-예측과-불확실성-분석" class="nav-link" data-scroll-target="#예측과-불확실성-분석">2. 예측과 불확실성 분석</a>
   <ul class="collapse">
-  <li><a href="#static-web-crawling-requests-beautifulsoup" id="toc-static-web-crawling-requests-beautifulsoup" class="nav-link" data-scroll-target="#static-web-crawling-requests-beautifulsoup">Static Web Crawling (<code>requests</code>, <code>BeautifulSoup</code>)</a></li>
-  <li><a href="#api-based-data-collection-requests-json-pandas" id="toc-api-based-data-collection-requests-json-pandas" class="nav-link" data-scroll-target="#api-based-data-collection-requests-json-pandas">API-Based Data Collection (<code>requests</code>, <code>json</code>, <code>pandas</code>)</a></li>
-  <li><a href="#javascript-based-dynamic-crawling-selenium" id="toc-javascript-based-dynamic-crawling-selenium" class="nav-link" data-scroll-target="#javascript-based-dynamic-crawling-selenium">JavaScript-Based Dynamic Crawling (<code>Selenium</code>)</a></li>
-  <li><a href="#login-and-session-management-requests.session-or-selenium" id="toc-login-and-session-management-requests.session-or-selenium" class="nav-link" data-scroll-target="#login-and-session-management-requests.session-or-selenium">Login and Session Management (<code>requests.Session()</code> or <code>Selenium</code>)</a></li>
-  <li><a href="#automation-and-real-world-projects-1" id="toc-automation-and-real-world-projects-1" class="nav-link" data-scroll-target="#automation-and-real-world-projects-1">Automation and Real-World Projects</a></li>
-  <li><a href="#key-takeaways-1" id="toc-key-takeaways-1" class="nav-link" data-scroll-target="#key-takeaways-1">Key Takeaways</a></li>
+  <li><a href="#저자는-어떤-방법으로-예측하나" id="toc-저자는-어떤-방법으로-예측하나" class="nav-link" data-scroll-target="#저자는-어떤-방법으로-예측하나">저자는 어떤 방법으로 예측하나?</a></li>
+  <li><a href="#과거-정보경험을-어떻게-활용하는가" id="toc-과거-정보경험을-어떻게-활용하는가" class="nav-link" data-scroll-target="#과거-정보경험을-어떻게-활용하는가">과거 정보/경험을 어떻게 활용하는가?</a></li>
+  <li><a href="#새로운-증거를-어떻게-해석하고-통합하는가" id="toc-새로운-증거를-어떻게-해석하고-통합하는가" class="nav-link" data-scroll-target="#새로운-증거를-어떻게-해석하고-통합하는가">새로운 증거를 어떻게 해석하고 통합하는가?</a></li>
+  <li><a href="#예측의-불확실성을-어떻게-인정하는가" id="toc-예측의-불확실성을-어떻게-인정하는가" class="nav-link" data-scroll-target="#예측의-불확실성을-어떻게-인정하는가">예측의 불확실성을 어떻게 인정하는가?</a></li>
+  <li><a href="#베이지안-요소" id="toc-베이지안-요소" class="nav-link" data-scroll-target="#베이지안-요소">베이지안 요소</a></li>
   </ul></li>
-  <li><a href="#web-crawling-r-vs-python" id="toc-web-crawling-r-vs-python" class="nav-link" data-scroll-target="#web-crawling-r-vs-python">Web Crawling: R vs Python</a>
+  <li><a href="#비판적-검토" id="toc-비판적-검토" class="nav-link" data-scroll-target="#비판적-검토">3. 비판적 검토</a>
   <ul class="collapse">
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#저자-주장의-강점과-약점" id="toc-저자-주장의-강점과-약점" class="nav-link" data-scroll-target="#저자-주장의-강점과-약점">저자 주장의 강점과 약점</a></li>
+  <li><a href="#반론이나-대안적-해석" id="toc-반론이나-대안적-해석" class="nav-link" data-scroll-target="#반론이나-대안적-해석">반론이나 대안적 해석</a></li>
+  <li><a href="#추가-자료를-통해-발견한-새로운-시각" id="toc-추가-자료를-통해-발견한-새로운-시각" class="nav-link" data-scroll-target="#추가-자료를-통해-발견한-새로운-시각">추가 자료를 통해 발견한 새로운 시각</a></li>
+  <li><a href="#한계나-누락된-관점" id="toc-한계나-누락된-관점" class="nav-link" data-scroll-target="#한계나-누락된-관점">한계나 누락된 관점</a></li>
   </ul></li>
+  <li><a href="#적용-가능성" id="toc-적용-가능성" class="nav-link" data-scroll-target="#적용-가능성">4. 적용 가능성</a>
+  <ul class="collapse">
+  <li><a href="#이-챕터의-통찰을-다른-분야에-적용한다면" id="toc-이-챕터의-통찰을-다른-분야에-적용한다면" class="nav-link" data-scroll-target="#이-챕터의-통찰을-다른-분야에-적용한다면">이 챕터의 통찰을 다른 분야에 적용한다면?</a></li>
+  <li><a href="#현실-문제에-어떻게-활용할-수-있을까" id="toc-현실-문제에-어떻게-활용할-수-있을까" class="nav-link" data-scroll-target="#현실-문제에-어떻게-활용할-수-있을까">현실 문제에 어떻게 활용할 수 있을까?</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#챕터-3.-야구-야구-경기는-왜-모든-예측의-모델이-되는가" id="toc-챕터-3.-야구-야구-경기는-왜-모든-예측의-모델이-되는가" class="nav-link" data-scroll-target="#챕터-3.-야구-야구-경기는-왜-모든-예측의-모델이-되는가">챕터 3. 야구: 야구 경기는 왜 모든 ’예측’의 모델이 되는가?</a>
+  <ul class="collapse">
+  <li><a href="#요약-1" id="toc-요약-1" class="nav-link" data-scroll-target="#요약-1">1. 요약</a></li>
+  <li><a href="#예측과-불확실성-분석-1" id="toc-예측과-불확실성-분석-1" class="nav-link" data-scroll-target="#예측과-불확실성-분석-1">2. 예측과 불확실성 분석</a>
+  <ul class="collapse">
+  <li><a href="#저자는-어떤-방법으로-예측하나-1" id="toc-저자는-어떤-방법으로-예측하나-1" class="nav-link" data-scroll-target="#저자는-어떤-방법으로-예측하나-1">저자는 어떤 방법으로 예측하나?</a></li>
+  <li><a href="#과거-정보경험을-어떻게-활용하는가-1" id="toc-과거-정보경험을-어떻게-활용하는가-1" class="nav-link" data-scroll-target="#과거-정보경험을-어떻게-활용하는가-1">과거 정보/경험을 어떻게 활용하는가?</a></li>
+  <li><a href="#새로운-증거를-어떻게-해석하고-통합하는가-1" id="toc-새로운-증거를-어떻게-해석하고-통합하는가-1" class="nav-link" data-scroll-target="#새로운-증거를-어떻게-해석하고-통합하는가-1">새로운 증거를 어떻게 해석하고 통합하는가?</a></li>
+  <li><a href="#예측의-불확실성을-어떻게-인정하는가-1" id="toc-예측의-불확실성을-어떻게-인정하는가-1" class="nav-link" data-scroll-target="#예측의-불확실성을-어떻게-인정하는가-1">예측의 불확실성을 어떻게 인정하는가?</a></li>
+  <li><a href="#베이지안-요소-1" id="toc-베이지안-요소-1" class="nav-link" data-scroll-target="#베이지안-요소-1">베이지안 요소</a></li>
+  </ul></li>
+  <li><a href="#비판적-검토-1" id="toc-비판적-검토-1" class="nav-link" data-scroll-target="#비판적-검토-1">3. 비판적 검토</a>
+  <ul class="collapse">
+  <li><a href="#저자-주장의-강점과-약점-1" id="toc-저자-주장의-강점과-약점-1" class="nav-link" data-scroll-target="#저자-주장의-강점과-약점-1">저자 주장의 강점과 약점</a></li>
+  <li><a href="#반론이나-대안적-해석-1" id="toc-반론이나-대안적-해석-1" class="nav-link" data-scroll-target="#반론이나-대안적-해석-1">반론이나 대안적 해석</a></li>
+  <li><a href="#추가-자료를-통해-발견한-새로운-시각-1" id="toc-추가-자료를-통해-발견한-새로운-시각-1" class="nav-link" data-scroll-target="#추가-자료를-통해-발견한-새로운-시각-1">추가 자료를 통해 발견한 새로운 시각</a></li>
+  <li><a href="#한계나-누락된-관점-1" id="toc-한계나-누락된-관점-1" class="nav-link" data-scroll-target="#한계나-누락된-관점-1">한계나 누락된 관점</a></li>
+  </ul></li>
+  <li><a href="#적용-가능성-1" id="toc-적용-가능성-1" class="nav-link" data-scroll-target="#적용-가능성-1">4. 적용 가능성</a>
+  <ul class="collapse">
+  <li><a href="#이-챕터의-통찰을-다른-분야에-적용한다면-1" id="toc-이-챕터의-통찰을-다른-분야에-적용한다면-1" class="nav-link" data-scroll-target="#이-챕터의-통찰을-다른-분야에-적용한다면-1">이 챕터의 통찰을 다른 분야에 적용한다면?</a></li>
+  <li><a href="#현실-문제에-어떻게-활용할-수-있을까-1" id="toc-현실-문제에-어떻게-활용할-수-있을까-1" class="nav-link" data-scroll-target="#현실-문제에-어떻게-활용할-수-있을까-1">현실 문제에 어떻게 활용할 수 있을까?</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#전체-결론" id="toc-전체-결론" class="nav-link" data-scroll-target="#전체-결론">전체 결론</a></li>
+  <li><a href="#최종-성찰" id="toc-최종-성찰" class="nav-link" data-scroll-target="#최종-성찰">최종 성찰</a>
+  <ul class="collapse">
+  <li><a href="#이-과제를-하며-내-독서사유-능력이-어떻게-변했는가" id="toc-이-과제를-하며-내-독서사유-능력이-어떻게-변했는가" class="nav-link" data-scroll-target="#이-과제를-하며-내-독서사유-능력이-어떻게-변했는가">이 과제를 하며 내 독서/사유 능력이 어떻게 변했는가?</a></li>
+  <li><a href="#가장-어려웠던-점과-극복-방법" id="toc-가장-어려웠던-점과-극복-방법" class="nav-link" data-scroll-target="#가장-어려웠던-점과-극복-방법">가장 어려웠던 점과 극복 방법</a></li>
+  <li><a href="#ai를-어떻게-활용했고-어떤-도움이-되었나" id="toc-ai를-어떻게-활용했고-어떤-도움이-되었나" class="nav-link" data-scroll-target="#ai를-어떻게-활용했고-어떤-도움이-되었나">AI를 어떻게 활용했고, 어떤 도움이 되었나?</a></li>
+  <li><a href="#앞으로-복잡한-텍스트를-읽을-때-달라질-점" id="toc-앞으로-복잡한-텍스트를-읽을-때-달라질-점" class="nav-link" data-scroll-target="#앞으로-복잡한-텍스트를-읽을-때-달라질-점">앞으로 복잡한 텍스트를 읽을 때 달라질 점</a></li>
+  </ul></li>
+  <li><a href="#참고문헌" id="toc-참고문헌" class="nav-link" data-scroll-target="#참고문헌">참고문헌</a></li>
   </ul>
 </nav>
     </div>
@@ -181,336 +215,124 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="introduction-to-web-crawling" class="level1">
-<h1>Introduction to Web Crawling</h1>
-<ul>
-<li><strong>Web crawling</strong>: Navigating and collecting data from across multiple web pages<br>
-</li>
-<li><strong>Web scraping</strong>: Extracting specific information from a single page<br>
-</li>
-<li>Depending on the target, crawling is categorized as <strong>static (HTML-based)</strong> or <strong>dynamic (JavaScript-based)</strong></li>
-</ul>
+<section id="챕터-2.-정치-내가-선거-결과를-맞힌-비법" class="level1">
+<h1>챕터 2. 정치: 내가 선거 결과를 맞힌 비법</h1>
+<section id="요약" class="level2">
+<h2 class="anchored" data-anchor-id="요약">1. 요약</h2>
 </section>
-<section id="web-crawling-with-r-summary" class="level1">
-<h1>Web Crawling with R – Summary</h1>
-<section id="static-web-crawling-rvest" class="level2">
-<h2 class="anchored" data-anchor-id="static-web-crawling-rvest">Static Web Crawling (<code>rvest</code>)</h2>
-<ul>
-<li>Use the <code>rvest</code> package to extract content directly from HTML pages<br>
-</li>
-<li>Functions like <code>read_html()</code>, <code>html_nodes()</code>, and <code>html_text()</code> help collect text, links, etc.<br>
-</li>
-<li>Tables built with <code>&lt;table&gt;</code> tags can be converted into data frames using <code>html_table()</code><br>
-</li>
-<li>Use <code>dplyr</code> for cleaning the data and <code>write.csv()</code> to save it</li>
-</ul>
+<section id="예측과-불확실성-분석" class="level2">
+<h2 class="anchored" data-anchor-id="예측과-불확실성-분석">2. 예측과 불확실성 분석</h2>
+<section id="저자는-어떤-방법으로-예측하나" class="level3">
+<h3 class="anchored" data-anchor-id="저자는-어떤-방법으로-예측하나">저자는 어떤 방법으로 예측하나?</h3>
 </section>
-<section id="api-based-data-collection-httr-jsonlite" class="level2">
-<h2 class="anchored" data-anchor-id="api-based-data-collection-httr-jsonlite">API-Based Data Collection (<code>httr</code>, <code>jsonlite</code>)</h2>
-<ul>
-<li>Web Crawling vs.&nbsp;API Data Collection</li>
-</ul>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 13%">
-<col style="width: 35%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Category</th>
-<th>Web Crawling</th>
-<th>API Data Collection</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Method</td>
-<td>Extract data from HTML</td>
-<td>Structured data provided by server (JSON/XML)</td>
-</tr>
-<tr class="even">
-<td>Tools</td>
-<td><code>rvest</code>, <code>RSelenium</code></td>
-<td><code>httr</code>, <code>jsonlite</code></td>
-</tr>
-<tr class="odd">
-<td>Speed</td>
-<td>Slower (requires HTML parsing)</td>
-<td>Faster (data is returned directly)</td>
-</tr>
-<tr class="even">
-<td>Stability</td>
-<td>Fragile (HTML changes break code)</td>
-<td>Stable (API structure is maintained)</td>
-</tr>
-<tr class="odd">
-<td>Legal Issues</td>
-<td>Must check <code>robots.txt</code></td>
-<td>Generally allowed (API key may be required)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>APIs provide structured data (JSON/XML) directly from the server<br>
-</li>
-<li>Use <code>httr::GET()</code> to request data and <code>jsonlite::fromJSON()</code> to parse the JSON response<br>
-</li>
-<li>API-based collection is faster and more stable than HTML scraping<br>
-</li>
-<li>You can extract fields like article titles, links, and dates, and save them as CSV</li>
-</ul>
+<section id="과거-정보경험을-어떻게-활용하는가" class="level3">
+<h3 class="anchored" data-anchor-id="과거-정보경험을-어떻게-활용하는가">과거 정보/경험을 어떻게 활용하는가?</h3>
 </section>
-<section id="dynamic-crawling-with-javascript-rselenium" class="level2">
-<h2 class="anchored" data-anchor-id="dynamic-crawling-with-javascript-rselenium">Dynamic Crawling with JavaScript (<code>RSelenium</code>)</h2>
-<ul>
-<li>Pages rendered by JavaScript cannot be scraped using <code>rvest</code><br>
-</li>
-<li>Use <code>RSelenium</code> to automate a browser and interact with JavaScript-based pages<br>
-</li>
-<li>Simulate user actions like clicking buttons, scrolling down, or handling infinite scroll<br>
-</li>
-<li>Requires setting up a web driver, and may depend on the system configuration</li>
-</ul>
+<section id="새로운-증거를-어떻게-해석하고-통합하는가" class="level3">
+<h3 class="anchored" data-anchor-id="새로운-증거를-어떻게-해석하고-통합하는가">새로운 증거를 어떻게 해석하고 통합하는가?</h3>
 </section>
-<section id="handling-login-and-sessions-httrpost" class="level2">
-<h2 class="anchored" data-anchor-id="handling-login-and-sessions-httrpost">Handling Login and Sessions (<code>httr::POST()</code>)</h2>
-<ul>
-<li>Some websites require login before data can be accessed<br>
-</li>
-<li>Simulate login with <code>httr::POST()</code> and maintain session cookies<br>
-</li>
-<li>Note: Many modern websites use CAPTCHA or 2FA, so automatic login may be blocked<br>
-</li>
-<li>When possible, prefer official APIs with proper authentication</li>
-</ul>
+<section id="예측의-불확실성을-어떻게-인정하는가" class="level3">
+<h3 class="anchored" data-anchor-id="예측의-불확실성을-어떻게-인정하는가">예측의 불확실성을 어떻게 인정하는가?</h3>
 </section>
-<section id="automation-and-real-world-projects" class="level2">
-<h2 class="anchored" data-anchor-id="automation-and-real-world-projects">Automation and Real-World Projects</h2>
-<ul>
-<li>To run crawlers regularly, you need automation tools<br>
-</li>
-<li><strong>Linux</strong>: Use <code>cronR</code>; <strong>Windows</strong>: Use <code>taskscheduleR</code><br>
-</li>
-<li>Example projects:
-<ul>
-<li>Daily crawling of trending news, saved to a cumulative CSV</li>
-<li>Monitoring product price changes or trending keywords<br>
-</li>
-</ul></li>
-<li>When automating, also consider logging, date-tracking, and duplicate removal</li>
-</ul>
-</section>
-<section id="key-takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
-<ul>
-<li><strong>Static scraping</strong>: <code>rvest</code>, <code>html_table</code>, <code>dplyr</code><br>
-</li>
-<li><strong>API-based</strong>: <code>httr::GET()</code>, <code>jsonlite::fromJSON()</code><br>
-</li>
-<li><strong>Dynamic pages</strong>: <code>RSelenium</code> for JavaScript interactions<br>
-</li>
-<li><strong>Login/session handling</strong>: <code>httr::POST()</code><br>
-</li>
-<li><strong>Automation</strong>: <code>cronR</code> (Linux), <code>taskscheduleR</code> (Windows)<br>
-</li>
-<li>All techniques come together in real-world data collection projects</li>
-</ul>
+<section id="베이지안-요소" class="level3">
+<h3 class="anchored" data-anchor-id="베이지안-요소">베이지안 요소</h3>
 </section>
 </section>
-<section id="web-crawling-with-python-summary" class="level1">
-<h1>Web Crawling with Python – Summary</h1>
-<section id="static-web-crawling-requests-beautifulsoup" class="level2">
-<h2 class="anchored" data-anchor-id="static-web-crawling-requests-beautifulsoup">Static Web Crawling (<code>requests</code>, <code>BeautifulSoup</code>)</h2>
-<ul>
-<li>Use <code>requests</code> to fetch HTML pages and <code>BeautifulSoup</code> to parse them<br>
-</li>
-<li>Extract text, links, or tables based on HTML tags and class structures<br>
-</li>
-<li>Use <code>pandas.read_html()</code> for tables, or manually parse with <code>BeautifulSoup</code><br>
-</li>
-<li>Clean data using <code>pandas</code> and save with <code>.to_csv()</code></li>
-</ul>
+<section id="비판적-검토" class="level2">
+<h2 class="anchored" data-anchor-id="비판적-검토">3. 비판적 검토</h2>
+<section id="저자-주장의-강점과-약점" class="level3">
+<h3 class="anchored" data-anchor-id="저자-주장의-강점과-약점">저자 주장의 강점과 약점</h3>
 </section>
-<section id="api-based-data-collection-requests-json-pandas" class="level2">
-<h2 class="anchored" data-anchor-id="api-based-data-collection-requests-json-pandas">API-Based Data Collection (<code>requests</code>, <code>json</code>, <code>pandas</code>)</h2>
-<ul>
-<li>Web Crawling vs.&nbsp;API Data Collection</li>
-</ul>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 40%">
-<col style="width: 46%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Category</th>
-<th>Web Crawling</th>
-<th>API Data Collection</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Method</td>
-<td>Extract data from HTML</td>
-<td>Structured data provided by server (JSON/XML)</td>
-</tr>
-<tr class="even">
-<td>Tools</td>
-<td><code>requests</code>, <code>BeautifulSoup</code>, <code>Selenium</code></td>
-<td><code>requests</code>, <code>json</code>, <code>pandas</code></td>
-</tr>
-<tr class="odd">
-<td>Speed</td>
-<td>Slower (needs to parse full page)</td>
-<td>Faster (data directly returned from server)</td>
-</tr>
-<tr class="even">
-<td>Stability</td>
-<td>Fragile (breaks if HTML structure changes)</td>
-<td>Stable (API format rarely changes)</td>
-</tr>
-<tr class="odd">
-<td>Legal Issues</td>
-<td>Must check <code>robots.txt</code></td>
-<td>Generally allowed (may require an API key)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>REST APIs provide structured data (JSON/XML) directly<br>
-</li>
-<li>Use <code>requests.get()</code> and <code>response.json()</code> or <code>json.loads()</code> to parse responses<br>
-</li>
-<li>Convert JSON to <code>pandas.DataFrame</code> for analysis and export<br>
-</li>
-<li>More stable and faster than HTML scraping</li>
-</ul>
+<section id="반론이나-대안적-해석" class="level3">
+<h3 class="anchored" data-anchor-id="반론이나-대안적-해석">반론이나 대안적 해석</h3>
 </section>
-<section id="javascript-based-dynamic-crawling-selenium" class="level2">
-<h2 class="anchored" data-anchor-id="javascript-based-dynamic-crawling-selenium">JavaScript-Based Dynamic Crawling (<code>Selenium</code>)</h2>
-<ul>
-<li>JavaScript-rendered pages can’t be scraped with <code>requests</code> or <code>BeautifulSoup</code><br>
-</li>
-<li>Use <code>Selenium</code> to simulate browser actions (clicks, scrolling, etc.)<br>
-</li>
-<li>Extract final content using <code>driver.page_source</code> after the page loads<br>
-</li>
-<li>Ideal for infinite scrolls, pop-ups, and dynamic interactions</li>
-</ul>
+<section id="추가-자료를-통해-발견한-새로운-시각" class="level3">
+<h3 class="anchored" data-anchor-id="추가-자료를-통해-발견한-새로운-시각">추가 자료를 통해 발견한 새로운 시각</h3>
 </section>
-<section id="login-and-session-management-requests.session-or-selenium" class="level2">
-<h2 class="anchored" data-anchor-id="login-and-session-management-requests.session-or-selenium">Login and Session Management (<code>requests.Session()</code> or <code>Selenium</code>)</h2>
-<ul>
-<li>Use <code>requests.Session()</code> to maintain cookies and login credentials<br>
-</li>
-<li>For complex interactions, automate login via <code>Selenium</code><br>
-</li>
-<li>Beware of CAPTCHA or multi-factor authentication – prefer APIs if available</li>
-</ul>
-</section>
-<section id="automation-and-real-world-projects-1" class="level2">
-<h2 class="anchored" data-anchor-id="automation-and-real-world-projects-1">Automation and Real-World Projects</h2>
-<ul>
-<li>Use schedulers or job runners to automate crawling<br>
-</li>
-<li>Tools: <code>schedule</code>, <code>APScheduler</code>, <code>cron</code> (Linux), Task Scheduler (Windows)<br>
-</li>
-<li>Example use cases:
-<ul>
-<li>Daily news scraping into CSV<br>
-</li>
-<li>Monitoring product price trends or real-time keywords<br>
-</li>
-</ul></li>
-<li>Include logging, duplicate checks, and date-stamping for reliability</li>
-</ul>
-</section>
-<section id="key-takeaways-1" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaways-1">Key Takeaways</h2>
-<ul>
-<li><strong>Static scraping</strong>: <code>requests</code>, <code>BeautifulSoup</code>, <code>pandas</code><br>
-</li>
-<li><strong>API collection</strong>: <code>requests</code>, <code>json</code>, <code>pandas</code><br>
-</li>
-<li><strong>Dynamic scraping</strong>: <code>Selenium</code> for full browser interaction<br>
-</li>
-<li><strong>Login/session</strong>: <code>requests.Session()</code> or automated login via <code>Selenium</code><br>
-</li>
-<li><strong>Automation</strong>: <code>schedule</code>, <code>APScheduler</code>, <code>cron</code>, Task Scheduler<br>
-</li>
-<li>Together, these tools can power scalable, real-world web crawling workflows</li>
-</ul>
+<section id="한계나-누락된-관점" class="level3">
+<h3 class="anchored" data-anchor-id="한계나-누락된-관점">한계나 누락된 관점</h3>
 </section>
 </section>
-<section id="web-crawling-r-vs-python" class="level1">
-<h1>Web Crawling: R vs Python</h1>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 38%">
-<col style="width: 44%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>R</th>
-<th>Python</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Static Crawling</strong></td>
-<td><code>rvest</code>, <code>html_table</code>, <code>dplyr</code></td>
-<td><code>requests</code>, <code>BeautifulSoup</code>, <code>pandas</code></td>
-</tr>
-<tr class="even">
-<td><strong>Table Extraction</strong></td>
-<td><code>html_table()</code> + <code>dplyr</code> for cleaning</td>
-<td><code>pandas.read_html()</code> or manual parsing with BeautifulSoup</td>
-</tr>
-<tr class="odd">
-<td><strong>API Requests</strong></td>
-<td><code>httr::GET()</code> + <code>jsonlite::fromJSON()</code></td>
-<td><code>requests.get()</code> + <code>response.json()</code> or <code>json.loads()</code></td>
-</tr>
-<tr class="even">
-<td><strong>Dynamic Crawling</strong></td>
-<td><code>RSelenium</code></td>
-<td><code>Selenium</code></td>
-</tr>
-<tr class="odd">
-<td><strong>Login Handling</strong></td>
-<td><code>httr::POST()</code> + session cookies</td>
-<td><code>requests.Session()</code> or login via <code>Selenium</code></td>
-</tr>
-<tr class="even">
-<td><strong>Automation Tools</strong></td>
-<td><code>cronR</code> (Linux), <code>taskscheduleR</code> (Windows)</td>
-<td><code>cron</code>, <code>schedule</code>, <code>APScheduler</code>, Windows Task Scheduler</td>
-</tr>
-<tr class="odd">
-<td><strong>Strengths</strong></td>
-<td>Strong for statistics and quick data cleaning</td>
-<td>Broad ecosystem, powerful libraries, large community</td>
-</tr>
-<tr class="even">
-<td><strong>Weaknesses</strong></td>
-<td>Setup can be tricky; less real-time flexibility</td>
-<td>Steeper learning curve when combining with web tech</td>
-</tr>
-</tbody>
-</table>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<ul>
-<li><strong>R</strong> is great for statistical workflows and lightweight crawling combined with data wrangling.</li>
-<li><strong>Python</strong> excels in scalable automation, complex website handling, and API-based data pipelines.</li>
-</ul>
+<section id="적용-가능성" class="level2">
+<h2 class="anchored" data-anchor-id="적용-가능성">4. 적용 가능성</h2>
+<section id="이-챕터의-통찰을-다른-분야에-적용한다면" class="level3">
+<h3 class="anchored" data-anchor-id="이-챕터의-통찰을-다른-분야에-적용한다면">이 챕터의 통찰을 다른 분야에 적용한다면?</h3>
+</section>
+<section id="현실-문제에-어떻게-활용할-수-있을까" class="level3">
+<h3 class="anchored" data-anchor-id="현실-문제에-어떻게-활용할-수-있을까">현실 문제에 어떻게 활용할 수 있을까?</h3>
+</section>
+</section>
+</section>
+<section id="챕터-3.-야구-야구-경기는-왜-모든-예측의-모델이-되는가" class="level1">
+<h1>챕터 3. 야구: 야구 경기는 왜 모든 ’예측’의 모델이 되는가?</h1>
+<section id="요약-1" class="level2">
+<h2 class="anchored" data-anchor-id="요약-1">1. 요약</h2>
+</section>
+<section id="예측과-불확실성-분석-1" class="level2">
+<h2 class="anchored" data-anchor-id="예측과-불확실성-분석-1">2. 예측과 불확실성 분석</h2>
+<section id="저자는-어떤-방법으로-예측하나-1" class="level3">
+<h3 class="anchored" data-anchor-id="저자는-어떤-방법으로-예측하나-1">저자는 어떤 방법으로 예측하나?</h3>
+</section>
+<section id="과거-정보경험을-어떻게-활용하는가-1" class="level3">
+<h3 class="anchored" data-anchor-id="과거-정보경험을-어떻게-활용하는가-1">과거 정보/경험을 어떻게 활용하는가?</h3>
+</section>
+<section id="새로운-증거를-어떻게-해석하고-통합하는가-1" class="level3">
+<h3 class="anchored" data-anchor-id="새로운-증거를-어떻게-해석하고-통합하는가-1">새로운 증거를 어떻게 해석하고 통합하는가?</h3>
+</section>
+<section id="예측의-불확실성을-어떻게-인정하는가-1" class="level3">
+<h3 class="anchored" data-anchor-id="예측의-불확실성을-어떻게-인정하는가-1">예측의 불확실성을 어떻게 인정하는가?</h3>
+</section>
+<section id="베이지안-요소-1" class="level3">
+<h3 class="anchored" data-anchor-id="베이지안-요소-1">베이지안 요소</h3>
+</section>
+</section>
+<section id="비판적-검토-1" class="level2">
+<h2 class="anchored" data-anchor-id="비판적-검토-1">3. 비판적 검토</h2>
+<section id="저자-주장의-강점과-약점-1" class="level3">
+<h3 class="anchored" data-anchor-id="저자-주장의-강점과-약점-1">저자 주장의 강점과 약점</h3>
+</section>
+<section id="반론이나-대안적-해석-1" class="level3">
+<h3 class="anchored" data-anchor-id="반론이나-대안적-해석-1">반론이나 대안적 해석</h3>
+</section>
+<section id="추가-자료를-통해-발견한-새로운-시각-1" class="level3">
+<h3 class="anchored" data-anchor-id="추가-자료를-통해-발견한-새로운-시각-1">추가 자료를 통해 발견한 새로운 시각</h3>
+</section>
+<section id="한계나-누락된-관점-1" class="level3">
+<h3 class="anchored" data-anchor-id="한계나-누락된-관점-1">한계나 누락된 관점</h3>
+</section>
+</section>
+<section id="적용-가능성-1" class="level2">
+<h2 class="anchored" data-anchor-id="적용-가능성-1">4. 적용 가능성</h2>
+<section id="이-챕터의-통찰을-다른-분야에-적용한다면-1" class="level3">
+<h3 class="anchored" data-anchor-id="이-챕터의-통찰을-다른-분야에-적용한다면-1">이 챕터의 통찰을 다른 분야에 적용한다면?</h3>
+</section>
+<section id="현실-문제에-어떻게-활용할-수-있을까-1" class="level3">
+<h3 class="anchored" data-anchor-id="현실-문제에-어떻게-활용할-수-있을까-1">현실 문제에 어떻게 활용할 수 있을까?</h3>
+</section>
+</section>
+</section>
+<section id="전체-결론" class="level1">
+<h1>전체 결론</h1>
+</section>
+<section id="최종-성찰" class="level1">
+<h1>최종 성찰</h1>
+<section id="이-과제를-하며-내-독서사유-능력이-어떻게-변했는가" class="level2">
+<h2 class="anchored" data-anchor-id="이-과제를-하며-내-독서사유-능력이-어떻게-변했는가">이 과제를 하며 내 독서/사유 능력이 어떻게 변했는가?</h2>
+</section>
+<section id="가장-어려웠던-점과-극복-방법" class="level2">
+<h2 class="anchored" data-anchor-id="가장-어려웠던-점과-극복-방법">가장 어려웠던 점과 극복 방법</h2>
+</section>
+<section id="ai를-어떻게-활용했고-어떤-도움이-되었나" class="level2">
+<h2 class="anchored" data-anchor-id="ai를-어떻게-활용했고-어떤-도움이-되었나">AI를 어떻게 활용했고, 어떤 도움이 되었나?</h2>
+</section>
+<section id="앞으로-복잡한-텍스트를-읽을-때-달라질-점" class="level2">
+<h2 class="anchored" data-anchor-id="앞으로-복잡한-텍스트를-읽을-때-달라질-점">앞으로 복잡한 텍스트를 읽을 때 달라질 점</h2>
+</section>
+</section>
+<section id="참고문헌" class="level1">
+<h1>참고문헌</h1>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
